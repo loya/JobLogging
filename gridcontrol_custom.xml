@@ -1,0 +1,18 @@
+﻿<XtraSerializer version="1.0" application="Appearances">
+  <property name="HeaderPanel" iskey="true" value="HeaderPanel">
+    <property name="Options" isnull="true" iskey="true">
+      <property name="UseTextOptions">true</property>
+      <property name="UseFont">true</property>
+    </property>
+    <property name="TextOptions" isnull="true" iskey="true">
+      <property name="HAlignment">Center</property>
+    </property>
+    <property name="Font">Tahoma, 9pt, style=Bold</property>
+  </property>
+  <property name="TopNewRow" iskey="true" value="TopNewRow">
+    <property name="Options" isnull="true" iskey="true">
+      <property name="UseForeColor">true</property>
+    </property>
+    <property name="ForeColor">Red</property>
+  </property>
+</XtraSerializer>

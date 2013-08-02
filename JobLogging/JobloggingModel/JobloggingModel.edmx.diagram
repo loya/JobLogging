@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="aeef7a9d20a340c08be11e886a7813ac" Name="关系图1" >
+        <EntityTypeShape EntityType="JobloggingModel.User" Width="1.5" PointX="3.75" PointY="0.75" />
+        <EntityTypeShape EntityType="JobloggingModel.JobOrder" Width="1.5" PointX="1.375" PointY="0.75" />
+        <EntityTypeShape EntityType="JobloggingModel.Role" Width="1.5" PointX="3.75" PointY="4.125" />
+        <EntityTypeShape EntityType="JobloggingModel.Permission" Width="1.5" PointX="6" PointY="4.125" />
+        <AssociationConnector Association="JobloggingModel.RolePermission" />
+        <AssociationConnector Association="JobloggingModel.RoleStaff" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
