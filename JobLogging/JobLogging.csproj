@@ -155,8 +155,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="JobloggingModel\JobloggingModel.edmx.sql" />
-    <None Include="Resources\Users.png" />
-    <None Include="Resources\112_Plus_Orange_24x24_72.png" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

@@ -149,6 +149,7 @@
             // 
             this.colSort.Caption = "排序";
             this.colSort.ColumnEdit = this.repositoryItemSpinEdit_Sort;
+            this.colSort.FieldName = "Sort";
             this.colSort.Name = "colSort";
             this.colSort.Visible = true;
             this.colSort.VisibleIndex = 5;

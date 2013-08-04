@@ -72,8 +72,9 @@ namespace JobLogging.Forms
             }
             else
             {
+                var strName = name.ToString();
                 var id = Convert.ToInt32(gridView1.GetRowCellValue(e.RowHandle, "ID"));
-                if (GlobalParams.modelContainer.Users.Count(t => t.Name == name && t.ID != id) > 0)
+                if (GlobalParams.modelContainer.Users.Count(t => t.Name == strName && t.ID != id) > 0)
                 {
                     e.ErrorText = "该姓名已存在,请更正!";
                     e.Valid = false;
@@ -107,7 +108,7 @@ namespace JobLogging.Forms
         private void gridView1_RowUpdated(object sender, DevExpress.XtraGrid.Views.Base.RowObjectEventArgs e)
         {
             GlobalParams.modelContainer.SaveChanges();
-            AlertInfo info = new AlertInfo("提示：", "修改已保存！",sharedImageCollection1.ImageSource.Images[0]);
+            var info = new AlertInfo("提示：", "修改已保存！",sharedImageCollection1.ImageSource.Images[0]);
             alertControl1.Show(this, info);
         }
     }

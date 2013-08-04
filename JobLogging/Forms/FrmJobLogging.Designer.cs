@@ -29,7 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmJobLogging));
             this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.entityInstantFeedbackSource1 = new DevExpress.Data.Linq.EntityInstantFeedbackSource();
@@ -49,11 +50,12 @@
             this.colModifyBy = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colModifyDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dataLayoutControl1 = new DevExpress.XtraDataLayout.DataLayoutControl();
+            this.ResultTextEdit = new DevExpress.XtraEditors.MemoExEdit();
+            this.jobOrderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.DateDateEdit = new DevExpress.XtraEditors.DateEdit();
-            this.jobOrderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ServiceTagTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.CustomerNameTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.ContactTextEdit = new DevExpress.XtraEditors.TextEdit();
@@ -63,7 +65,6 @@
             this.IDSpinEdit = new DevExpress.XtraEditors.TextEdit();
             this.CreateDateDateEdit = new DevExpress.XtraEditors.DateEdit();
             this.DescriptionTextEdit = new DevExpress.XtraEditors.MemoExEdit();
-            this.ResultTextEdit = new DevExpress.XtraEditors.MemoExEdit();
             this.MemoTextEdit = new DevExpress.XtraEditors.MemoExEdit();
             this.ModifyByTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.ModifyDateTextEdit = new DevExpress.XtraEditors.TextEdit();
@@ -90,14 +91,19 @@
             this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
+            this.btnGridViewRefresh = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
             this.dataLayoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ResultTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jobOrderBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DateDateEdit.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DateDateEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.jobOrderBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ServiceTagTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CustomerNameTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ContactTextEdit.Properties)).BeginInit();
@@ -108,7 +114,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.CreateDateDateEdit.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CreateDateDateEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DescriptionTextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ResultTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MemoTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ModifyByTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ModifyDateTextEdit.Properties)).BeginInit();
@@ -135,6 +140,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             this.SuspendLayout();
             // 
             // userBindingSource
@@ -145,10 +151,10 @@
             // 
             this.gridControl1.DataSource = this.entityInstantFeedbackSource1;
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(0, 164);
+            this.gridControl1.Location = new System.Drawing.Point(0, 305);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1066, 403);
+            this.gridControl1.Size = new System.Drawing.Size(1066, 262);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -325,6 +331,7 @@
             // 
             // dataLayoutControl1
             // 
+            this.dataLayoutControl1.Controls.Add(this.ResultTextEdit);
             this.dataLayoutControl1.Controls.Add(this.simpleButton3);
             this.dataLayoutControl1.Controls.Add(this.simpleButton2);
             this.dataLayoutControl1.Controls.Add(this.simpleButton1);
@@ -338,7 +345,6 @@
             this.dataLayoutControl1.Controls.Add(this.IDSpinEdit);
             this.dataLayoutControl1.Controls.Add(this.CreateDateDateEdit);
             this.dataLayoutControl1.Controls.Add(this.DescriptionTextEdit);
-            this.dataLayoutControl1.Controls.Add(this.ResultTextEdit);
             this.dataLayoutControl1.Controls.Add(this.MemoTextEdit);
             this.dataLayoutControl1.Controls.Add(this.ModifyByTextEdit);
             this.dataLayoutControl1.Controls.Add(this.ModifyDateTextEdit);
@@ -347,13 +353,34 @@
             this.dataLayoutControl1.HiddenItems.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.ItemForModifyBy,
             this.ItemForModifyDate});
-            this.dataLayoutControl1.Location = new System.Drawing.Point(0, 0);
+            this.dataLayoutControl1.Location = new System.Drawing.Point(0, 145);
             this.dataLayoutControl1.Name = "dataLayoutControl1";
             this.dataLayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(374, 481, 250, 350);
             this.dataLayoutControl1.Root = this.layoutControlGroup1;
-            this.dataLayoutControl1.Size = new System.Drawing.Size(1066, 164);
+            this.dataLayoutControl1.Size = new System.Drawing.Size(1066, 160);
             this.dataLayoutControl1.TabIndex = 1;
             this.dataLayoutControl1.Text = "dataLayoutControl1";
+            // 
+            // ResultTextEdit
+            // 
+            this.ResultTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.jobOrderBindingSource, "Result", true));
+            this.ResultTextEdit.Location = new System.Drawing.Point(412, 85);
+            this.ResultTextEdit.Name = "ResultTextEdit";
+            this.ResultTextEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.ResultTextEdit.Properties.ShowIcon = false;
+            this.ResultTextEdit.Size = new System.Drawing.Size(244, 20);
+            this.ResultTextEdit.StyleController = this.dataLayoutControl1;
+            this.ResultTextEdit.TabIndex = 12;
+            // 
+            // jobOrderBindingSource
+            // 
+            this.jobOrderBindingSource.DataSource = typeof(JobLogging.JobloggingModel.JobOrder);
+            this.jobOrderBindingSource.Sort = "ID";
+            this.jobOrderBindingSource.AddingNew += new System.ComponentModel.AddingNewEventHandler(this.jobOrderBindingSource_AddingNew);
+            this.jobOrderBindingSource.CurrentChanged += new System.EventHandler(this.jobOrderBindingSource_CurrentChanged);
+            this.jobOrderBindingSource.CurrentItemChanged += new System.EventHandler(this.jobOrderBindingSource_CurrentItemChanged);
+            this.jobOrderBindingSource.PositionChanged += new System.EventHandler(this.jobOrderBindingSource_PositionChanged);
             // 
             // simpleButton3
             // 
@@ -389,7 +416,7 @@
             // 
             this.DateDateEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.jobOrderBindingSource, "Date", true));
             this.DateDateEdit.EditValue = new System.DateTime(2013, 8, 1, 0, 0, 0, 0);
-            this.DateDateEdit.Location = new System.Drawing.Point(252, 17);
+            this.DateDateEdit.Location = new System.Drawing.Point(265, 17);
             this.DateDateEdit.Name = "DateDateEdit";
             this.DateDateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -400,15 +427,6 @@
             this.DateDateEdit.Size = new System.Drawing.Size(107, 20);
             this.DateDateEdit.StyleController = this.dataLayoutControl1;
             this.DateDateEdit.TabIndex = 5;
-            // 
-            // jobOrderBindingSource
-            // 
-            this.jobOrderBindingSource.DataSource = typeof(JobLogging.JobloggingModel.JobOrder);
-            this.jobOrderBindingSource.Sort = "ID";
-            this.jobOrderBindingSource.AddingNew += new System.ComponentModel.AddingNewEventHandler(this.jobOrderBindingSource_AddingNew);
-            this.jobOrderBindingSource.CurrentChanged += new System.EventHandler(this.jobOrderBindingSource_CurrentChanged);
-            this.jobOrderBindingSource.CurrentItemChanged += new System.EventHandler(this.jobOrderBindingSource_CurrentItemChanged);
-            this.jobOrderBindingSource.PositionChanged += new System.EventHandler(this.jobOrderBindingSource_PositionChanged);
             // 
             // ServiceTagTextEdit
             // 
@@ -449,29 +467,29 @@
             // CreateByTextEdit
             // 
             this.CreateByTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.jobOrderBindingSource, "CreateBy", true));
-            this.CreateByTextEdit.Location = new System.Drawing.Point(746, 17);
+            this.CreateByTextEdit.Location = new System.Drawing.Point(720, 17);
             this.CreateByTextEdit.Name = "CreateByTextEdit";
-            this.CreateByTextEdit.Size = new System.Drawing.Size(94, 20);
+            this.CreateByTextEdit.Size = new System.Drawing.Size(107, 20);
             this.CreateByTextEdit.StyleController = this.dataLayoutControl1;
             this.CreateByTextEdit.TabIndex = 14;
             // 
             // StaffsTextEdit
             // 
             this.StaffsTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.jobOrderBindingSource, "Staffs", true));
-            this.StaffsTextEdit.Location = new System.Drawing.Point(449, 17);
+            this.StaffsTextEdit.Location = new System.Drawing.Point(462, 17);
             this.StaffsTextEdit.Name = "StaffsTextEdit";
             this.StaffsTextEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.StaffsTextEdit.Properties.DataSource = this.userBindingSource;
             this.StaffsTextEdit.Properties.DisplayMember = "Name";
             this.StaffsTextEdit.Properties.ValueMember = "Name";
-            this.StaffsTextEdit.Size = new System.Drawing.Size(207, 20);
+            this.StaffsTextEdit.Size = new System.Drawing.Size(168, 20);
             this.StaffsTextEdit.StyleController = this.dataLayoutControl1;
             this.StaffsTextEdit.TabIndex = 6;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule1.ErrorText = "不能为空";
-            conditionValidationRule1.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
-            this.dxValidationProvider1.SetValidationRule(this.StaffsTextEdit, conditionValidationRule1);
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule2.ErrorText = "不能为空";
+            conditionValidationRule2.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
+            this.dxValidationProvider1.SetValidationRule(this.StaffsTextEdit, conditionValidationRule2);
             // 
             // IDSpinEdit
             // 
@@ -486,7 +504,7 @@
             this.IDSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered;
             this.IDSpinEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.IDSpinEdit.Properties.ReadOnly = true;
-            this.IDSpinEdit.Size = new System.Drawing.Size(94, 20);
+            this.IDSpinEdit.Size = new System.Drawing.Size(107, 20);
             this.IDSpinEdit.StyleController = this.dataLayoutControl1;
             this.IDSpinEdit.TabIndex = 4;
             // 
@@ -494,7 +512,7 @@
             // 
             this.CreateDateDateEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.jobOrderBindingSource, "CreateDate", true));
             this.CreateDateDateEdit.EditValue = new System.DateTime(2013, 8, 2, 1, 19, 47, 0);
-            this.CreateDateDateEdit.Location = new System.Drawing.Point(930, 17);
+            this.CreateDateDateEdit.Location = new System.Drawing.Point(917, 17);
             this.CreateDateDateEdit.Name = "CreateDateDateEdit";
             this.CreateDateDateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -507,7 +525,7 @@
             this.CreateDateDateEdit.Properties.Mask.EditMask = "";
             this.CreateDateDateEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
             this.CreateDateDateEdit.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.True;
-            this.CreateDateDateEdit.Size = new System.Drawing.Size(94, 20);
+            this.CreateDateDateEdit.Size = new System.Drawing.Size(107, 20);
             this.CreateDateDateEdit.StyleController = this.dataLayoutControl1;
             this.CreateDateDateEdit.TabIndex = 15;
             // 
@@ -522,18 +540,6 @@
             this.DescriptionTextEdit.Size = new System.Drawing.Size(254, 20);
             this.DescriptionTextEdit.StyleController = this.dataLayoutControl1;
             this.DescriptionTextEdit.TabIndex = 11;
-            // 
-            // ResultTextEdit
-            // 
-            this.ResultTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.jobOrderBindingSource, "Result", true));
-            this.ResultTextEdit.Location = new System.Drawing.Point(412, 85);
-            this.ResultTextEdit.Name = "ResultTextEdit";
-            this.ResultTextEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.ResultTextEdit.Properties.ShowIcon = false;
-            this.ResultTextEdit.Size = new System.Drawing.Size(244, 20);
-            this.ResultTextEdit.StyleController = this.dataLayoutControl1;
-            this.ResultTextEdit.TabIndex = 12;
             // 
             // MemoTextEdit
             // 
@@ -597,7 +603,7 @@
             this.layoutControlGroup3});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(1066, 164);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1066, 160);
             this.layoutControlGroup1.Text = "Root";
             this.layoutControlGroup1.TextVisible = false;
             // 
@@ -634,7 +640,7 @@
             this.ItemForID.CustomizationFormText = "ID";
             this.ItemForID.Location = new System.Drawing.Point(0, 0);
             this.ItemForID.Name = "ItemForID";
-            this.ItemForID.Size = new System.Drawing.Size(184, 34);
+            this.ItemForID.Size = new System.Drawing.Size(197, 34);
             this.ItemForID.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 30, 5, 5);
             this.ItemForID.Text = "ID";
             this.ItemForID.TextSize = new System.Drawing.Size(48, 14);
@@ -665,7 +671,7 @@
             // 
             this.ItemForDate.Control = this.DateDateEdit;
             this.ItemForDate.CustomizationFormText = "日期";
-            this.ItemForDate.Location = new System.Drawing.Point(184, 0);
+            this.ItemForDate.Location = new System.Drawing.Point(197, 0);
             this.ItemForDate.Name = "ItemForDate";
             this.ItemForDate.Size = new System.Drawing.Size(197, 34);
             this.ItemForDate.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 30, 5, 5);
@@ -676,9 +682,9 @@
             // 
             this.ItemForStaffs.Control = this.StaffsTextEdit;
             this.ItemForStaffs.CustomizationFormText = "技术员";
-            this.ItemForStaffs.Location = new System.Drawing.Point(381, 0);
+            this.ItemForStaffs.Location = new System.Drawing.Point(394, 0);
             this.ItemForStaffs.Name = "ItemForStaffs";
-            this.ItemForStaffs.Size = new System.Drawing.Size(297, 34);
+            this.ItemForStaffs.Size = new System.Drawing.Size(258, 34);
             this.ItemForStaffs.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 30, 5, 5);
             this.ItemForStaffs.Text = "技术员";
             this.ItemForStaffs.TextSize = new System.Drawing.Size(48, 14);
@@ -752,9 +758,9 @@
             // 
             this.ItemForCreateBy.Control = this.CreateByTextEdit;
             this.ItemForCreateBy.CustomizationFormText = "创建";
-            this.ItemForCreateBy.Location = new System.Drawing.Point(678, 0);
+            this.ItemForCreateBy.Location = new System.Drawing.Point(652, 0);
             this.ItemForCreateBy.Name = "ItemForCreateBy";
-            this.ItemForCreateBy.Size = new System.Drawing.Size(184, 34);
+            this.ItemForCreateBy.Size = new System.Drawing.Size(197, 34);
             this.ItemForCreateBy.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 30, 5, 5);
             this.ItemForCreateBy.Text = "创建";
             this.ItemForCreateBy.TextSize = new System.Drawing.Size(48, 14);
@@ -763,9 +769,9 @@
             // 
             this.ItemForCreateDate.Control = this.CreateDateDateEdit;
             this.ItemForCreateDate.CustomizationFormText = "创建日期";
-            this.ItemForCreateDate.Location = new System.Drawing.Point(862, 0);
+            this.ItemForCreateDate.Location = new System.Drawing.Point(849, 0);
             this.ItemForCreateDate.Name = "ItemForCreateDate";
-            this.ItemForCreateDate.Size = new System.Drawing.Size(184, 34);
+            this.ItemForCreateDate.Size = new System.Drawing.Size(197, 34);
             this.ItemForCreateDate.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 30, 5, 5);
             this.ItemForCreateDate.Text = "创建日期";
             this.ItemForCreateDate.TextSize = new System.Drawing.Size(48, 14);
@@ -825,7 +831,7 @@
             this.layoutControlGroup3.GroupBordersVisible = false;
             this.layoutControlGroup3.Location = new System.Drawing.Point(0, 138);
             this.layoutControlGroup3.Name = "autoGeneratedGroup1";
-            this.layoutControlGroup3.Size = new System.Drawing.Size(1046, 6);
+            this.layoutControlGroup3.Size = new System.Drawing.Size(1046, 2);
             this.layoutControlGroup3.Text = "autoGeneratedGroup1";
             // 
             // dxValidationProvider1
@@ -837,6 +843,42 @@
             // 
             this.dxErrorProvider1.ContainerControl = this.dataLayoutControl1;
             // 
+            // ribbonControl1
+            // 
+            this.ribbonControl1.ExpandCollapseItem.Id = 0;
+            this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.ribbonControl1.ExpandCollapseItem,
+            this.btnGridViewRefresh});
+            this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
+            this.ribbonControl1.MaxItemId = 2;
+            this.ribbonControl1.Name = "ribbonControl1";
+            this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
+            this.ribbonPage1});
+            this.ribbonControl1.Size = new System.Drawing.Size(1066, 145);
+            this.ribbonControl1.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Above;
+            // 
+            // btnGridViewRefresh
+            // 
+            this.btnGridViewRefresh.Caption = "刷新";
+            this.btnGridViewRefresh.Glyph = ((System.Drawing.Image)(resources.GetObject("btnGridViewRefresh.Glyph")));
+            this.btnGridViewRefresh.Id = 1;
+            this.btnGridViewRefresh.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnGridViewRefresh.LargeGlyph")));
+            this.btnGridViewRefresh.Name = "btnGridViewRefresh";
+            this.btnGridViewRefresh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnGridViewRefresh_ItemClick);
+            // 
+            // ribbonPage1
+            // 
+            this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup1});
+            this.ribbonPage1.Name = "ribbonPage1";
+            this.ribbonPage1.Text = "ribbonPage1";
+            // 
+            // ribbonPageGroup1
+            // 
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnGridViewRefresh);
+            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            this.ribbonPageGroup1.Text = "ribbonPageGroup1";
+            // 
             // FrmJobLogging
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -844,6 +886,7 @@
             this.ClientSize = new System.Drawing.Size(1066, 567);
             this.Controls.Add(this.gridControl1);
             this.Controls.Add(this.dataLayoutControl1);
+            this.Controls.Add(this.ribbonControl1);
             this.Name = "FrmJobLogging";
             this.Text = "派工记录";
             this.Load += new System.EventHandler(this.FrmJobLogging_Load);
@@ -852,9 +895,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).EndInit();
             this.dataLayoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ResultTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jobOrderBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DateDateEdit.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DateDateEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.jobOrderBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ServiceTagTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CustomerNameTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ContactTextEdit.Properties)).EndInit();
@@ -865,7 +909,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.CreateDateDateEdit.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CreateDateDateEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DescriptionTextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ResultTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MemoTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ModifyByTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ModifyDateTextEdit.Properties)).EndInit();
@@ -892,6 +935,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -958,6 +1002,11 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraEditors.SimpleButton simpleButton3;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
+        private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl1;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
+        private DevExpress.XtraBars.BarButtonItem btnGridViewRefresh;
+      
 
     }
 }

@@ -32,6 +32,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnShowStaffForm = new DevExpress.XtraBars.BarButtonItem();
+            this.btnShowFrmJobLogging = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
@@ -39,9 +42,6 @@
             this.documentManager1 = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
             this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
-            this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.btnShowFrmJobLogging = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).BeginInit();
@@ -66,11 +66,32 @@
             // btnShowStaffForm
             // 
             this.btnShowStaffForm.Caption = "员工管理";
-            this.btnShowStaffForm.Glyph = global::JobLogging.Properties.Resources.Users;
+            this.btnShowStaffForm.Glyph = ((System.Drawing.Image)(resources.GetObject("btnShowStaffForm.Glyph")));
             this.btnShowStaffForm.Id = 1;
-            this.btnShowStaffForm.LargeGlyph = global::JobLogging.Properties.Resources.Users;
+            this.btnShowStaffForm.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnShowStaffForm.LargeGlyph")));
             this.btnShowStaffForm.Name = "btnShowStaffForm";
             this.btnShowStaffForm.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnShowStaffForm_ItemClick);
+            // 
+            // btnShowFrmJobLogging
+            // 
+            this.btnShowFrmJobLogging.Caption = "出勤记录";
+            this.btnShowFrmJobLogging.Glyph = ((System.Drawing.Image)(resources.GetObject("btnShowFrmJobLogging.Glyph")));
+            this.btnShowFrmJobLogging.Id = 2;
+            this.btnShowFrmJobLogging.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnShowFrmJobLogging.LargeGlyph")));
+            this.btnShowFrmJobLogging.Name = "btnShowFrmJobLogging";
+            this.btnShowFrmJobLogging.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnShowFrmJobLogging_ItemClick);
+            // 
+            // ribbonPage1
+            // 
+            this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup2});
+            this.ribbonPage1.Name = "ribbonPage1";
+            this.ribbonPage1.Text = "工作";
+            // 
+            // ribbonPageGroup2
+            // 
+            this.ribbonPageGroup2.ItemLinks.Add(this.btnShowFrmJobLogging);
+            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             // 
             // ribbonPage2
             // 
@@ -103,27 +124,6 @@
             // 
             this.defaultLookAndFeel1.LookAndFeel.SkinName = "iMaginary";
             // 
-            // ribbonPage1
-            // 
-            this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup2});
-            this.ribbonPage1.Name = "ribbonPage1";
-            this.ribbonPage1.Text = "工作";
-            // 
-            // ribbonPageGroup2
-            // 
-            this.ribbonPageGroup2.ItemLinks.Add(this.btnShowFrmJobLogging);
-            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
-            // 
-            // btnShowFrmJobLogging
-            // 
-            this.btnShowFrmJobLogging.Caption = "出勤记录";
-            this.btnShowFrmJobLogging.Glyph = ((System.Drawing.Image)(resources.GetObject("btnShowFrmJobLogging.Glyph")));
-            this.btnShowFrmJobLogging.Id = 2;
-            this.btnShowFrmJobLogging.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnShowFrmJobLogging.LargeGlyph")));
-            this.btnShowFrmJobLogging.Name = "btnShowFrmJobLogging";
-            this.btnShowFrmJobLogging.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnShowFrmJobLogging_ItemClick);
-            // 
             // MainForm
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
@@ -137,6 +137,7 @@
             this.Ribbon = this.ribbonControl1;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.StatusBar = this.ribbonStatusBar1;
+            this.Text = " b";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).EndInit();
