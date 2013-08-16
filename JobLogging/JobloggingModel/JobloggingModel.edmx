@@ -4,24 +4,28 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="JobloggingModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
-  <EntityContainer Name="JobloggingModelStoreContainer">
-    <EntitySet Name="Users" EntityType="JobloggingModel.Store.Users" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="JobOrders" EntityType="JobloggingModel.Store.JobOrders" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Roles" EntityType="JobloggingModel.Store.Roles" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Permissions" EntityType="JobloggingModel.Store.Permissions" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="RolePermission" EntityType="JobloggingModel.Store.RolePermission" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="FK_RolePermission_Role" Association="JobloggingModel.Store.FK_RolePermission_Role">
+    <Schema Namespace="JobLoggingModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="JobLoggingModelStoreContainer">
+    <EntitySet Name="Users" EntityType="JobLoggingModel.Store.Users" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="JobOrders" EntityType="JobLoggingModel.Store.JobOrders" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Roles" EntityType="JobLoggingModel.Store.Roles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Permissions" EntityType="JobLoggingModel.Store.Permissions" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RolePermission" EntityType="JobLoggingModel.Store.RolePermission" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_RolePermission_Role" Association="JobLoggingModel.Store.FK_RolePermission_Role">
       <End Role="Role" EntitySet="Roles" />
       <End Role="RolePermission" EntitySet="RolePermission" />
     </AssociationSet>
-    <AssociationSet Name="FK_RolePermission_Permission" Association="JobloggingModel.Store.FK_RolePermission_Permission">
+    <AssociationSet Name="FK_RolePermission_Permission" Association="JobLoggingModel.Store.FK_RolePermission_Permission">
       <End Role="Permission" EntitySet="Permissions" />
       <End Role="RolePermission" EntitySet="RolePermission" />
     </AssociationSet>
-    <AssociationSet Name="RoleStaff" Association="JobloggingModel.Store.RoleStaff">
+    <AssociationSet Name="RoleUser" Association="JobLoggingModel.Store.RoleUser">
       <End Role="Role" EntitySet="Roles" />
-      <End Role="Staff" EntitySet="Users" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="PermissionPermission" Association="JobLoggingModel.Store.PermissionPermission">
+      <End Role="Permission" EntitySet="Permissions" />
+      <End Role="Permission1" EntitySet="Permissions" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Users">
@@ -30,10 +34,12 @@
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="10" />
+    <Property Name="LoginName" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Password" Type="nvarchar" Nullable="true" MaxLength="20" />
     <Property Name="Skin" Type="nvarchar" Nullable="true" MaxLength="20" />
     <Property Name="RoleID" Type="int" Nullable="false" />
     <Property Name="Sort" Type="int" Nullable="true" />
-    <Property Name="JobCount" Type="int" Nullable="true" />
+    <Property Name="IsDuty" Type="bit" Nullable="true" />
     <Property Name="IsEngineer" Type="bit" Nullable="true" />
     <Property Name="IsActivate" Type="bit" Nullable="false" />
   </EntityType>
@@ -43,8 +49,8 @@
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Date" Type="datetime" Nullable="false" />
-    <Property Name="Staffs" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="ServiceTag" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Staffs" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ServiceTag" Type="nvarchar(max)" Nullable="true" />
     <Property Name="CustomerName" Type="nvarchar" Nullable="true" MaxLength="30" />
     <Property Name="Contact" Type="nvarchar(max)" Nullable="true" />
     <Property Name="Address" Type="nvarchar(max)" Nullable="true" />
@@ -65,34 +71,48 @@
   </EntityType>
   <EntityType Name="Permissions">
     <Key>
-      <PropertyRef Name="Name" />
+      <PropertyRef Name="ID" />
     </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="20" />
-    <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Sort" Type="int" Nullable="true" />
+    <Property Name="ParentID" Type="int" Nullable="true" />
   </EntityType>
   <EntityType Name="RolePermission">
     <Key>
       <PropertyRef Name="Roles_ID" />
-      <PropertyRef Name="Permissions_Name" />
+      <PropertyRef Name="Permissions_ID" />
     </Key>
     <Property Name="Roles_ID" Type="int" Nullable="false" />
-    <Property Name="Permissions_Name" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Permissions_ID" Type="int" Nullable="false" />
   </EntityType>
-  <Association Name="RoleStaff">
-    <End Role="Role" Type="JobloggingModel.Store.Roles" Multiplicity="1" />
-    <End Role="Staff" Type="JobloggingModel.Store.Users" Multiplicity="*" />
+  <Association Name="RoleUser">
+    <End Role="Role" Type="JobLoggingModel.Store.Roles" Multiplicity="1" />
+    <End Role="User" Type="JobLoggingModel.Store.Users" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Role">
         <PropertyRef Name="ID" />
       </Principal>
-      <Dependent Role="Staff">
+      <Dependent Role="User">
         <PropertyRef Name="RoleID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="PermissionPermission">
+    <End Role="Permission" Type="JobLoggingModel.Store.Permissions" Multiplicity="0..1" />
+    <End Role="Permission1" Type="JobLoggingModel.Store.Permissions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Permission">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Permission1">
+        <PropertyRef Name="ParentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_RolePermission_Role">
-    <End Role="Role" Type="JobloggingModel.Store.Roles" Multiplicity="1" />
-    <End Role="RolePermission" Type="JobloggingModel.Store.RolePermission" Multiplicity="*" />
+    <End Role="Role" Type="JobLoggingModel.Store.Roles" Multiplicity="1" />
+    <End Role="RolePermission" Type="JobLoggingModel.Store.RolePermission" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Role">
         <PropertyRef Name="ID" />
@@ -103,33 +123,37 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_RolePermission_Permission">
-    <End Role="RolePermission" Type="JobloggingModel.Store.RolePermission" Multiplicity="*" />
-    <End Role="Permission" Type="JobloggingModel.Store.Permissions" Multiplicity="1" />
+    <End Role="RolePermission" Type="JobLoggingModel.Store.RolePermission" Multiplicity="*" />
+    <End Role="Permission" Type="JobLoggingModel.Store.Permissions" Multiplicity="1" />
     <ReferentialConstraint>
       <Principal Role="Permission">
-        <PropertyRef Name="Name" />
+        <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="RolePermission">
-        <PropertyRef Name="Permissions_Name" />
+        <PropertyRef Name="Permissions_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="JobloggingModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" >
-        <EntityContainer Name="JobloggingModelContainer" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Users" EntityType="JobloggingModel.User" />
-          <EntitySet Name="JobOrders" EntityType="JobloggingModel.JobOrder" />
-          <EntitySet Name="Roles" EntityType="JobloggingModel.Role" />
-          <EntitySet Name="Permissions" EntityType="JobloggingModel.Permission" />
-          <AssociationSet Name="RolePermission" Association="JobloggingModel.RolePermission">
+      <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="JobLoggingModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" >
+        <EntityContainer Name="JobLoggingModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Users" EntityType="JobLoggingModel.User" />
+          <EntitySet Name="JobOrders" EntityType="JobLoggingModel.JobOrder" />
+          <EntitySet Name="Roles" EntityType="JobLoggingModel.Role" />
+          <EntitySet Name="Permissions" EntityType="JobLoggingModel.Permission" />
+          <AssociationSet Name="RolePermission" Association="JobLoggingModel.RolePermission">
             <End Role="Role" EntitySet="Roles" />
             <End Role="Permission" EntitySet="Permissions" />
           </AssociationSet>
-          <AssociationSet Name="RoleStaff" Association="JobloggingModel.RoleStaff">
+          <AssociationSet Name="RoleUser" Association="JobLoggingModel.RoleUser">
             <End Role="Role" EntitySet="Roles" />
-            <End Role="Staff" EntitySet="Users" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="PermissionPermission" Association="JobLoggingModel.PermissionPermission">
+            <End Role="Permission" EntitySet="Permissions" />
+            <End Role="Permission1" EntitySet="Permissions" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="User">
@@ -137,12 +161,14 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="Name" Nullable="false" MaxLength="10" />
-          <Property Type="String" Name="Skin" MaxLength="20" />
-          <NavigationProperty Name="Role" Relationship="JobloggingModel.RoleStaff" FromRole="Staff" ToRole="Role" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Type="String" Name="LoginName" Nullable="false" Unicode="true" MaxLength="20" FixedLength="false" />
+          <Property Type="String" Name="Password" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Type="String" Name="Skin" MaxLength="20" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Role" Relationship="JobLoggingModel.RoleUser" FromRole="User" ToRole="Role" />
           <Property Type="Int32" Name="RoleID" Nullable="false" />
           <Property Type="Int32" Name="Sort" />
-          <Property Type="Int32" Name="JobCount" />
+          <Property Type="Boolean" Name="IsDuty" />
           <Property Type="Boolean" Name="IsEngineer" />
           <Property Type="Boolean" Name="IsActivate" Nullable="false" />
         </EntityType>
@@ -151,50 +177,66 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="DateTime" Name="Date" Nullable="false" />
-          <Property Type="String" Name="Staffs" Nullable="false" />
-          <Property Type="String" Name="ServiceTag" Nullable="false" />
-          <Property Type="String" Name="CustomerName" MaxLength="30" />
-          <Property Type="String" Name="Contact" />
-          <Property Type="String" Name="Address" />
-          <Property Type="String" Name="Description" />
-          <Property Type="String" Name="Result" />
-          <Property Type="String" Name="Memo" />
-          <Property Type="String" Name="CreateBy" MaxLength="10" />
-          <Property Type="DateTime" Name="CreateDate" />
-          <Property Type="String" Name="ModifyBy" MaxLength="10" />
-          <Property Type="DateTime" Name="ModifyDate" />
+          <Property Type="DateTime" Name="Date" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Staffs" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Type="String" Name="ServiceTag" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Type="String" Name="CustomerName" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Type="String" Name="Contact" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Type="String" Name="Address" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Type="String" Name="Description" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Type="String" Name="Result" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Type="String" Name="Memo" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Type="String" Name="CreateBy" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Type="DateTime" Name="CreateDate" Precision="3" />
+          <Property Type="String" Name="ModifyBy" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Type="DateTime" Name="ModifyDate" Precision="3" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="Name" Nullable="false" MaxLength="10" />
-          <NavigationProperty Name="Permissions" Relationship="JobloggingModel.RolePermission" FromRole="Role" ToRole="Permission" />
-          <NavigationProperty Name="Staffs" Relationship="JobloggingModel.RoleStaff" FromRole="Role" ToRole="Staff" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="10" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Permissions" Relationship="JobLoggingModel.RolePermission" FromRole="Role" ToRole="Permission" />
+          <NavigationProperty Name="Users" Relationship="JobLoggingModel.RoleUser" FromRole="Role" ToRole="User" />
         </EntityType>
         <EntityType Name="Permission">
           <Key>
-            <PropertyRef Name="Name" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Type="String" Name="Name" Nullable="false" MaxLength="20" />
-          <Property Type="String" Name="Text" Nullable="false" />
-          <NavigationProperty Name="Roles" Relationship="JobloggingModel.RolePermission" FromRole="Permission" ToRole="Role" />
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Roles" Relationship="JobLoggingModel.RolePermission" FromRole="Permission" ToRole="Role" />
+          <Property Type="Int32" Name="Sort" />
+          <NavigationProperty Name="ChildPermissions" Relationship="JobLoggingModel.PermissionPermission" FromRole="Permission" ToRole="Permission1" />
+          <NavigationProperty Name="ParentPermission" Relationship="JobLoggingModel.PermissionPermission" FromRole="Permission1" ToRole="Permission" />
+          <Property Type="Int32" Name="ParentID" />
         </EntityType>
         <Association Name="RolePermission">
-          <End Type="JobloggingModel.Role" Role="Role" Multiplicity="*" />
-          <End Type="JobloggingModel.Permission" Role="Permission" Multiplicity="*" />
+          <End Type="JobLoggingModel.Role" Role="Role" Multiplicity="*" />
+          <End Type="JobLoggingModel.Permission" Role="Permission" Multiplicity="*" />
         </Association>
-        <Association Name="RoleStaff">
-          <End Type="JobloggingModel.Role" Role="Role" Multiplicity="1" />
-          <End Type="JobloggingModel.User" Role="Staff" Multiplicity="*" />
+        <Association Name="RoleUser">
+          <End Type="JobLoggingModel.Role" Role="Role" Multiplicity="1" />
+          <End Type="JobLoggingModel.User" Role="User" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Role">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="Staff">
+            <Dependent Role="User">
               <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PermissionPermission">
+          <End Type="JobLoggingModel.Permission" Role="Permission" Multiplicity="0..1" />
+          <End Type="JobLoggingModel.Permission" Role="Permission1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Permission">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Permission1">
+              <PropertyRef Name="ParentID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -203,23 +245,25 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
     <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="JobloggingModelStoreContainer" CdmEntityContainer="JobloggingModelContainer">
+  <EntityContainerMapping StorageEntityContainer="JobLoggingModelStoreContainer" CdmEntityContainer="JobLoggingModelContainer">
     <EntitySetMapping Name="Users">
-      <EntityTypeMapping TypeName="IsTypeOf(JobloggingModel.User)">
+      <EntityTypeMapping TypeName="IsTypeOf(JobLoggingModel.User)">
         <MappingFragment StoreEntitySet="Users">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="Skin" ColumnName="Skin" />
           <ScalarProperty Name="RoleID" ColumnName="RoleID" />
           <ScalarProperty Name="Sort" ColumnName="Sort" />
-          <ScalarProperty Name="JobCount" ColumnName="JobCount" />
+          <ScalarProperty Name="IsDuty" ColumnName="IsDuty" />
           <ScalarProperty Name="IsEngineer" ColumnName="IsEngineer" />
           <ScalarProperty Name="IsActivate" ColumnName="IsActivate" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="JobOrders">
-      <EntityTypeMapping TypeName="IsTypeOf(JobloggingModel.JobOrder)">
+      <EntityTypeMapping TypeName="IsTypeOf(JobLoggingModel.JobOrder)">
         <MappingFragment StoreEntitySet="JobOrders">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Date" ColumnName="Date" />
@@ -239,7 +283,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Roles">
-      <EntityTypeMapping TypeName="IsTypeOf(JobloggingModel.Role)">
+      <EntityTypeMapping TypeName="IsTypeOf(JobLoggingModel.Role)">
         <MappingFragment StoreEntitySet="Roles">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Name" ColumnName="Name" />
@@ -247,19 +291,21 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Permissions">
-      <EntityTypeMapping TypeName="IsTypeOf(JobloggingModel.Permission)">
+      <EntityTypeMapping TypeName="IsTypeOf(JobLoggingModel.Permission)">
         <MappingFragment StoreEntitySet="Permissions">
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Sort" ColumnName="Sort" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="RolePermission" TypeName="JobloggingModel.RolePermission" StoreEntitySet="RolePermission">
+    <AssociationSetMapping Name="RolePermission" TypeName="JobLoggingModel.RolePermission" StoreEntitySet="RolePermission">
       <EndProperty Name="Role">
         <ScalarProperty Name="ID" ColumnName="Roles_ID" />
       </EndProperty>
       <EndProperty Name="Permission">
-        <ScalarProperty Name="Name" ColumnName="Permissions_Name" />
+        <ScalarProperty Name="ID" ColumnName="Permissions_ID" />
       </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>
@@ -276,7 +322,8 @@
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="True" />
-        <DesignerProperty Name="CodeGenerationStrategy" Value="默认值" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
       </DesignerInfoPropertySet>
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->

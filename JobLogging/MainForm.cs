@@ -3,106 +3,129 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using DevExpress.XtraBars;
+using DevExpress.XtraBars.Alerter;
+using DevExpress.XtraBars.Docking2010.Views;
+using DevExpress.XtraBars.Helpers;
+using DevExpress.XtraBars.Ribbon;
+using DevExpress.XtraEditors;
+using DevExpress.XtraSplashScreen;
 using JobLogging.Forms;
-using JobLogging.JobloggingModel;
+using JobLogging.JobLoggingModel;
 
 namespace JobLogging
 {
-    public partial class MainForm : DevExpress.XtraBars.Ribbon.RibbonForm
+    public partial class MainForm : RibbonForm
     {
         public MainForm()
         {
             InitializeComponent();
-            if (GlobalParams.modelContainer.Roles.SingleOrDefault(t => t.Name == "管理员") == null)
-            {
-                var role=new Role { Name  = "技术员"};
-                GlobalParams.modelContainer.Roles.AddObject(new Role { Name = "管理员" });
-                GlobalParams.modelContainer.Roles.AddObject(role);
-                GlobalParams.modelContainer.Users.AddObject(new User
-                    {
-                        Name = "小王",
-                        IsActivate = true,
-                        IsEngineer = true,
-                        JobCount = 0,
-                        Role = role,
-                        Sort = 0
-                    });
-                GlobalParams.modelContainer.Users.AddObject(new User
-                {
-                    Name = "小张",
-                    IsActivate = true,
-                    IsEngineer = true,
-                    JobCount = 0,
-                    Role = role,
-                    Sort = 0
-                });
-                GlobalParams.modelContainer.SaveChanges();
-            }
+            InitSkins();
+            tabbedView1.DocumentActivated += tabbedView1_DocumentActivated;
         }
 
-        private void btnShowStaffForm_Click(object sender, EventArgs e)
-        {
 
+        void tabbedView1_DocumentActivated(object sender, DocumentEventArgs e)
+        {
+            if (e.Document.Tag != null)
+                ribbonControl1.SelectedPage = ribbonControl1.Pages[e.Document.Tag.ToString()];
         }
 
-        private void btnShowStaffForm_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            //foreach (var mdiChild in this.MdiChildren)
-            //{
-            //    if (mdiChild is StaffForm){
-            //        this.ActivateMdiChild(mdiChild);
-            //        return;}
-            //}
-            OpenMdiForm<FrmStaff>( "员工管理");
 
+        void InitSkins()
+        {
+            SkinHelper.InitSkinGallery(skinGalleryBarItem, true);
+            //UserLookAndFeel.Default.SetSkinStyle("Caramel");
+            //defaultLookAndFeel1.LookAndFeel.SkinName = "焦糖";
+            defaultLookAndFeel1.LookAndFeel.SetSkinStyle("Caramel");
         }
 
-        private void OpenMdiForm<T>(string caption) where T:Form
+        private void Form1_Load(object sender, EventArgs e)
         {
-            var form = (Form)Activator.CreateInstance(typeof(T));
+            btnShowFrmJobLogging.PerformClick();
+            InitUserRelated();
+        }
+
+        private void InitUserRelated()
+        {
+            barStaticItem_StatusBar_UserInfo.Caption = string.Format("欢迎你：{0}    今天是：{1}",
+                GlobalParams.CurrentLoginUser.Name,
+                DateTime.Today.ToString("yyyy-MM-dd   dddd"));
+            bBtnShowUserManageForm.Enabled = GlobalParams.HasPermission("用户角色管理");
+        }
+
+        private void btnShowStaffForm_ItemClick(object sender, ItemClickEventArgs e)
+        {SplashScreenManager.ShowForm(typeof(WaitForm1));
+            OpenMdiForm<FrmUsers>("用户角色管理", "系统设置");
+            SplashScreenManager.CloseForm();
+        }
+
+        private void OpenMdiForm<T>(string caption, string ribbonPageCaption) where T : Form
+        {
             var doc = documentManager1.View.Documents.FirstOrDefault(t => t.Caption == caption);
             if (doc != null)
             {
                 tabbedView1.Controller.Activate(doc);
                 return;
             }
+
+            var form = (Form)Activator.CreateInstance(typeof(T));
             form.MdiParent = this;
             form.Text = caption;
             form.Show();
-
+            doc = documentManager1.View.Documents.FirstOrDefault(t => t.Caption == caption);
+            doc.Tag = ribbonPageCaption;
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+
+        private void btnShowFrmJobLogging_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var frm = new FrmJobLogging { MdiParent = this };
-            frm.Show();
-            //if (GlobalParams.modelContainer.DatabaseExists())
-            //{
-            //    //if (!GlobalParams.modelContainer.Database.CompatibleWithModel(true))
-            //    //{
-            //    //    GlobalParams.modelContainer.Database.Delete();
-            //    //    initDataBase();
-            //    //}
-            //}
-            //else
-            //{
-            //    initDataBase();
-            //}
+            OpenMdiForm<FrmJobOrder>("派工记录", "派工记录");
         }
 
-        private void btnShowFrmJobLogging_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void skinGalleryBarItem_GalleryItemClick(object sender, GalleryItemClickEventArgs e)
         {
-            OpenMdiForm<FrmJobLogging>( "派工记录");
+            XtraMessageBox.Show(e.Item.Tag.ToString());
         }
-        //private void initDataBase()
-        //{
-        //    GlobalParams.modelContainer.CreateDatabase();
-        //    GlobalParams.modelContainer.Roles.AddObject(new JobloggingModel.Role { Name = "管理员" });
-        //    GlobalParams.modelContainer.Roles.AddObject(new JobloggingModel.Role { Name = "员工" });
-        //    GlobalParams.modelContainer.SaveChanges();
-        //}
+
+        private void bBtnExit_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Close();
+        }
+
+        private void bBtnChangePassword_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var frm = new frmNewPassword(GlobalParams.CurrentLoginUser);
+            if (frm.ShowDialog() == DialogResult.OK)
+                new AlertControl().Show(this, "提示：", "密码已修改!");
+        }
+
+        private void bBtnReLogin_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Hide();
+            var frm = new frmLogin();
+            if (frm.ShowDialog() == DialogResult.Cancel)
+            {
+                Show();
+                return;
+            }
+            foreach (var document in documentManager1.View.Documents.ToList())
+            {
+                document.Form.Close();
+            }
+            if (documentManager1.View.Documents.Any())
+            {
+                Show();
+                return;
+            }
+            GlobalParams.CurrentLoginUser = frm.LoginUser;
+            InitUserRelated();
+            Show();
+            frm.Dispose();
+        }
     }
 }

@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 08/01/2013 22:10:56
--- Generated from EDMX file: D:\Users\loya\Documents\Visual Studio 2012\Projects\JobLogging\JobLogging\JobloggingModel\JobloggingModel.edmx
+-- Date Created: 08/12/2013 17:56:22
+-- Generated from EDMX file: D:\Users\霜与火の协奏\Documents\Visual Studio 2012\Projects\JobLogging\JobLogging\JobLoggingModel\JobLoggingModel.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -23,8 +23,11 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_RolePermission_Permission]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[RolePermission] DROP CONSTRAINT [FK_RolePermission_Permission];
 GO
-IF OBJECT_ID(N'[dbo].[FK_RoleStaff]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Users] DROP CONSTRAINT [FK_RoleStaff];
+IF OBJECT_ID(N'[dbo].[FK_RoleUser]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Users] DROP CONSTRAINT [FK_RoleUser];
+GO
+IF OBJECT_ID(N'[dbo].[FK_PermissionPermission]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Permissions] DROP CONSTRAINT [FK_PermissionPermission];
 GO
 
 -- --------------------------------------------------
@@ -55,10 +58,12 @@ GO
 CREATE TABLE [dbo].[Users] (
     [ID] int IDENTITY(1,1) NOT NULL,
     [Name] nvarchar(10)  NOT NULL,
+    [LoginName] nvarchar(20)  NOT NULL,
+    [Password] nvarchar(20)  NULL,
     [Skin] nvarchar(20)  NULL,
     [RoleID] int  NOT NULL,
     [Sort] int  NULL,
-    [JobCount] int  NULL,
+    [IsDuty] bit  NULL,
     [IsEngineer] bit  NULL,
     [IsActivate] bit  NOT NULL
 );
@@ -68,8 +73,8 @@ GO
 CREATE TABLE [dbo].[JobOrders] (
     [ID] int IDENTITY(1,1) NOT NULL,
     [Date] datetime  NOT NULL,
-    [Staffs] nvarchar(max)  NOT NULL,
-    [ServiceTag] nvarchar(max)  NOT NULL,
+    [Staffs] nvarchar(max)  NULL,
+    [ServiceTag] nvarchar(max)  NULL,
     [CustomerName] nvarchar(30)  NULL,
     [Contact] nvarchar(max)  NULL,
     [Address] nvarchar(max)  NULL,
@@ -92,15 +97,17 @@ GO
 
 -- Creating table 'Permissions'
 CREATE TABLE [dbo].[Permissions] (
+    [ID] int IDENTITY(1,1) NOT NULL,
     [Name] nvarchar(20)  NOT NULL,
-    [Text] nvarchar(max)  NOT NULL
+    [Sort] int  NULL,
+    [ParentID] int  NULL
 );
 GO
 
 -- Creating table 'RolePermission'
 CREATE TABLE [dbo].[RolePermission] (
     [Roles_ID] int  NOT NULL,
-    [Permissions_Name] nvarchar(20)  NOT NULL
+    [Permissions_ID] int  NOT NULL
 );
 GO
 
@@ -126,16 +133,16 @@ ADD CONSTRAINT [PK_Roles]
     PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
--- Creating primary key on [Name] in table 'Permissions'
+-- Creating primary key on [ID] in table 'Permissions'
 ALTER TABLE [dbo].[Permissions]
 ADD CONSTRAINT [PK_Permissions]
-    PRIMARY KEY CLUSTERED ([Name] ASC);
+    PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
--- Creating primary key on [Roles_ID], [Permissions_Name] in table 'RolePermission'
+-- Creating primary key on [Roles_ID], [Permissions_ID] in table 'RolePermission'
 ALTER TABLE [dbo].[RolePermission]
 ADD CONSTRAINT [PK_RolePermission]
-    PRIMARY KEY NONCLUSTERED ([Roles_ID], [Permissions_Name] ASC);
+    PRIMARY KEY NONCLUSTERED ([Roles_ID], [Permissions_ID] ASC);
 GO
 
 -- --------------------------------------------------
@@ -151,32 +158,46 @@ ADD CONSTRAINT [FK_RolePermission_Role]
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating foreign key on [Permissions_Name] in table 'RolePermission'
+-- Creating foreign key on [Permissions_ID] in table 'RolePermission'
 ALTER TABLE [dbo].[RolePermission]
 ADD CONSTRAINT [FK_RolePermission_Permission]
-    FOREIGN KEY ([Permissions_Name])
+    FOREIGN KEY ([Permissions_ID])
     REFERENCES [dbo].[Permissions]
-        ([Name])
+        ([ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_RolePermission_Permission'
 CREATE INDEX [IX_FK_RolePermission_Permission]
 ON [dbo].[RolePermission]
-    ([Permissions_Name]);
+    ([Permissions_ID]);
 GO
 
 -- Creating foreign key on [RoleID] in table 'Users'
 ALTER TABLE [dbo].[Users]
-ADD CONSTRAINT [FK_RoleStaff]
+ADD CONSTRAINT [FK_RoleUser]
     FOREIGN KEY ([RoleID])
     REFERENCES [dbo].[Roles]
         ([ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
--- Creating non-clustered index for FOREIGN KEY 'FK_RoleStaff'
-CREATE INDEX [IX_FK_RoleStaff]
+-- Creating non-clustered index for FOREIGN KEY 'FK_RoleUser'
+CREATE INDEX [IX_FK_RoleUser]
 ON [dbo].[Users]
     ([RoleID]);
+GO
+
+-- Creating foreign key on [ParentID] in table 'Permissions'
+ALTER TABLE [dbo].[Permissions]
+ADD CONSTRAINT [FK_PermissionPermission]
+    FOREIGN KEY ([ParentID])
+    REFERENCES [dbo].[Permissions]
+        ([ID])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_PermissionPermission'
+CREATE INDEX [IX_FK_PermissionPermission]
+ON [dbo].[Permissions]
+    ([ParentID]);
 GO
 
 -- --------------------------------------------------

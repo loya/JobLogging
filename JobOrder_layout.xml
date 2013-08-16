@@ -1,0 +1,212 @@
+﻿<XtraSerializer version="1.0" application="View">
+  <property name="#LayoutVersion" />
+  <property name="PreviewFieldName" />
+  <property name="GroupPanelText" />
+  <property name="NewItemRowText" />
+  <property name="LevelIndent">-1</property>
+  <property name="PreviewIndent">-1</property>
+  <property name="PreviewLineCount">-1</property>
+  <property name="BestFitMaxRowCount">-1</property>
+  <property name="ScrollStyle">LiveVertScroll, LiveHorzScroll</property>
+  <property name="FocusRectStyle">CellFocus</property>
+  <property name="HorzScrollStep">3</property>
+  <property name="VertScrollTipFieldName" />
+  <property name="ViewCaptionHeight">-1</property>
+  <property name="ShowButtonMode">ShowForFocusedCell</property>
+  <property name="Columns" iskey="true" value="14">
+    <property name="Item1" isnull="true" iskey="true">
+      <property name="Visible">true</property>
+      <property name="VisibleIndex">0</property>
+      <property name="ColumnEditName" />
+      <property name="Name">colID</property>
+      <property name="FieldName">ID</property>
+    </property>
+    <property name="Item2" isnull="true" iskey="true">
+      <property name="GroupInterval">DateRange</property>
+      <property name="Visible">true</property>
+      <property name="VisibleIndex">1</property>
+      <property name="ColumnEditName" />
+      <property name="Name">colDate</property>
+      <property name="Caption">日期</property>
+      <property name="FieldName">Date</property>
+    </property>
+    <property name="Item3" isnull="true" iskey="true">
+      <property name="Visible">true</property>
+      <property name="VisibleIndex">2</property>
+      <property name="ColumnEditName" />
+      <property name="Name">colStaffs</property>
+      <property name="Caption">派工</property>
+      <property name="FieldName">Staffs</property>
+    </property>
+    <property name="Item4" isnull="true" iskey="true">
+      <property name="Visible">true</property>
+      <property name="VisibleIndex">3</property>
+      <property name="ColumnEditName" />
+      <property name="Name">colServiceTag</property>
+      <property name="Caption">服务编号/快服</property>
+      <property name="FieldName">ServiceTag</property>
+    </property>
+    <property name="Item5" isnull="true" iskey="true">
+      <property name="Visible">true</property>
+      <property name="VisibleIndex">4</property>
+      <property name="ColumnEditName" />
+      <property name="Name">colCustomerName</property>
+      <property name="Caption">用户姓名</property>
+      <property name="FieldName">CustomerName</property>
+    </property>
+    <property name="Item6" isnull="true" iskey="true">
+      <property name="Visible">true</property>
+      <property name="VisibleIndex">5</property>
+      <property name="ColumnEditName" />
+      <property name="Name">colContact</property>
+      <property name="Caption">联系方式</property>
+      <property name="FieldName">Contact</property>
+    </property>
+    <property name="Item7" isnull="true" iskey="true">
+      <property name="Visible">true</property>
+      <property name="VisibleIndex">6</property>
+      <property name="ColumnEditName" />
+      <property name="Name">colAddress</property>
+      <property name="Caption">地址</property>
+      <property name="FieldName">Address</property>
+    </property>
+    <property name="Item8" isnull="true" iskey="true">
+      <property name="Visible">true</property>
+      <property name="VisibleIndex">7</property>
+      <property name="ColumnEditName" />
+      <property name="Name">colDescription</property>
+      <property name="Caption">问题描述</property>
+      <property name="FieldName">Description</property>
+    </property>
+    <property name="Item9" isnull="true" iskey="true">
+      <property name="Visible">true</property>
+      <property name="VisibleIndex">8</property>
+      <property name="ColumnEditName" />
+      <property name="Name">colResult</property>
+      <property name="Caption">处理结果</property>
+      <property name="FieldName">Result</property>
+    </property>
+    <property name="Item10" isnull="true" iskey="true">
+      <property name="Visible">true</property>
+      <property name="VisibleIndex">9</property>
+      <property name="ColumnEditName" />
+      <property name="Name">colMemo</property>
+      <property name="Caption">备注</property>
+      <property name="FieldName">Memo</property>
+    </property>
+    <property name="Item11" isnull="true" iskey="true">
+      <property name="Visible">true</property>
+      <property name="VisibleIndex">10</property>
+      <property name="ColumnEditName" />
+      <property name="Name">colCreateBy</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">创建</property>
+      <property name="FieldName">CreateBy</property>
+    </property>
+    <property name="Item12" isnull="true" iskey="true">
+      <property name="Visible">true</property>
+      <property name="VisibleIndex">11</property>
+      <property name="ColumnEditName" />
+      <property name="Name">colCreateDate</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">创建时间</property>
+      <property name="FieldName">CreateDate</property>
+    </property>
+    <property name="Item13" isnull="true" iskey="true">
+      <property name="Visible">true</property>
+      <property name="VisibleIndex">12</property>
+      <property name="ColumnEditName" />
+      <property name="Name">colModifyBy</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">修改</property>
+      <property name="FieldName">ModifyBy</property>
+    </property>
+    <property name="Item14" isnull="true" iskey="true">
+      <property name="Visible">true</property>
+      <property name="VisibleIndex">13</property>
+      <property name="ColumnEditName" />
+      <property name="Name">colModifyDate</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">修改时间</property>
+      <property name="FieldName">ModifyDate</property>
+    </property>
+  </property>
+  <property name="ViewCaption" />
+  <property name="BorderStyle">Default</property>
+  <property name="SynchronizeClones">true</property>
+  <property name="DetailTabHeaderLocation">Top</property>
+  <property name="Name">gridView1</property>
+  <property name="DetailHeight">350</property>
+  <property name="ActiveFilterEnabled">true</property>
+  <property name="ChildGridLevelName" />
+  <property name="OptionsBehavior" isnull="true" iskey="true">
+    <property name="AllowAddRows">True</property>
+    <property name="AllowDeleteRows">True</property>
+    <property name="Editable">false</property>
+    <property name="AllowIncrementalSearch">true</property>
+  </property>
+  <property name="OptionsCustomization" isnull="true" iskey="true">
+    <property name="AllowRowSizing">true</property>
+  </property>
+  <property name="FixedLineWidth">2</property>
+  <property name="OptionsSelection" isnull="true" iskey="true">
+    <property name="EnableAppearanceFocusedCell">false</property>
+  </property>
+  <property name="GroupFormat">[#image]{1} {2}</property>
+  <property name="IndicatorWidth">-1</property>
+  <property name="Appearance" isnull="true" iskey="true">
+    <property name="HeaderPanel" iskey="true" value="HeaderPanel">
+      <property name="Options" isnull="true" iskey="true">
+        <property name="UseTextOptions">true</property>
+        <property name="UseFont">true</property>
+      </property>
+      <property name="TextOptions" isnull="true" iskey="true">
+        <property name="HAlignment">Center</property>
+      </property>
+      <property name="Font">Tahoma, 9pt, style=Bold</property>
+    </property>
+    <property name="TopNewRow" iskey="true" value="TopNewRow">
+      <property name="Options" isnull="true" iskey="true">
+        <property name="UseForeColor">true</property>
+      </property>
+      <property name="ForeColor">Red</property>
+    </property>
+  </property>
+  <property name="RowSeparatorHeight">0</property>
+  <property name="GroupRowHeight">28</property>
+  <property name="OptionsView" isnull="true" iskey="true">
+    <property name="ShowVerticalLines">True</property>
+    <property name="ShowGroupPanel">false</property>
+    <property name="ShowGroupedColumns">true</property>
+    <property name="GroupDrawMode">Office</property>
+    <property name="RowAutoHeight">true</property>
+  </property>
+  <property name="RowHeight">28</property>
+  <property name="VertScrollVisibility">Auto</property>
+  <property name="FooterPanelHeight">-1</property>
+  <property name="HorzScrollVisibility">Auto</property>
+  <property name="ColumnPanelRowHeight">28</property>
+  <property name="SortInfo">~Xtra#Base64AAEAAAD/////AQAAAAAAAAAMAgAAAF1EZXZFeHByZXNzLlh0cmFHcmlkLnYxMy4xLCBWZXJzaW9uPTEzLjEuNS4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI4OGQxNzU0ZDcwMGU0OWEFAQAAADhEZXZFeHByZXNzLlh0cmFHcmlkLkNvbHVtbnMuR3JpZENvbHVtblNvcnRJbmZvQ29sbGVjdGlvbgQAAAAKZ3JvdXBDb3VudAVjbG9uZQ9jbG9uZUdyb3VwQ291bnQTQ29sbGVjdGlvbkJhc2UrbGlzdAADAAMIsgFTeXN0ZW0uQ29sbGVjdGlvbnMuR2VuZXJpYy5MaXN0YDFbW0RldkV4cHJlc3MuWHRyYUdyaWQuQ29sdW1ucy5HcmlkQ29sdW1uU29ydEluZm8sIERldkV4cHJlc3MuWHRyYUdyaWQudjEzLjEsIFZlcnNpb249MTMuMS41LjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjg4ZDE3NTRkNzAwZTQ5YV1dCBxTeXN0ZW0uQ29sbGVjdGlvbnMuQXJyYXlMaXN0AgAAAAEAAAAJAwAAAAAAAAAJBAAAAAQDAAAAsgFTeXN0ZW0uQ29sbGVjdGlvbnMuR2VuZXJpYy5MaXN0YDFbW0RldkV4cHJlc3MuWHRyYUdyaWQuQ29sdW1ucy5HcmlkQ29sdW1uU29ydEluZm8sIERldkV4cHJlc3MuWHRyYUdyaWQudjEzLjEsIFZlcnNpb249MTMuMS41LjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjg4ZDE3NTRkNzAwZTQ5YV1dAwAAAAZfaXRlbXMFX3NpemUIX3ZlcnNpb24EAAAwRGV2RXhwcmVzcy5YdHJhR3JpZC5Db2x1bW5zLkdyaWRDb2x1bW5Tb3J0SW5mb1tdAgAAAAgICQUAAAAAAAAAAAAAAAQEAAAAHFN5c3RlbS5Db2xsZWN0aW9ucy5BcnJheUxpc3QDAAAABl9pdGVtcwVfc2l6ZQhfdmVyc2lvbgUAAAgICQYAAAABAAAABAAAAAcFAAAAAAEAAAAAAAAABC5EZXZFeHByZXNzLlh0cmFHcmlkLkNvbHVtbnMuR3JpZENvbHVtblNvcnRJbmZvAgAAABAGAAAABAAAAAkHAAAADQMMCAAAABlEZXZFeHByZXNzLlh0cmFHcmlkLnYxMy4xBQcAAAAuRGV2RXhwcmVzcy5YdHJhR3JpZC5Db2x1bW5zLkdyaWRDb2x1bW5Tb3J0SW5mbwIAAAAJU29ydE9yZGVyCkNvbHVtbk5hbWUAAQgIAAAAAgAAAAYJAAAAB2NvbERhdGUL</property>
+  <property name="FormatConditions" iskey="true" value="0" />
+  <property name="GroupSummary" iskey="true" value="1">
+    <property name="Item1" isnull="true" iskey="true">
+      <property name="ShowInGroupColumnFooterName" />
+      <property name="Tag" isnull="true" />
+      <property name="FieldName">ID</property>
+      <property name="DisplayFormat" />
+      <property name="SummaryType">Count</property>
+    </property>
+  </property>
+  <property name="ActiveFilterString" />
+  <property name="GroupSummarySortInfoState" />
+  <property name="FindFilterText" />
+  <property name="FindPanelVisible">false</property>
+</XtraSerializer>

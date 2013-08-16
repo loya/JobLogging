@@ -1,6 +1,6 @@
 ﻿namespace JobLogging.Forms
 {
-    partial class FrmJobLogging
+    partial class FrmJobOrder
     {
         /// <summary>
         /// Required designer variable.
@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmJobLogging));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmJobOrder));
             this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.entityInstantFeedbackSource1 = new DevExpress.Data.Linq.EntityInstantFeedbackSource();
@@ -49,13 +50,13 @@
             this.colCreateDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colModifyBy = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colModifyDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.entityServerModeSource1 = new DevExpress.Data.Linq.EntityServerModeSource();
             this.dataLayoutControl1 = new DevExpress.XtraDataLayout.DataLayoutControl();
-            this.ResultTextEdit = new DevExpress.XtraEditors.MemoExEdit();
-            this.jobOrderBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
+            this.btnAddJobOrder = new DevExpress.XtraEditors.SimpleButton();
+            this.btnSaveJobOrder = new DevExpress.XtraEditors.SimpleButton();
             this.DateDateEdit = new DevExpress.XtraEditors.DateEdit();
+            this.jobOrderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ServiceTagTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.CustomerNameTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.ContactTextEdit = new DevExpress.XtraEditors.TextEdit();
@@ -63,11 +64,12 @@
             this.CreateByTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.StaffsTextEdit = new DevExpress.XtraEditors.CheckedComboBoxEdit();
             this.IDSpinEdit = new DevExpress.XtraEditors.TextEdit();
-            this.CreateDateDateEdit = new DevExpress.XtraEditors.DateEdit();
-            this.DescriptionTextEdit = new DevExpress.XtraEditors.MemoExEdit();
-            this.MemoTextEdit = new DevExpress.XtraEditors.MemoExEdit();
             this.ModifyByTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.ModifyDateTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.ResultTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.DescriptionTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.MemoTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.CreateDateDateEdit = new DevExpress.XtraEditors.TextEdit();
             this.ItemForModifyBy = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForModifyDate = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -88,22 +90,32 @@
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
-            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.btnGridViewRefresh = new DevExpress.XtraBars.BarButtonItem();
+            this.bbtnGridViewRefresh = new DevExpress.XtraBars.BarButtonItem();
+            this.bBtnAddJobOrder = new DevExpress.XtraBars.BarButtonItem();
+            this.bBtnDeleteJobOrder = new DevExpress.XtraBars.BarButtonItem();
+            this.bBtnSaveJobOrder = new DevExpress.XtraBars.BarButtonItem();
+            this.bBtnCancel = new DevExpress.XtraBars.BarButtonItem();
+            this.bBtnShowFindPanel = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.alertControl1 = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
+            this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
+            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.lbStaffOut = new DevExpress.XtraEditors.ImageListBoxControl();
+            this.imageCollection1 = new DevExpress.Utils.ImageCollection(this.components);
+            this.btnNoDispatch = new DevExpress.XtraEditors.SimpleButton();
+            this.dateEdit_StaffOut = new DevExpress.XtraEditors.DateEdit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.entityServerModeSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
             this.dataLayoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ResultTextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.jobOrderBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DateDateEdit.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DateDateEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jobOrderBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ServiceTagTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CustomerNameTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ContactTextEdit.Properties)).BeginInit();
@@ -111,12 +123,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.CreateByTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.StaffsTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IDSpinEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CreateDateDateEdit.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CreateDateDateEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DescriptionTextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MemoTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ModifyByTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ModifyDateTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ResultTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DescriptionTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MemoTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CreateDateDateEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForModifyBy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForModifyDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
@@ -137,24 +149,30 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
+            this.splitContainerControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
+            this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lbStaffOut)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit_StaffOut.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit_StaffOut.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // userBindingSource
             // 
-            this.userBindingSource.DataSource = typeof(JobLogging.JobloggingModel.User);
+            this.userBindingSource.DataSource = typeof(JobLogging.JobLoggingModel.User);
             // 
             // gridControl1
             // 
             this.gridControl1.DataSource = this.entityInstantFeedbackSource1;
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(0, 305);
+            this.gridControl1.Location = new System.Drawing.Point(0, 0);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1066, 262);
+            this.gridControl1.Size = new System.Drawing.Size(912, 293);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -162,7 +180,7 @@
             // entityInstantFeedbackSource1
             // 
             this.entityInstantFeedbackSource1.DefaultSorting = "Date DESC";
-            this.entityInstantFeedbackSource1.DesignTimeElementType = typeof(JobLogging.JobloggingModel.JobOrder);
+            this.entityInstantFeedbackSource1.DesignTimeElementType = typeof(JobLogging.JobLoggingModel.JobOrder);
             this.entityInstantFeedbackSource1.KeyExpression = "ID";
             // 
             // gridView1
@@ -198,20 +216,25 @@
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
             this.gridView1.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.True;
+            this.gridView1.OptionsBehavior.AllowFixedGroups = DevExpress.Utils.DefaultBoolean.True;
             this.gridView1.OptionsBehavior.AllowIncrementalSearch = true;
-            this.gridView1.OptionsBehavior.AutoExpandAllGroups = true;
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsCustomization.AllowRowSizing = true;
             this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridView1.OptionsView.GroupDrawMode = DevExpress.XtraGrid.Views.Grid.GroupDrawMode.Office;
             this.gridView1.OptionsView.RowAutoHeight = true;
             this.gridView1.OptionsView.ShowGroupedColumns = true;
+            this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.OptionsView.ShowVerticalLines = DevExpress.Utils.DefaultBoolean.True;
+            this.gridView1.OptionsView.WaitAnimationOptions = DevExpress.XtraEditors.WaitAnimationOptions.Panel;
             this.gridView1.RowHeight = 28;
             this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colDate, DevExpress.Data.ColumnSortOrder.Descending)});
             this.gridView1.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gridView1_RowClick);
             this.gridView1.RowCellClick += new DevExpress.XtraGrid.Views.Grid.RowCellClickEventHandler(this.gridView1_RowCellClick);
+            this.gridView1.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridView1_CustomDrawRowIndicator);
+            this.gridView1.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView1_FocusedRowChanged);
+            this.gridView1.AsyncCompleted += new System.EventHandler(this.gridView1_AsyncCompleted);
             // 
             // colID
             // 
@@ -231,7 +254,7 @@
             // 
             // colStaffs
             // 
-            this.colStaffs.Caption = "出勤";
+            this.colStaffs.Caption = "派工";
             this.colStaffs.FieldName = "Staffs";
             this.colStaffs.Name = "colStaffs";
             this.colStaffs.Visible = true;
@@ -329,12 +352,17 @@
             this.colModifyDate.Visible = true;
             this.colModifyDate.VisibleIndex = 13;
             // 
+            // entityServerModeSource1
+            // 
+            this.entityServerModeSource1.DefaultSorting = "Date DESC";
+            this.entityServerModeSource1.ElementType = typeof(JobLogging.JobLoggingModel.JobOrder);
+            this.entityServerModeSource1.KeyExpression = "ID";
+            // 
             // dataLayoutControl1
             // 
-            this.dataLayoutControl1.Controls.Add(this.ResultTextEdit);
-            this.dataLayoutControl1.Controls.Add(this.simpleButton3);
-            this.dataLayoutControl1.Controls.Add(this.simpleButton2);
-            this.dataLayoutControl1.Controls.Add(this.simpleButton1);
+            this.dataLayoutControl1.Controls.Add(this.btnCancel);
+            this.dataLayoutControl1.Controls.Add(this.btnAddJobOrder);
+            this.dataLayoutControl1.Controls.Add(this.btnSaveJobOrder);
             this.dataLayoutControl1.Controls.Add(this.DateDateEdit);
             this.dataLayoutControl1.Controls.Add(this.ServiceTagTextEdit);
             this.dataLayoutControl1.Controls.Add(this.CustomerNameTextEdit);
@@ -343,11 +371,12 @@
             this.dataLayoutControl1.Controls.Add(this.CreateByTextEdit);
             this.dataLayoutControl1.Controls.Add(this.StaffsTextEdit);
             this.dataLayoutControl1.Controls.Add(this.IDSpinEdit);
-            this.dataLayoutControl1.Controls.Add(this.CreateDateDateEdit);
-            this.dataLayoutControl1.Controls.Add(this.DescriptionTextEdit);
-            this.dataLayoutControl1.Controls.Add(this.MemoTextEdit);
             this.dataLayoutControl1.Controls.Add(this.ModifyByTextEdit);
             this.dataLayoutControl1.Controls.Add(this.ModifyDateTextEdit);
+            this.dataLayoutControl1.Controls.Add(this.ResultTextEdit);
+            this.dataLayoutControl1.Controls.Add(this.DescriptionTextEdit);
+            this.dataLayoutControl1.Controls.Add(this.MemoTextEdit);
+            this.dataLayoutControl1.Controls.Add(this.CreateDateDateEdit);
             this.dataLayoutControl1.DataSource = this.jobOrderBindingSource;
             this.dataLayoutControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.dataLayoutControl1.HiddenItems.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
@@ -357,66 +386,46 @@
             this.dataLayoutControl1.Name = "dataLayoutControl1";
             this.dataLayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(374, 481, 250, 350);
             this.dataLayoutControl1.Root = this.layoutControlGroup1;
-            this.dataLayoutControl1.Size = new System.Drawing.Size(1066, 160);
+            this.dataLayoutControl1.Size = new System.Drawing.Size(1066, 129);
             this.dataLayoutControl1.TabIndex = 1;
             this.dataLayoutControl1.Text = "dataLayoutControl1";
             // 
-            // ResultTextEdit
+            // btnCancel
             // 
-            this.ResultTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.jobOrderBindingSource, "Result", true));
-            this.ResultTextEdit.Location = new System.Drawing.Point(412, 85);
-            this.ResultTextEdit.Name = "ResultTextEdit";
-            this.ResultTextEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.ResultTextEdit.Properties.ShowIcon = false;
-            this.ResultTextEdit.Size = new System.Drawing.Size(244, 20);
-            this.ResultTextEdit.StyleController = this.dataLayoutControl1;
-            this.ResultTextEdit.TabIndex = 12;
+            this.btnCancel.Location = new System.Drawing.Point(980, 89);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(74, 23);
+            this.btnCancel.StyleController = this.dataLayoutControl1;
+            this.btnCancel.TabIndex = 21;
+            this.btnCancel.Text = "取消(&C)";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // jobOrderBindingSource
+            // btnAddJobOrder
             // 
-            this.jobOrderBindingSource.DataSource = typeof(JobLogging.JobloggingModel.JobOrder);
-            this.jobOrderBindingSource.Sort = "ID";
-            this.jobOrderBindingSource.AddingNew += new System.ComponentModel.AddingNewEventHandler(this.jobOrderBindingSource_AddingNew);
-            this.jobOrderBindingSource.CurrentChanged += new System.EventHandler(this.jobOrderBindingSource_CurrentChanged);
-            this.jobOrderBindingSource.CurrentItemChanged += new System.EventHandler(this.jobOrderBindingSource_CurrentItemChanged);
-            this.jobOrderBindingSource.PositionChanged += new System.EventHandler(this.jobOrderBindingSource_PositionChanged);
+            this.btnAddJobOrder.Location = new System.Drawing.Point(777, 89);
+            this.btnAddJobOrder.Name = "btnAddJobOrder";
+            this.btnAddJobOrder.Size = new System.Drawing.Size(97, 23);
+            this.btnAddJobOrder.StyleController = this.dataLayoutControl1;
+            this.btnAddJobOrder.TabIndex = 20;
+            this.btnAddJobOrder.Text = "保存并新增(&N)";
+            this.btnAddJobOrder.Click += new System.EventHandler(this.btnAddJobOrder_Click);
             // 
-            // simpleButton3
+            // btnSaveJobOrder
             // 
-            this.simpleButton3.Location = new System.Drawing.Point(940, 119);
-            this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.Size = new System.Drawing.Size(84, 22);
-            this.simpleButton3.StyleController = this.dataLayoutControl1;
-            this.simpleButton3.TabIndex = 21;
-            this.simpleButton3.Text = "取消";
-            this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click);
-            // 
-            // simpleButton2
-            // 
-            this.simpleButton2.Location = new System.Drawing.Point(756, 119);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(78, 22);
-            this.simpleButton2.StyleController = this.dataLayoutControl1;
-            this.simpleButton2.TabIndex = 20;
-            this.simpleButton2.Text = "新增";
-            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
-            // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Location = new System.Drawing.Point(848, 119);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(78, 22);
-            this.simpleButton1.StyleController = this.dataLayoutControl1;
-            this.simpleButton1.TabIndex = 16;
-            this.simpleButton1.Text = "保存";
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            this.btnSaveJobOrder.Location = new System.Drawing.Point(888, 89);
+            this.btnSaveJobOrder.Name = "btnSaveJobOrder";
+            this.btnSaveJobOrder.Size = new System.Drawing.Size(78, 23);
+            this.btnSaveJobOrder.StyleController = this.dataLayoutControl1;
+            this.btnSaveJobOrder.TabIndex = 16;
+            this.btnSaveJobOrder.Text = "保存(&S)";
+            this.btnSaveJobOrder.Click += new System.EventHandler(this.btnSaveJobOrder_Click);
             // 
             // DateDateEdit
             // 
             this.DateDateEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.jobOrderBindingSource, "Date", true));
             this.DateDateEdit.EditValue = new System.DateTime(2013, 8, 1, 0, 0, 0, 0);
-            this.DateDateEdit.Location = new System.Drawing.Point(265, 17);
+            this.DateDateEdit.EnterMoveNextControl = true;
+            this.DateDateEdit.Location = new System.Drawing.Point(280, 12);
             this.DateDateEdit.Name = "DateDateEdit";
             this.DateDateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -424,69 +433,88 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.DateDateEdit.Properties.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
             this.DateDateEdit.Properties.CalendarTimeProperties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
-            this.DateDateEdit.Size = new System.Drawing.Size(107, 20);
+            this.DateDateEdit.Size = new System.Drawing.Size(135, 20);
             this.DateDateEdit.StyleController = this.dataLayoutControl1;
             this.DateDateEdit.TabIndex = 5;
+            // 
+            // jobOrderBindingSource
+            // 
+            this.jobOrderBindingSource.DataSource = typeof(JobLogging.JobLoggingModel.JobOrder);
+            this.jobOrderBindingSource.Sort = "ID";
+            this.jobOrderBindingSource.AddingNew += new System.ComponentModel.AddingNewEventHandler(this.jobOrderBindingSource_AddingNew);
             // 
             // ServiceTagTextEdit
             // 
             this.ServiceTagTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.jobOrderBindingSource, "ServiceTag", true));
-            this.ServiceTagTextEdit.Location = new System.Drawing.Point(68, 51);
+            this.ServiceTagTextEdit.EnterMoveNextControl = true;
+            this.ServiceTagTextEdit.Location = new System.Drawing.Point(63, 36);
             this.ServiceTagTextEdit.Name = "ServiceTagTextEdit";
-            this.ServiceTagTextEdit.Size = new System.Drawing.Size(127, 20);
+            this.ServiceTagTextEdit.Size = new System.Drawing.Size(132, 20);
             this.ServiceTagTextEdit.StyleController = this.dataLayoutControl1;
             this.ServiceTagTextEdit.TabIndex = 7;
             // 
             // CustomerNameTextEdit
             // 
             this.CustomerNameTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.jobOrderBindingSource, "CustomerName", true));
-            this.CustomerNameTextEdit.Location = new System.Drawing.Point(285, 51);
+            this.CustomerNameTextEdit.EnterMoveNextControl = true;
+            this.CustomerNameTextEdit.Location = new System.Drawing.Point(280, 36);
             this.CustomerNameTextEdit.Name = "CustomerNameTextEdit";
-            this.CustomerNameTextEdit.Size = new System.Drawing.Size(130, 20);
+            this.CustomerNameTextEdit.Size = new System.Drawing.Size(135, 20);
             this.CustomerNameTextEdit.StyleController = this.dataLayoutControl1;
             this.CustomerNameTextEdit.TabIndex = 8;
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "不能为空";
+            this.dxValidationProvider1.SetValidationRule(this.CustomerNameTextEdit, conditionValidationRule1);
             // 
             // ContactTextEdit
             // 
             this.ContactTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.jobOrderBindingSource, "Contact", true));
-            this.ContactTextEdit.Location = new System.Drawing.Point(505, 51);
+            this.ContactTextEdit.EnterMoveNextControl = true;
+            this.ContactTextEdit.Location = new System.Drawing.Point(500, 36);
             this.ContactTextEdit.Name = "ContactTextEdit";
-            this.ContactTextEdit.Size = new System.Drawing.Size(151, 20);
+            this.ContactTextEdit.Size = new System.Drawing.Size(156, 20);
             this.ContactTextEdit.StyleController = this.dataLayoutControl1;
             this.ContactTextEdit.TabIndex = 9;
             // 
             // AddressTextEdit
             // 
             this.AddressTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.jobOrderBindingSource, "Address", true));
-            this.AddressTextEdit.Location = new System.Drawing.Point(746, 51);
+            this.AddressTextEdit.EnterMoveNextControl = true;
+            this.AddressTextEdit.Location = new System.Drawing.Point(741, 36);
             this.AddressTextEdit.Name = "AddressTextEdit";
-            this.AddressTextEdit.Size = new System.Drawing.Size(278, 20);
+            this.AddressTextEdit.Size = new System.Drawing.Size(313, 20);
             this.AddressTextEdit.StyleController = this.dataLayoutControl1;
             this.AddressTextEdit.TabIndex = 10;
             // 
             // CreateByTextEdit
             // 
             this.CreateByTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.jobOrderBindingSource, "CreateBy", true));
-            this.CreateByTextEdit.Location = new System.Drawing.Point(720, 17);
+            this.CreateByTextEdit.Enabled = false;
+            this.CreateByTextEdit.Location = new System.Drawing.Point(741, 12);
             this.CreateByTextEdit.Name = "CreateByTextEdit";
-            this.CreateByTextEdit.Size = new System.Drawing.Size(107, 20);
+            this.CreateByTextEdit.Properties.AllowFocused = false;
+            this.CreateByTextEdit.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.CreateByTextEdit.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.CreateByTextEdit.Properties.ReadOnly = true;
+            this.CreateByTextEdit.Size = new System.Drawing.Size(86, 20);
             this.CreateByTextEdit.StyleController = this.dataLayoutControl1;
             this.CreateByTextEdit.TabIndex = 14;
+            this.CreateByTextEdit.TabStop = false;
             // 
             // StaffsTextEdit
             // 
             this.StaffsTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.jobOrderBindingSource, "Staffs", true));
-            this.StaffsTextEdit.Location = new System.Drawing.Point(462, 17);
+            this.StaffsTextEdit.EnterMoveNextControl = true;
+            this.StaffsTextEdit.Location = new System.Drawing.Point(500, 12);
             this.StaffsTextEdit.Name = "StaffsTextEdit";
             this.StaffsTextEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.StaffsTextEdit.Properties.DataSource = this.userBindingSource;
             this.StaffsTextEdit.Properties.DisplayMember = "Name";
             this.StaffsTextEdit.Properties.ValueMember = "Name";
-            this.StaffsTextEdit.Size = new System.Drawing.Size(168, 20);
+            this.StaffsTextEdit.Size = new System.Drawing.Size(156, 20);
             this.StaffsTextEdit.StyleController = this.dataLayoutControl1;
             this.StaffsTextEdit.TabIndex = 6;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule2.ErrorText = "不能为空";
             conditionValidationRule2.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
             this.dxValidationProvider1.SetValidationRule(this.StaffsTextEdit, conditionValidationRule2);
@@ -499,59 +527,17 @@
             0,
             0,
             0});
-            this.IDSpinEdit.Location = new System.Drawing.Point(68, 17);
+            this.IDSpinEdit.Enabled = false;
+            this.IDSpinEdit.Location = new System.Drawing.Point(63, 12);
             this.IDSpinEdit.Name = "IDSpinEdit";
+            this.IDSpinEdit.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.IDSpinEdit.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.IDSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered;
             this.IDSpinEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.IDSpinEdit.Properties.ReadOnly = true;
-            this.IDSpinEdit.Size = new System.Drawing.Size(107, 20);
+            this.IDSpinEdit.Size = new System.Drawing.Size(132, 20);
             this.IDSpinEdit.StyleController = this.dataLayoutControl1;
             this.IDSpinEdit.TabIndex = 4;
-            // 
-            // CreateDateDateEdit
-            // 
-            this.CreateDateDateEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.jobOrderBindingSource, "CreateDate", true));
-            this.CreateDateDateEdit.EditValue = new System.DateTime(2013, 8, 2, 1, 19, 47, 0);
-            this.CreateDateDateEdit.Location = new System.Drawing.Point(917, 17);
-            this.CreateDateDateEdit.Name = "CreateDateDateEdit";
-            this.CreateDateDateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.CreateDateDateEdit.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.True;
-            this.CreateDateDateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.CreateDateDateEdit.Properties.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
-            this.CreateDateDateEdit.Properties.CalendarTimeProperties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
-            this.CreateDateDateEdit.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.Vista;
-            this.CreateDateDateEdit.Properties.Mask.EditMask = "";
-            this.CreateDateDateEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
-            this.CreateDateDateEdit.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.True;
-            this.CreateDateDateEdit.Size = new System.Drawing.Size(107, 20);
-            this.CreateDateDateEdit.StyleController = this.dataLayoutControl1;
-            this.CreateDateDateEdit.TabIndex = 15;
-            // 
-            // DescriptionTextEdit
-            // 
-            this.DescriptionTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.jobOrderBindingSource, "Description", true));
-            this.DescriptionTextEdit.Location = new System.Drawing.Point(68, 85);
-            this.DescriptionTextEdit.Name = "DescriptionTextEdit";
-            this.DescriptionTextEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.DescriptionTextEdit.Properties.ShowIcon = false;
-            this.DescriptionTextEdit.Size = new System.Drawing.Size(254, 20);
-            this.DescriptionTextEdit.StyleController = this.dataLayoutControl1;
-            this.DescriptionTextEdit.TabIndex = 11;
-            // 
-            // MemoTextEdit
-            // 
-            this.MemoTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.jobOrderBindingSource, "Memo", true));
-            this.MemoTextEdit.Location = new System.Drawing.Point(746, 85);
-            this.MemoTextEdit.Name = "MemoTextEdit";
-            this.MemoTextEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.MemoTextEdit.Properties.ShowIcon = false;
-            this.MemoTextEdit.Size = new System.Drawing.Size(278, 20);
-            this.MemoTextEdit.StyleController = this.dataLayoutControl1;
-            this.MemoTextEdit.TabIndex = 13;
             // 
             // ModifyByTextEdit
             // 
@@ -570,6 +556,52 @@
             this.ModifyDateTextEdit.Size = new System.Drawing.Size(974, 20);
             this.ModifyDateTextEdit.StyleController = this.dataLayoutControl1;
             this.ModifyDateTextEdit.TabIndex = 19;
+            // 
+            // ResultTextEdit
+            // 
+            this.ResultTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.jobOrderBindingSource, "Result", true));
+            this.ResultTextEdit.EnterMoveNextControl = true;
+            this.ResultTextEdit.Location = new System.Drawing.Point(407, 60);
+            this.ResultTextEdit.Name = "ResultTextEdit";
+            this.ResultTextEdit.Size = new System.Drawing.Size(249, 20);
+            this.ResultTextEdit.StyleController = this.dataLayoutControl1;
+            this.ResultTextEdit.TabIndex = 12;
+            // 
+            // DescriptionTextEdit
+            // 
+            this.DescriptionTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.jobOrderBindingSource, "Description", true));
+            this.DescriptionTextEdit.EnterMoveNextControl = true;
+            this.DescriptionTextEdit.Location = new System.Drawing.Point(63, 60);
+            this.DescriptionTextEdit.Name = "DescriptionTextEdit";
+            this.DescriptionTextEdit.Size = new System.Drawing.Size(259, 20);
+            this.DescriptionTextEdit.StyleController = this.dataLayoutControl1;
+            this.DescriptionTextEdit.TabIndex = 11;
+            // 
+            // MemoTextEdit
+            // 
+            this.MemoTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.jobOrderBindingSource, "Memo", true));
+            this.MemoTextEdit.EnterMoveNextControl = true;
+            this.MemoTextEdit.Location = new System.Drawing.Point(741, 60);
+            this.MemoTextEdit.Name = "MemoTextEdit";
+            this.MemoTextEdit.Size = new System.Drawing.Size(313, 20);
+            this.MemoTextEdit.StyleController = this.dataLayoutControl1;
+            this.MemoTextEdit.TabIndex = 13;
+            // 
+            // CreateDateDateEdit
+            // 
+            this.CreateDateDateEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.jobOrderBindingSource, "CreateDate", true));
+            this.CreateDateDateEdit.EditValue = new System.DateTime(2013, 8, 11, 0, 0, 0, 0);
+            this.CreateDateDateEdit.Enabled = false;
+            this.CreateDateDateEdit.Location = new System.Drawing.Point(912, 12);
+            this.CreateDateDateEdit.Name = "CreateDateDateEdit";
+            this.CreateDateDateEdit.Properties.AllowFocused = false;
+            this.CreateDateDateEdit.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.CreateDateDateEdit.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.CreateDateDateEdit.Properties.ReadOnly = true;
+            this.CreateDateDateEdit.Size = new System.Drawing.Size(142, 20);
+            this.CreateDateDateEdit.StyleController = this.dataLayoutControl1;
+            this.CreateDateDateEdit.TabIndex = 15;
+            this.CreateDateDateEdit.TabStop = false;
             // 
             // ItemForModifyBy
             // 
@@ -599,11 +631,10 @@
             this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.layoutControlGroup1.GroupBordersVisible = false;
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlGroup2,
-            this.layoutControlGroup3});
+            this.layoutControlGroup2});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(1066, 160);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1066, 129);
             this.layoutControlGroup1.Text = "Root";
             this.layoutControlGroup1.TextVisible = false;
             // 
@@ -631,7 +662,7 @@
             this.layoutControlItem3});
             this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup2.Name = "autoGeneratedGroup0";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(1046, 138);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(1046, 109);
             this.layoutControlGroup2.Text = "autoGeneratedGroup0";
             // 
             // ItemForID
@@ -640,8 +671,8 @@
             this.ItemForID.CustomizationFormText = "ID";
             this.ItemForID.Location = new System.Drawing.Point(0, 0);
             this.ItemForID.Name = "ItemForID";
-            this.ItemForID.Size = new System.Drawing.Size(197, 34);
-            this.ItemForID.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 30, 5, 5);
+            this.ItemForID.Size = new System.Drawing.Size(217, 24);
+            this.ItemForID.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 30, 0, 0);
             this.ItemForID.Text = "ID";
             this.ItemForID.TextSize = new System.Drawing.Size(48, 14);
             // 
@@ -649,10 +680,10 @@
             // 
             this.ItemForDescription.Control = this.DescriptionTextEdit;
             this.ItemForDescription.CustomizationFormText = "故障描述";
-            this.ItemForDescription.Location = new System.Drawing.Point(0, 68);
+            this.ItemForDescription.Location = new System.Drawing.Point(0, 48);
             this.ItemForDescription.Name = "ItemForDescription";
-            this.ItemForDescription.Size = new System.Drawing.Size(344, 34);
-            this.ItemForDescription.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 30, 5, 5);
+            this.ItemForDescription.Size = new System.Drawing.Size(344, 24);
+            this.ItemForDescription.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 30, 0, 0);
             this.ItemForDescription.Text = "故障描述";
             this.ItemForDescription.TextSize = new System.Drawing.Size(48, 14);
             // 
@@ -660,10 +691,10 @@
             // 
             this.ItemForServiceTag.Control = this.ServiceTagTextEdit;
             this.ItemForServiceTag.CustomizationFormText = "服务编号";
-            this.ItemForServiceTag.Location = new System.Drawing.Point(0, 34);
+            this.ItemForServiceTag.Location = new System.Drawing.Point(0, 24);
             this.ItemForServiceTag.Name = "ItemForServiceTag";
-            this.ItemForServiceTag.Size = new System.Drawing.Size(217, 34);
-            this.ItemForServiceTag.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 30, 5, 5);
+            this.ItemForServiceTag.Size = new System.Drawing.Size(217, 24);
+            this.ItemForServiceTag.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 30, 0, 0);
             this.ItemForServiceTag.Text = "服务编号";
             this.ItemForServiceTag.TextSize = new System.Drawing.Size(48, 14);
             // 
@@ -671,10 +702,10 @@
             // 
             this.ItemForDate.Control = this.DateDateEdit;
             this.ItemForDate.CustomizationFormText = "日期";
-            this.ItemForDate.Location = new System.Drawing.Point(197, 0);
+            this.ItemForDate.Location = new System.Drawing.Point(217, 0);
             this.ItemForDate.Name = "ItemForDate";
-            this.ItemForDate.Size = new System.Drawing.Size(197, 34);
-            this.ItemForDate.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 30, 5, 5);
+            this.ItemForDate.Size = new System.Drawing.Size(220, 24);
+            this.ItemForDate.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 30, 0, 0);
             this.ItemForDate.Text = "日期";
             this.ItemForDate.TextSize = new System.Drawing.Size(48, 14);
             // 
@@ -682,20 +713,20 @@
             // 
             this.ItemForStaffs.Control = this.StaffsTextEdit;
             this.ItemForStaffs.CustomizationFormText = "技术员";
-            this.ItemForStaffs.Location = new System.Drawing.Point(394, 0);
+            this.ItemForStaffs.Location = new System.Drawing.Point(437, 0);
             this.ItemForStaffs.Name = "ItemForStaffs";
-            this.ItemForStaffs.Size = new System.Drawing.Size(258, 34);
-            this.ItemForStaffs.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 30, 5, 5);
-            this.ItemForStaffs.Text = "技术员";
+            this.ItemForStaffs.Size = new System.Drawing.Size(241, 24);
+            this.ItemForStaffs.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 30, 0, 0);
+            this.ItemForStaffs.Text = "派工";
             this.ItemForStaffs.TextSize = new System.Drawing.Size(48, 14);
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 102);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 72);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(739, 36);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(760, 37);
             this.emptySpaceItem1.Text = "emptySpaceItem1";
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -703,10 +734,10 @@
             // 
             this.ItemForCustomerName.Control = this.CustomerNameTextEdit;
             this.ItemForCustomerName.CustomizationFormText = "客户姓名";
-            this.ItemForCustomerName.Location = new System.Drawing.Point(217, 34);
+            this.ItemForCustomerName.Location = new System.Drawing.Point(217, 24);
             this.ItemForCustomerName.Name = "ItemForCustomerName";
-            this.ItemForCustomerName.Size = new System.Drawing.Size(220, 34);
-            this.ItemForCustomerName.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 30, 5, 5);
+            this.ItemForCustomerName.Size = new System.Drawing.Size(220, 24);
+            this.ItemForCustomerName.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 30, 0, 0);
             this.ItemForCustomerName.Text = "客户姓名";
             this.ItemForCustomerName.TextSize = new System.Drawing.Size(48, 14);
             // 
@@ -714,10 +745,10 @@
             // 
             this.ItemForContact.Control = this.ContactTextEdit;
             this.ItemForContact.CustomizationFormText = "联系方式";
-            this.ItemForContact.Location = new System.Drawing.Point(437, 34);
+            this.ItemForContact.Location = new System.Drawing.Point(437, 24);
             this.ItemForContact.Name = "ItemForContact";
-            this.ItemForContact.Size = new System.Drawing.Size(241, 34);
-            this.ItemForContact.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 30, 5, 5);
+            this.ItemForContact.Size = new System.Drawing.Size(241, 24);
+            this.ItemForContact.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 30, 0, 0);
             this.ItemForContact.Text = "联系方式";
             this.ItemForContact.TextSize = new System.Drawing.Size(48, 14);
             // 
@@ -725,10 +756,10 @@
             // 
             this.ItemForResult.Control = this.ResultTextEdit;
             this.ItemForResult.CustomizationFormText = "处理结果";
-            this.ItemForResult.Location = new System.Drawing.Point(344, 68);
+            this.ItemForResult.Location = new System.Drawing.Point(344, 48);
             this.ItemForResult.Name = "ItemForResult";
-            this.ItemForResult.Size = new System.Drawing.Size(334, 34);
-            this.ItemForResult.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 30, 5, 5);
+            this.ItemForResult.Size = new System.Drawing.Size(334, 24);
+            this.ItemForResult.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 30, 0, 0);
             this.ItemForResult.Text = "处理结果";
             this.ItemForResult.TextSize = new System.Drawing.Size(48, 14);
             // 
@@ -736,10 +767,9 @@
             // 
             this.ItemForMemo.Control = this.MemoTextEdit;
             this.ItemForMemo.CustomizationFormText = "备注";
-            this.ItemForMemo.Location = new System.Drawing.Point(678, 68);
+            this.ItemForMemo.Location = new System.Drawing.Point(678, 48);
             this.ItemForMemo.Name = "ItemForMemo";
-            this.ItemForMemo.Size = new System.Drawing.Size(368, 34);
-            this.ItemForMemo.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 30, 5, 5);
+            this.ItemForMemo.Size = new System.Drawing.Size(368, 24);
             this.ItemForMemo.Text = "备注";
             this.ItemForMemo.TextSize = new System.Drawing.Size(48, 14);
             // 
@@ -747,10 +777,9 @@
             // 
             this.ItemForAddress.Control = this.AddressTextEdit;
             this.ItemForAddress.CustomizationFormText = "地址";
-            this.ItemForAddress.Location = new System.Drawing.Point(678, 34);
+            this.ItemForAddress.Location = new System.Drawing.Point(678, 24);
             this.ItemForAddress.Name = "ItemForAddress";
-            this.ItemForAddress.Size = new System.Drawing.Size(368, 34);
-            this.ItemForAddress.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 30, 5, 5);
+            this.ItemForAddress.Size = new System.Drawing.Size(368, 24);
             this.ItemForAddress.Text = "地址";
             this.ItemForAddress.TextSize = new System.Drawing.Size(48, 14);
             // 
@@ -758,10 +787,10 @@
             // 
             this.ItemForCreateBy.Control = this.CreateByTextEdit;
             this.ItemForCreateBy.CustomizationFormText = "创建";
-            this.ItemForCreateBy.Location = new System.Drawing.Point(652, 0);
+            this.ItemForCreateBy.Location = new System.Drawing.Point(678, 0);
             this.ItemForCreateBy.Name = "ItemForCreateBy";
-            this.ItemForCreateBy.Size = new System.Drawing.Size(197, 34);
-            this.ItemForCreateBy.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 30, 5, 5);
+            this.ItemForCreateBy.Size = new System.Drawing.Size(171, 24);
+            this.ItemForCreateBy.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 30, 0, 0);
             this.ItemForCreateBy.Text = "创建";
             this.ItemForCreateBy.TextSize = new System.Drawing.Size(48, 14);
             // 
@@ -771,20 +800,19 @@
             this.ItemForCreateDate.CustomizationFormText = "创建日期";
             this.ItemForCreateDate.Location = new System.Drawing.Point(849, 0);
             this.ItemForCreateDate.Name = "ItemForCreateDate";
-            this.ItemForCreateDate.Size = new System.Drawing.Size(197, 34);
-            this.ItemForCreateDate.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 30, 5, 5);
+            this.ItemForCreateDate.Size = new System.Drawing.Size(197, 24);
             this.ItemForCreateDate.Text = "创建日期";
             this.ItemForCreateDate.TextSize = new System.Drawing.Size(48, 14);
             // 
             // layoutControlItem1
             // 
-            this.layoutControlItem1.Control = this.simpleButton1;
+            this.layoutControlItem1.Control = this.btnSaveJobOrder;
             this.layoutControlItem1.CustomizationFormText = "layoutControlItem1";
-            this.layoutControlItem1.Location = new System.Drawing.Point(831, 102);
-            this.layoutControlItem1.MaxSize = new System.Drawing.Size(92, 36);
-            this.layoutControlItem1.MinSize = new System.Drawing.Size(92, 36);
+            this.layoutControlItem1.Location = new System.Drawing.Point(871, 72);
+            this.layoutControlItem1.MaxSize = new System.Drawing.Size(92, 37);
+            this.layoutControlItem1.MinSize = new System.Drawing.Size(92, 37);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(92, 36);
+            this.layoutControlItem1.Size = new System.Drawing.Size(92, 37);
             this.layoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem1.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.layoutControlItem1.Text = "layoutControlItem1";
@@ -794,13 +822,12 @@
             // 
             // layoutControlItem2
             // 
-            this.layoutControlItem2.Control = this.simpleButton2;
+            this.layoutControlItem2.Control = this.btnAddJobOrder;
             this.layoutControlItem2.CustomizationFormText = "layoutControlItem2";
-            this.layoutControlItem2.Location = new System.Drawing.Point(739, 102);
-            this.layoutControlItem2.MaxSize = new System.Drawing.Size(92, 36);
-            this.layoutControlItem2.MinSize = new System.Drawing.Size(92, 36);
+            this.layoutControlItem2.Location = new System.Drawing.Point(760, 72);
+            this.layoutControlItem2.MinSize = new System.Drawing.Size(111, 36);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(92, 36);
+            this.layoutControlItem2.Size = new System.Drawing.Size(111, 37);
             this.layoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem2.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.layoutControlItem2.Text = "layoutControlItem2";
@@ -810,95 +837,210 @@
             // 
             // layoutControlItem3
             // 
-            this.layoutControlItem3.Control = this.simpleButton3;
+            this.layoutControlItem3.Control = this.btnCancel;
             this.layoutControlItem3.CustomizationFormText = "layoutControlItem3";
-            this.layoutControlItem3.Location = new System.Drawing.Point(923, 102);
-            this.layoutControlItem3.MaxSize = new System.Drawing.Size(123, 36);
-            this.layoutControlItem3.MinSize = new System.Drawing.Size(123, 36);
+            this.layoutControlItem3.Location = new System.Drawing.Point(963, 72);
+            this.layoutControlItem3.MaxSize = new System.Drawing.Size(83, 37);
+            this.layoutControlItem3.MinSize = new System.Drawing.Size(83, 37);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(123, 36);
+            this.layoutControlItem3.Size = new System.Drawing.Size(83, 37);
             this.layoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem3.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 30, 5, 5);
+            this.layoutControlItem3.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 0, 5, 5);
             this.layoutControlItem3.Text = "layoutControlItem3";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextToControlDistance = 0;
             this.layoutControlItem3.TextVisible = false;
-            // 
-            // layoutControlGroup3
-            // 
-            this.layoutControlGroup3.AllowDrawBackground = false;
-            this.layoutControlGroup3.CustomizationFormText = "autoGeneratedGroup1";
-            this.layoutControlGroup3.GroupBordersVisible = false;
-            this.layoutControlGroup3.Location = new System.Drawing.Point(0, 138);
-            this.layoutControlGroup3.Name = "autoGeneratedGroup1";
-            this.layoutControlGroup3.Size = new System.Drawing.Size(1046, 2);
-            this.layoutControlGroup3.Text = "autoGeneratedGroup1";
             // 
             // dxValidationProvider1
             // 
             this.dxValidationProvider1.ValidationMode = DevExpress.XtraEditors.DXErrorProvider.ValidationMode.Manual;
             this.dxValidationProvider1.ValidationFailed += new DevExpress.XtraEditors.DXErrorProvider.ValidationFailedEventHandler(this.dxValidationProvider1_ValidationFailed);
             // 
-            // dxErrorProvider1
-            // 
-            this.dxErrorProvider1.ContainerControl = this.dataLayoutControl1;
-            // 
             // ribbonControl1
             // 
             this.ribbonControl1.ExpandCollapseItem.Id = 0;
             this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonControl1.ExpandCollapseItem,
-            this.btnGridViewRefresh});
+            this.bbtnGridViewRefresh,
+            this.bBtnAddJobOrder,
+            this.bBtnDeleteJobOrder,
+            this.bBtnSaveJobOrder,
+            this.bBtnCancel,
+            this.bBtnShowFindPanel});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 2;
+            this.ribbonControl1.MaxItemId = 12;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
             this.ribbonControl1.Size = new System.Drawing.Size(1066, 145);
             this.ribbonControl1.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Above;
             // 
-            // btnGridViewRefresh
+            // bbtnGridViewRefresh
             // 
-            this.btnGridViewRefresh.Caption = "刷新";
-            this.btnGridViewRefresh.Glyph = ((System.Drawing.Image)(resources.GetObject("btnGridViewRefresh.Glyph")));
-            this.btnGridViewRefresh.Id = 1;
-            this.btnGridViewRefresh.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnGridViewRefresh.LargeGlyph")));
-            this.btnGridViewRefresh.Name = "btnGridViewRefresh";
-            this.btnGridViewRefresh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnGridViewRefresh_ItemClick);
+            this.bbtnGridViewRefresh.Caption = "刷新";
+            this.bbtnGridViewRefresh.Glyph = ((System.Drawing.Image)(resources.GetObject("bbtnGridViewRefresh.Glyph")));
+            this.bbtnGridViewRefresh.Id = 1;
+            this.bbtnGridViewRefresh.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbtnGridViewRefresh.LargeGlyph")));
+            this.bbtnGridViewRefresh.Name = "bbtnGridViewRefresh";
+            this.bbtnGridViewRefresh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnGridViewRefresh_ItemClick);
+            // 
+            // bBtnAddJobOrder
+            // 
+            this.bBtnAddJobOrder.Caption = "新增";
+            this.bBtnAddJobOrder.Glyph = ((System.Drawing.Image)(resources.GetObject("bBtnAddJobOrder.Glyph")));
+            this.bBtnAddJobOrder.Id = 2;
+            this.bBtnAddJobOrder.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bBtnAddJobOrder.LargeGlyph")));
+            this.bBtnAddJobOrder.Name = "bBtnAddJobOrder";
+            // 
+            // bBtnDeleteJobOrder
+            // 
+            this.bBtnDeleteJobOrder.Caption = "删除";
+            this.bBtnDeleteJobOrder.Glyph = ((System.Drawing.Image)(resources.GetObject("bBtnDeleteJobOrder.Glyph")));
+            this.bBtnDeleteJobOrder.Id = 3;
+            this.bBtnDeleteJobOrder.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bBtnDeleteJobOrder.LargeGlyph")));
+            this.bBtnDeleteJobOrder.Name = "bBtnDeleteJobOrder";
+            this.bBtnDeleteJobOrder.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bBtnDeleteJobOrder_ItemClick);
+            // 
+            // bBtnSaveJobOrder
+            // 
+            this.bBtnSaveJobOrder.Caption = "保存";
+            this.bBtnSaveJobOrder.Glyph = ((System.Drawing.Image)(resources.GetObject("bBtnSaveJobOrder.Glyph")));
+            this.bBtnSaveJobOrder.Id = 4;
+            this.bBtnSaveJobOrder.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bBtnSaveJobOrder.LargeGlyph")));
+            this.bBtnSaveJobOrder.Name = "bBtnSaveJobOrder";
+            // 
+            // bBtnCancel
+            // 
+            this.bBtnCancel.Caption = "取消";
+            this.bBtnCancel.Glyph = ((System.Drawing.Image)(resources.GetObject("bBtnCancel.Glyph")));
+            this.bBtnCancel.Id = 5;
+            this.bBtnCancel.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bBtnCancel.LargeGlyph")));
+            this.bBtnCancel.Name = "bBtnCancel";
+            // 
+            // bBtnShowFindPanel
+            // 
+            this.bBtnShowFindPanel.Caption = "查找";
+            this.bBtnShowFindPanel.Glyph = ((System.Drawing.Image)(resources.GetObject("bBtnShowFindPanel.Glyph")));
+            this.bBtnShowFindPanel.Id = 11;
+            this.bBtnShowFindPanel.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bBtnShowFindPanel.LargeGlyph")));
+            this.bBtnShowFindPanel.Name = "bBtnShowFindPanel";
+            this.bBtnShowFindPanel.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bBtnShowFindPanel_ItemClick);
             // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup1});
             this.ribbonPage1.Name = "ribbonPage1";
-            this.ribbonPage1.Text = "ribbonPage1";
+            this.ribbonPage1.Text = "派工记录";
             // 
             // ribbonPageGroup1
             // 
-            this.ribbonPageGroup1.ItemLinks.Add(this.btnGridViewRefresh);
+            this.ribbonPageGroup1.ItemLinks.Add(this.bbtnGridViewRefresh);
+            this.ribbonPageGroup1.ItemLinks.Add(this.bBtnShowFindPanel);
+            this.ribbonPageGroup1.ItemLinks.Add(this.bBtnAddJobOrder, true);
+            this.ribbonPageGroup1.ItemLinks.Add(this.bBtnSaveJobOrder);
+            this.ribbonPageGroup1.ItemLinks.Add(this.bBtnDeleteJobOrder);
+            this.ribbonPageGroup1.ItemLinks.Add(this.bBtnCancel);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.Text = "ribbonPageGroup1";
+            this.ribbonPageGroup1.Text = "编辑";
             // 
-            // FrmJobLogging
+            // splitContainerControl1
+            // 
+            this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerControl1.Location = new System.Drawing.Point(0, 274);
+            this.splitContainerControl1.Name = "splitContainerControl1";
+            this.splitContainerControl1.Panel1.Controls.Add(this.groupControl1);
+            this.splitContainerControl1.Panel1.Text = "Panel1";
+            this.splitContainerControl1.Panel2.Controls.Add(this.gridControl1);
+            this.splitContainerControl1.Panel2.Text = "Panel2";
+            this.splitContainerControl1.Size = new System.Drawing.Size(1066, 293);
+            this.splitContainerControl1.SplitterPosition = 149;
+            this.splitContainerControl1.TabIndex = 3;
+            this.splitContainerControl1.Text = "splitContainerControl1";
+            // 
+            // groupControl1
+            // 
+            this.groupControl1.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.groupControl1.AppearanceCaption.ForeColor = System.Drawing.Color.Blue;
+            this.groupControl1.AppearanceCaption.Options.UseFont = true;
+            this.groupControl1.AppearanceCaption.Options.UseForeColor = true;
+            this.groupControl1.Controls.Add(this.lbStaffOut);
+            this.groupControl1.Controls.Add(this.btnNoDispatch);
+            this.groupControl1.Controls.Add(this.dateEdit_StaffOut);
+            this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupControl1.Location = new System.Drawing.Point(0, 0);
+            this.groupControl1.Name = "groupControl1";
+            this.groupControl1.Size = new System.Drawing.Size(149, 293);
+            this.groupControl1.TabIndex = 2;
+            this.groupControl1.Text = "派工统计:";
+            // 
+            // lbStaffOut
+            // 
+            this.lbStaffOut.DisplayMember = "Staff";
+            this.lbStaffOut.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbStaffOut.ImageIndexMember = "imageIndex";
+            this.lbStaffOut.ImageList = this.imageCollection1;
+            this.lbStaffOut.Location = new System.Drawing.Point(2, 65);
+            this.lbStaffOut.Name = "lbStaffOut";
+            this.lbStaffOut.Size = new System.Drawing.Size(145, 226);
+            this.lbStaffOut.TabIndex = 1;
+            this.lbStaffOut.ValueMember = "ID";
+            this.lbStaffOut.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbStaffOut_MouseDoubleClick);
+            // 
+            // imageCollection1
+            // 
+            this.imageCollection1.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imageCollection1.ImageStream")));
+            this.imageCollection1.InsertGalleryImage("status_16x16.png", "images/tasks/status_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/tasks/status_16x16.png"), 0);
+            this.imageCollection1.Images.SetKeyName(0, "status_16x16.png");
+            // 
+            // btnNoDispatch
+            // 
+            this.btnNoDispatch.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnNoDispatch.Location = new System.Drawing.Point(2, 42);
+            this.btnNoDispatch.Name = "btnNoDispatch";
+            this.btnNoDispatch.Size = new System.Drawing.Size(145, 23);
+            this.btnNoDispatch.TabIndex = 2;
+            this.btnNoDispatch.Text = "未派工(0)";
+            this.btnNoDispatch.Click += new System.EventHandler(this.btnNoDispatch_Click);
+            // 
+            // dateEdit_StaffOut
+            // 
+            this.dateEdit_StaffOut.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dateEdit_StaffOut.EditValue = null;
+            this.dateEdit_StaffOut.Location = new System.Drawing.Point(2, 22);
+            this.dateEdit_StaffOut.MenuManager = this.ribbonControl1;
+            this.dateEdit_StaffOut.Name = "dateEdit_StaffOut";
+            this.dateEdit_StaffOut.Properties.AllowFocused = false;
+            this.dateEdit_StaffOut.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit_StaffOut.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit_StaffOut.Properties.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
+            this.dateEdit_StaffOut.Properties.CalendarTimeProperties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
+            this.dateEdit_StaffOut.Size = new System.Drawing.Size(145, 20);
+            this.dateEdit_StaffOut.TabIndex = 3;
+            this.dateEdit_StaffOut.EditValueChanged += new System.EventHandler(this.dateEdit_StaffOut_EditValueChanged);
+            // 
+            // FrmJobOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1066, 567);
-            this.Controls.Add(this.gridControl1);
+            this.Controls.Add(this.splitContainerControl1);
             this.Controls.Add(this.dataLayoutControl1);
             this.Controls.Add(this.ribbonControl1);
-            this.Name = "FrmJobLogging";
+            this.Name = "FrmJobOrder";
             this.Text = "派工记录";
-            this.Load += new System.EventHandler(this.FrmJobLogging_Load);
+            this.Load += new System.EventHandler(this.FrmJobOrder_Load);
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.entityServerModeSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).EndInit();
             this.dataLayoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ResultTextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.jobOrderBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DateDateEdit.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DateDateEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jobOrderBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ServiceTagTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CustomerNameTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ContactTextEdit.Properties)).EndInit();
@@ -906,12 +1048,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.CreateByTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.StaffsTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.IDSpinEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CreateDateDateEdit.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CreateDateDateEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DescriptionTextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MemoTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ModifyByTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ModifyDateTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ResultTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DescriptionTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MemoTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CreateDateDateEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForModifyBy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForModifyDate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
@@ -932,10 +1074,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
+            this.splitContainerControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
+            this.groupControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.lbStaffOut)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit_StaffOut.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit_StaffOut.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -961,7 +1109,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colModifyBy;
         private DevExpress.XtraGrid.Columns.GridColumn colModifyDate;
         private DevExpress.XtraDataLayout.DataLayoutControl dataLayoutControl1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton btnSaveJobOrder;
         private DevExpress.XtraEditors.DateEdit DateDateEdit;
         private DevExpress.XtraEditors.TextEdit ServiceTagTextEdit;
         private DevExpress.XtraEditors.TextEdit CustomerNameTextEdit;
@@ -988,24 +1136,35 @@
         private System.Windows.Forms.BindingSource jobOrderBindingSource;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxValidationProvider1;
-        private DevExpress.XtraEditors.DateEdit CreateDateDateEdit;
-        private DevExpress.XtraEditors.MemoExEdit DescriptionTextEdit;
-        private DevExpress.XtraEditors.MemoExEdit ResultTextEdit;
-        private DevExpress.XtraEditors.MemoExEdit MemoTextEdit;
         private DevExpress.XtraEditors.TextEdit ModifyByTextEdit;
         private DevExpress.XtraEditors.TextEdit ModifyDateTextEdit;
         private DevExpress.XtraLayout.LayoutControlItem ItemForModifyBy;
         private DevExpress.XtraLayout.LayoutControlItem ItemForModifyDate;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup3;
-        private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider dxErrorProvider1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
+        private DevExpress.XtraEditors.SimpleButton btnAddJobOrder;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
-        private DevExpress.XtraEditors.SimpleButton simpleButton3;
+        private DevExpress.XtraEditors.SimpleButton btnCancel;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl1;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
-        private DevExpress.XtraBars.BarButtonItem btnGridViewRefresh;
+        private DevExpress.XtraBars.BarButtonItem bbtnGridViewRefresh;
+        private DevExpress.XtraBars.BarButtonItem bBtnAddJobOrder;
+        private DevExpress.XtraBars.BarButtonItem bBtnDeleteJobOrder;
+        private DevExpress.XtraEditors.TextEdit ResultTextEdit;
+        private DevExpress.XtraEditors.TextEdit DescriptionTextEdit;
+        private DevExpress.XtraEditors.TextEdit MemoTextEdit;
+        private DevExpress.XtraBars.BarButtonItem bBtnSaveJobOrder;
+        private DevExpress.XtraBars.BarButtonItem bBtnCancel;
+        private DevExpress.Data.Linq.EntityServerModeSource entityServerModeSource1;
+        private DevExpress.XtraBars.Alerter.AlertControl alertControl1;
+        private DevExpress.XtraEditors.TextEdit CreateDateDateEdit;
+        private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
+        private DevExpress.XtraEditors.ImageListBoxControl lbStaffOut;
+        private DevExpress.XtraEditors.GroupControl groupControl1;
+        private DevExpress.Utils.ImageCollection imageCollection1;
+        private DevExpress.XtraEditors.SimpleButton btnNoDispatch;
+        private DevExpress.XtraBars.BarButtonItem bBtnShowFindPanel;
+        private DevExpress.XtraEditors.DateEdit dateEdit_StaffOut;
       
 
     }

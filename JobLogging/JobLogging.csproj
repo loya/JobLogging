@@ -39,6 +39,7 @@
     <PlatformTarget>x86</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
@@ -48,6 +49,9 @@
     <PlatformTarget>x86</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\ModelEditor_EditModel_48x48.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.BonusSkins.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -61,10 +65,12 @@
     <Reference Include="DevExpress.XtraGrid.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraPrinting.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
@@ -80,36 +86,107 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\frmAddPermission.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmAddPermission.Designer.cs">
+      <DependentUpon>frmAddPermission.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmNewPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmNewPassword.Designer.cs">
+      <DependentUpon>frmNewPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmShowNoDispatch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmShowNoDispatch.Designer.cs">
+      <DependentUpon>frmShowNoDispatch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JobLoggingModel\Contextt.Share.cs" />
+    <Compile Include="JobLoggingModel\JobLoggingModel.Context1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JobLoggingModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JobLoggingModel\JobLoggingModel1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JobLoggingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JobLoggingModel\JobOrder.cs">
+      <DependentUpon>JobLoggingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JobLoggingModel\Permission.cs">
+      <DependentUpon>JobLoggingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JobLoggingModel\Role.cs">
+      <DependentUpon>JobLoggingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JobLoggingModel\User.cs">
+      <DependentUpon>JobLoggingModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FrmJobLogging.cs">
+    <Compile Include="Forms\FrmJobOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FrmJobLogging.Designer.cs">
-      <DependentUpon>FrmJobLogging.cs</DependentUpon>
+    <Compile Include="Forms\FrmJobOrder.Designer.cs">
+      <DependentUpon>FrmJobOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="JobloggingModel\JobloggingModel.Designer.cs">
+    <Compile Include="JobLoggingModel\JobLoggingModel1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>JobloggingModel.edmx</DependentUpon>
+      <DependentUpon>JobLoggingModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Forms\FrmStaff.cs">
+    <Compile Include="Forms\FrmUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FrmStaff.Designer.cs">
-      <DependentUpon>FrmStaff.cs</DependentUpon>
+    <Compile Include="Forms\FrmUser.Designer.cs">
+      <DependentUpon>FrmUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="SplashScreen1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplashScreen1.Designer.cs">
+      <DependentUpon>SplashScreen1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WaitForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaitForm1.Designer.cs">
+      <DependentUpon>WaitForm1.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\frmAddPermission.resx">
+      <DependentUpon>frmAddPermission.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmNewPassword.resx">
+      <DependentUpon>frmNewPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmShowNoDispatch.resx">
+      <DependentUpon>frmShowNoDispatch.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmJobLogging.resx">
-      <DependentUpon>FrmJobLogging.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FrmJobOrder.resx">
+      <DependentUpon>FrmJobOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -122,24 +199,39 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Forms\FrmStaff.resx">
-      <DependentUpon>FrmStaff.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FrmUser.resx">
+      <DependentUpon>FrmUser.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="App.config" />
-    <EntityDeploy Include="JobloggingModel\JobloggingModel.edmx">
+    <EmbeddedResource Include="SplashScreen1.resx">
+      <DependentUpon>SplashScreen1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaitForm1.resx">
+      <DependentUpon>WaitForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="JobLoggingModel\JobLoggingModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>JobloggingModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>JobLoggingModel1.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="JobloggingModel\JobloggingModel.edmx.diagram">
-      <DependentUpon>JobloggingModel.edmx</DependentUpon>
+    <None Include="JobLoggingModel\JobLoggingModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>JobLoggingModel.Context1.cs</LastGenOutput>
+    </None>
+    <None Include="JobLoggingModel\JobLoggingModel.edmx.diagram">
+      <DependentUpon>JobLoggingModel.edmx</DependentUpon>
+    </None>
+    <None Include="JobLoggingModel\JobLoggingModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>JobLoggingModel1.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
-    <None Include="Properties\DataSources\JobLogging.JobloggingModel.JobloggingModelContainer.datasource" />
-    <None Include="Properties\DataSources\JobLogging.JobloggingModel.JobOrder.datasource" />
-    <None Include="Properties\DataSources\JobLogging.JobloggingModel.Permission.datasource" />
-    <None Include="Properties\DataSources\JobLogging.JobloggingModel.Role.datasource" />
-    <None Include="Properties\DataSources\JobLogging.JobloggingModel.Staff.datasource" />
-    <None Include="Properties\DataSources\JobLogging.JobloggingModel.User.datasource" />
+    <None Include="Properties\DataSources\JobLogging.JobLoggingModel.JobLoggingModelContainer.datasource" />
+    <None Include="Properties\DataSources\JobLogging.JobLoggingModel.JobOrder.datasource" />
+    <None Include="Properties\DataSources\JobLogging.JobLoggingModel.Permission.datasource" />
+    <None Include="Properties\DataSources\JobLogging.JobLoggingModel.Role.datasource" />
+    <None Include="Properties\DataSources\JobLogging.JobLoggingModel.User.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -154,11 +246,12 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="JobloggingModel\JobloggingModel.edmx.sql" />
+    <Content Include="JobLoggingModel\JobloggingModel.edmx.sql" />
+    <None Include="Resources\jumplist_useronline.ico" />
+    <Content Include="Resources\BO_Security.ico" />
+    <Content Include="Resources\ModelEditor_EditModel_48x48.ico" />
   </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
