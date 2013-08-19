@@ -164,7 +164,7 @@
           <Property Type="String" Name="Name" Nullable="false" MaxLength="10" Unicode="true" FixedLength="false" />
           <Property Type="String" Name="LoginName" Nullable="false" Unicode="true" MaxLength="20" FixedLength="false" />
           <Property Type="String" Name="Password" MaxLength="20" Unicode="true" FixedLength="false" />
-          <Property Type="String" Name="Skin" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Type="String" Name="Skin" Unicode="true" FixedLength="false" MaxLength="50" />
           <NavigationProperty Name="Role" Relationship="JobLoggingModel.RoleUser" FromRole="User" ToRole="Role" />
           <Property Type="Int32" Name="RoleID" Nullable="false" />
           <Property Type="Int32" Name="Sort" />

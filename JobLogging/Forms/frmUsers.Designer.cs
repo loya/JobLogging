@@ -1,6 +1,6 @@
 ﻿namespace JobLogging.Forms
 {
-    partial class FrmUsers
+    partial class frmUsers
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmUsers));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUsers));
             this.usersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.roleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.alertControl1 = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
@@ -65,10 +65,12 @@
             this.bBtnAddPermission = new DevExpress.XtraBars.BarButtonItem();
             this.bBtnEditPermission = new DevExpress.XtraBars.BarButtonItem();
             this.bBtnDeletePermission = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
             this.lbRole = new DevExpress.XtraEditors.ListBoxControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
@@ -447,9 +449,10 @@
             this.barButtonItem4,
             this.bBtnAddPermission,
             this.bBtnEditPermission,
-            this.bBtnDeletePermission});
+            this.bBtnDeletePermission,
+            this.barButtonItem1});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 10;
+            this.ribbonControl1.MaxItemId = 12;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
@@ -517,12 +520,22 @@
             this.bBtnDeletePermission.Name = "bBtnDeletePermission";
             this.bBtnDeletePermission.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bBtnDeletePermission_ItemClick);
             // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "重置\r\n角色和权限";
+            this.barButtonItem1.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.Glyph")));
+            this.barButtonItem1.Id = 11;
+            this.barButtonItem1.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.LargeGlyph")));
+            this.barButtonItem1.Name = "barButtonItem1";
+            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup1,
             this.ribbonPageGroup2,
-            this.ribbonPageGroup3});
+            this.ribbonPageGroup3,
+            this.ribbonPageGroup4});
             this.ribbonPage1.Name = "ribbonPage1";
             this.ribbonPage1.Text = "系统设置";
             // 
@@ -548,7 +561,15 @@
             this.ribbonPageGroup3.ItemLinks.Add(this.bBtnEditPermission);
             this.ribbonPageGroup3.ItemLinks.Add(this.bBtnDeletePermission);
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
+            this.ribbonPageGroup3.ShowCaptionButton = false;
             this.ribbonPageGroup3.Text = "权限列表管理";
+            // 
+            // ribbonPageGroup4
+            // 
+            this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem1);
+            this.ribbonPageGroup4.Name = "ribbonPageGroup4";
+            this.ribbonPageGroup4.ShowCaptionButton = false;
+            this.ribbonPageGroup4.Text = "重置";
             // 
             // groupControl3
             // 
@@ -776,17 +797,18 @@
             this.popupMenu1.Name = "popupMenu1";
             this.popupMenu1.Ribbon = this.ribbonControl1;
             // 
-            // FrmUsers
+            // frmUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(940, 484);
             this.Controls.Add(this.layoutControl1);
             this.Controls.Add(this.ribbonControl1);
-            this.Name = "FrmUsers";
+            this.Name = "frmUsers";
             this.Tag = "StaffForm";
             this.Text = "用户角色管理";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmStaff_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmUsers_FormClosed);
             this.Load += new System.EventHandler(this.FrmStaff_Load);
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleBindingSource)).EndInit();
@@ -894,6 +916,8 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
         private DevExpress.XtraGrid.Columns.GridColumn colLoginName;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit_password;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
 
 
     }

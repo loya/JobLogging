@@ -15,14 +15,14 @@ namespace JobLogging.Forms
     public partial class frmAddPermission : DevExpress.XtraEditors.XtraForm
     {
         private readonly JobLoggingModelContainer _context;
-        private readonly Permission _parentPermission;
+        private readonly Permission _selectedPermission;
         private readonly bool _isEdit;
 
         public frmAddPermission(JobLoggingModelContainer context,Permission parentPermission,bool isEdit=false)
         {
             InitializeComponent();
             _context = context;
-            _parentPermission=parentPermission;
+            _selectedPermission=parentPermission;
             _isEdit = isEdit;
         }
 
@@ -32,6 +32,7 @@ namespace JobLogging.Forms
             if (_isEdit)
             {
                 chkRootNode.Visible = false;
+                txtPromissionName.Text = _selectedPermission.Name;
             }
         }
 
@@ -59,7 +60,8 @@ namespace JobLogging.Forms
 
             if (_isEdit)
             {
-                _parentPermission.Name = txtPromissionName.Text;}
+                _selectedPermission.Name = txtPromissionName.Text;
+            }
             else
             {
                 if (chkRootNode.Checked)
@@ -68,7 +70,7 @@ namespace JobLogging.Forms
                 }
                 else
                 {
-                    _parentPermission.ChildPermissions.Add(new Permission {Name = txtPromissionName.Text});
+                    _selectedPermission.ChildPermissions.Add(new Permission {Name = txtPromissionName.Text});
                 }
             }
             _context.SaveChanges();

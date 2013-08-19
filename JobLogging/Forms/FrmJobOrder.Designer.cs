@@ -213,6 +213,7 @@
             this.gridView1.GroupRowHeight = 28;
             this.gridView1.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Count, "ID", null, "")});
+            this.gridView1.IndicatorWidth = 60;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
             this.gridView1.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.True;
@@ -223,6 +224,7 @@
             this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridView1.OptionsView.GroupDrawMode = DevExpress.XtraGrid.Views.Grid.GroupDrawMode.Office;
             this.gridView1.OptionsView.RowAutoHeight = true;
+            this.gridView1.OptionsView.ShowFooter = true;
             this.gridView1.OptionsView.ShowGroupedColumns = true;
             this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.OptionsView.ShowVerticalLines = DevExpress.Utils.DefaultBoolean.True;
@@ -240,6 +242,8 @@
             // 
             this.colID.FieldName = "ID";
             this.colID.Name = "colID";
+            this.colID.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "ID", "总计：{0}")});
             this.colID.Visible = true;
             this.colID.VisibleIndex = 0;
             // 
@@ -825,7 +829,8 @@
             this.layoutControlItem2.Control = this.btnAddJobOrder;
             this.layoutControlItem2.CustomizationFormText = "layoutControlItem2";
             this.layoutControlItem2.Location = new System.Drawing.Point(760, 72);
-            this.layoutControlItem2.MinSize = new System.Drawing.Size(111, 36);
+            this.layoutControlItem2.MaxSize = new System.Drawing.Size(111, 37);
+            this.layoutControlItem2.MinSize = new System.Drawing.Size(111, 37);
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(111, 37);
             this.layoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;

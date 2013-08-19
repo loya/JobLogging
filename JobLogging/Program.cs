@@ -37,6 +37,26 @@ namespace JobLogging
         {
             return CurrentLoginUser.Role.Permissions.Any(p => p.Name == permissionName);
         }
+
+        public static string ConnectionString()
+        {
+            var symmetricMethod =new  Common.SymmetricMethod();
+            var dataSource = Properties.Settings.Default.DataSource;
+            var userID = symmetricMethod.DecryptoData(Properties.Settings.Default.UserID);
+            var password = symmetricMethod.DecryptoData(Properties.Settings.Default.Password);
+            return  ConnectionString(dataSource, userID, password);
+        }
+
+        public static string ConnectionString(string dataSource,string userID, string password)
+        {
+            var result =
+                "metadata=res://*/JobLoggingModel.JobLoggingModel.csdl|res://*/JobLoggingModel.JobLoggingModel.ssdl|res://*/JobLoggingModel.JobLoggingModel.msl;" +
+                "provider=System.Data.SqlClient;" +
+                "provider connection string=\"" +
+                string.Format("data source={0};initial catalog=JobLogging;user id={1};pwd={2};", dataSource, userID, password) +
+                "multipleactiveresultsets=True;application name=EntityFramework\";";
+            return result;
+        }
     }
 
 

@@ -37,7 +37,7 @@
             this.bBtnReLogin = new DevExpress.XtraBars.BarButtonItem();
             this.bBtnExit = new DevExpress.XtraBars.BarButtonItem();
             this.bBtnShowUserManageForm = new DevExpress.XtraBars.BarButtonItem();
-            this.btnShowFrmJobLogging = new DevExpress.XtraBars.BarButtonItem();
+            this.bBtnShowFrmJobLogging = new DevExpress.XtraBars.BarButtonItem();
             this.skinGalleryBarItem = new DevExpress.XtraBars.RibbonGalleryBarItem();
             this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
             this.bBtnChangePassword = new DevExpress.XtraBars.BarButtonItem();
@@ -67,13 +67,13 @@
             // ribbonControl1
             // 
             this.ribbonControl1.ApplicationButtonDropDownControl = this.applicationMenu1;
-            this.ribbonControl1.ApplicationCaption = "出勤记录系统";
+            this.ribbonControl1.ApplicationCaption = "派工记录";
             this.ribbonControl1.ApplicationIcon = global::JobLogging.Properties.Resources.ModelEditor_EditModel_48x48;
             this.ribbonControl1.ExpandCollapseItem.Id = 0;
             this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonControl1.ExpandCollapseItem,
             this.bBtnShowUserManageForm,
-            this.btnShowFrmJobLogging,
+            this.bBtnShowFrmJobLogging,
             this.skinGalleryBarItem,
             this.bBtnReLogin,
             this.bBtnExit,
@@ -132,16 +132,16 @@
             this.bBtnShowUserManageForm.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bBtnShowUserManageForm.LargeGlyph")));
             this.bBtnShowUserManageForm.LargeGlyphDisabled = ((System.Drawing.Image)(resources.GetObject("bBtnShowUserManageForm.LargeGlyphDisabled")));
             this.bBtnShowUserManageForm.Name = "bBtnShowUserManageForm";
-            this.bBtnShowUserManageForm.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnShowStaffForm_ItemClick);
+            this.bBtnShowUserManageForm.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bBtnShowfrmUser_ItemClick);
             // 
-            // btnShowFrmJobLogging
+            // bBtnShowFrmJobLogging
             // 
-            this.btnShowFrmJobLogging.Caption = "派工记录";
-            this.btnShowFrmJobLogging.Glyph = ((System.Drawing.Image)(resources.GetObject("btnShowFrmJobLogging.Glyph")));
-            this.btnShowFrmJobLogging.Id = 2;
-            this.btnShowFrmJobLogging.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnShowFrmJobLogging.LargeGlyph")));
-            this.btnShowFrmJobLogging.Name = "btnShowFrmJobLogging";
-            this.btnShowFrmJobLogging.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnShowFrmJobLogging_ItemClick);
+            this.bBtnShowFrmJobLogging.Caption = "派工记录";
+            this.bBtnShowFrmJobLogging.Glyph = ((System.Drawing.Image)(resources.GetObject("bBtnShowFrmJobLogging.Glyph")));
+            this.bBtnShowFrmJobLogging.Id = 2;
+            this.bBtnShowFrmJobLogging.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bBtnShowFrmJobLogging.LargeGlyph")));
+            this.bBtnShowFrmJobLogging.Name = "bBtnShowFrmJobLogging";
+            this.bBtnShowFrmJobLogging.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bBtnShowFrmJobLogging_ItemClick);
             // 
             // skinGalleryBarItem
             // 
@@ -173,7 +173,6 @@
             // 
             // barStaticItem_StatusBar_UserInfo
             // 
-            this.barStaticItem_StatusBar_UserInfo.Caption = "barStaticItem0\r\n";
             this.barStaticItem_StatusBar_UserInfo.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
             this.barStaticItem_StatusBar_UserInfo.Glyph = global::JobLogging.Properties.Resources.jumplist_useronline;
             this.barStaticItem_StatusBar_UserInfo.Id = 3;
@@ -193,7 +192,7 @@
             // 
             // ribbonPageGroup2
             // 
-            this.ribbonPageGroup2.ItemLinks.Add(this.btnShowFrmJobLogging);
+            this.ribbonPageGroup2.ItemLinks.Add(this.bBtnShowFrmJobLogging);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.ShowCaptionButton = false;
             // 
@@ -275,7 +274,8 @@
             this.Ribbon = this.ribbonControl1;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.StatusBar = this.ribbonStatusBar1;
-            this.Text = "派工记录系统";
+            this.Text = "派工记录";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.applicationMenu1)).EndInit();
@@ -300,7 +300,7 @@
         private DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView tabbedView1;
         private DevExpress.LookAndFeel.DefaultLookAndFeel defaultLookAndFeel1;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
-        private DevExpress.XtraBars.BarButtonItem btnShowFrmJobLogging;
+        private DevExpress.XtraBars.BarButtonItem bBtnShowFrmJobLogging;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
         private DevExpress.XtraBars.RibbonGalleryBarItem skinGalleryBarItem;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;

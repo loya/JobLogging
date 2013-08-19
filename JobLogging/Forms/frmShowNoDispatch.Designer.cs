@@ -49,6 +49,7 @@
             this.colModifyDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnOk = new DevExpress.XtraEditors.SimpleButton();
             this.btanCancel = new DevExpress.XtraEditors.SimpleButton();
+            this.btnDeleteSelected = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jobOrderBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -66,7 +67,7 @@
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckedComboBoxEdit_Staff});
-            this.gridControl1.Size = new System.Drawing.Size(1073, 370);
+            this.gridControl1.Size = new System.Drawing.Size(1073, 439);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -112,6 +113,7 @@
             this.gridView1.OptionsBehavior.AutoExpandAllGroups = true;
             this.gridView1.OptionsCustomization.AllowRowSizing = true;
             this.gridView1.OptionsSelection.InvertSelection = true;
+            this.gridView1.OptionsSelection.MultiSelect = true;
             this.gridView1.OptionsView.GroupDrawMode = DevExpress.XtraGrid.Views.Grid.GroupDrawMode.Office;
             this.gridView1.OptionsView.RowAutoHeight = true;
             this.gridView1.OptionsView.ShowGroupedColumns = true;
@@ -273,7 +275,7 @@
             // 
             this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOk.Location = new System.Drawing.Point(905, 377);
+            this.btnOk.Location = new System.Drawing.Point(824, 446);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
             this.btnOk.TabIndex = 1;
@@ -284,12 +286,22 @@
             // 
             this.btanCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btanCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btanCancel.Location = new System.Drawing.Point(986, 377);
+            this.btanCancel.Location = new System.Drawing.Point(986, 446);
             this.btanCancel.Name = "btanCancel";
             this.btanCancel.Size = new System.Drawing.Size(75, 23);
             this.btanCancel.TabIndex = 2;
             this.btanCancel.Text = "取消";
             this.btanCancel.Click += new System.EventHandler(this.btanCancel_Click);
+            // 
+            // btnDeleteSelected
+            // 
+            this.btnDeleteSelected.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDeleteSelected.Location = new System.Drawing.Point(905, 446);
+            this.btnDeleteSelected.Name = "btnDeleteSelected";
+            this.btnDeleteSelected.Size = new System.Drawing.Size(75, 23);
+            this.btnDeleteSelected.TabIndex = 3;
+            this.btnDeleteSelected.Text = "删 选";
+            this.btnDeleteSelected.Click += new System.EventHandler(this.btnDeleteSelected_Click);
             // 
             // frmShowNoDispatch
             // 
@@ -297,7 +309,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btanCancel;
-            this.ClientSize = new System.Drawing.Size(1073, 407);
+            this.ClientSize = new System.Drawing.Size(1073, 476);
+            this.Controls.Add(this.btnDeleteSelected);
             this.Controls.Add(this.btanCancel);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.gridControl1);
@@ -306,6 +319,8 @@
             this.Name = "frmShowNoDispatch";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "未派工列表";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmShowNoDispatch_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmShowNoDispatch_FormClosed);
             this.Load += new System.EventHandler(this.frmShowNoDispatch_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.jobOrderBindingSource)).EndInit();
@@ -337,5 +352,6 @@
         private DevExpress.XtraEditors.SimpleButton btnOk;
         private DevExpress.XtraEditors.SimpleButton btanCancel;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckedComboBoxEdit repositoryItemCheckedComboBoxEdit_Staff;
+        private DevExpress.XtraEditors.SimpleButton btnDeleteSelected;
     }
 }

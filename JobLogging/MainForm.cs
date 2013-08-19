@@ -41,12 +41,12 @@ namespace JobLogging
             SkinHelper.InitSkinGallery(skinGalleryBarItem, true);
             //UserLookAndFeel.Default.SetSkinStyle("Caramel");
             //defaultLookAndFeel1.LookAndFeel.SkinName = "焦糖";
-            defaultLookAndFeel1.LookAndFeel.SetSkinStyle("Caramel");
+            defaultLookAndFeel1.LookAndFeel.SetSkinStyle(GlobalParams.CurrentLoginUser.Skin);
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            btnShowFrmJobLogging.PerformClick();
+            bBtnShowFrmJobLogging.PerformClick();
             InitUserRelated();
         }
 
@@ -58,13 +58,14 @@ namespace JobLogging
             bBtnShowUserManageForm.Enabled = GlobalParams.HasPermission("用户角色管理");
         }
 
-        private void btnShowStaffForm_ItemClick(object sender, ItemClickEventArgs e)
-        {SplashScreenManager.ShowForm(typeof(WaitForm1));
-            OpenMdiForm<FrmUsers>("用户角色管理", "系统设置");
+        private void bBtnShowfrmUser_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            SplashScreenManager.ShowForm(typeof(WaitForm1));
+            OpenMdiForm<frmUsers>("用户角色管理", "系统设置");
             SplashScreenManager.CloseForm();
         }
 
-        private void OpenMdiForm<T>(string caption, string ribbonPageCaption) where T : Form
+        public void OpenMdiForm<T>(string caption, string ribbonPageCaption) where T : Form
         {
             var doc = documentManager1.View.Documents.FirstOrDefault(t => t.Caption == caption);
             if (doc != null)
@@ -78,18 +79,25 @@ namespace JobLogging
             form.Text = caption;
             form.Show();
             doc = documentManager1.View.Documents.FirstOrDefault(t => t.Caption == caption);
+           
             doc.Tag = ribbonPageCaption;
+            ribbonControl1.SelectedPage = ribbonControl1.Pages[ribbonPageCaption];
         }
 
 
-        private void btnShowFrmJobLogging_ItemClick(object sender, ItemClickEventArgs e)
+        private void bBtnShowFrmJobLogging_ItemClick(object sender, ItemClickEventArgs e)
         {
             OpenMdiForm<FrmJobOrder>("派工记录", "派工记录");
         }
 
         private void skinGalleryBarItem_GalleryItemClick(object sender, GalleryItemClickEventArgs e)
         {
-            XtraMessageBox.Show(e.Item.Tag.ToString());
+            using (var context=new JobLoggingModelContainer())
+            {
+                context.Users.Attach(GlobalParams.CurrentLoginUser);
+                GlobalParams.CurrentLoginUser.Skin = e.Item.Tag.ToString();
+                context.SaveChanges();
+            }
         }
 
         private void bBtnExit_ItemClick(object sender, ItemClickEventArgs e)
@@ -125,6 +133,7 @@ namespace JobLogging
             GlobalParams.CurrentLoginUser = frm.LoginUser;
             InitUserRelated();
             Show();
+            bBtnShowFrmJobLogging.PerformClick();
             frm.Dispose();
         }
     }

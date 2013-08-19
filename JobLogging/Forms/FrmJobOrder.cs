@@ -75,12 +75,10 @@ namespace JobLogging.Forms
 
         private void gridView1_CustomDrawRowIndicator(object sender, RowIndicatorCustomDrawEventArgs e)
         {
-            if (e.Info.IsRowIndicator)
+            if (e.Info.IsRowIndicator && e.RowHandle >= 0)
             {
-                if (e.RowHandle >= 0)
-                {
-                    e.Info.DisplayText = (e.RowHandle + 1).ToString();
-                }
+                e.Info.DisplayText = (e.RowHandle + 1).ToString();
+                //this.gridView1.IndicatorWidth = Convert.ToInt32(e.Info.DisplayText.Length * e.Info.Appearance.Font.SizeInPoints);
             }
         }
 

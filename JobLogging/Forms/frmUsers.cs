@@ -14,13 +14,13 @@ using JobLogging.JobLoggingModel;
 
 namespace JobLogging.Forms
 {
-    public partial class FrmUsers : DevExpress.XtraEditors.XtraForm
+    public partial class frmUsers : DevExpress.XtraEditors.XtraForm
     {
         bool _isRolePermissionChanged;
         private AlertInfo _alertInfo;
         private JobLoggingModelContainer _context;
 
-        public FrmUsers()
+        public frmUsers()
         {
             InitializeComponent();
             _alertInfo = new AlertInfo("提示：", "数据已保存！", sharedImageCollection1.ImageSource.Images[0]);
@@ -326,15 +326,15 @@ namespace JobLogging.Forms
             //todo 取消权限修改
 
             InitDataBind();
-            InitTlPermission();
+            InitTreeListPermission();
         }
 
         private void lbRole_SelectedIndexChanged(object sender, EventArgs e)
         {
-            InitTlPermission();
+            InitTreeListPermission();
         }
 
-        private void InitTlPermission()
+        private void InitTreeListPermission()
         {
             var role = lbRole.SelectedItem as Role;
 
@@ -459,6 +459,10 @@ namespace JobLogging.Forms
             if (XtraMessageBox.Show("是否删除当前的权限？", "提示", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 var permission = (Permission)tlPermission.GetDataRecordByNode(tlPermission.FocusedNode);
+                foreach (var role in permission.Roles)
+                {
+                    role.Permissions.Remove(permission);
+                }
                 RemovePermission(permission);
                 _context.SaveChanges();
             }
@@ -486,6 +490,25 @@ namespace JobLogging.Forms
             gridView1.SetRowCellValue(e.RowHandle, colSkin, "Camacel");
             gridView1.SetRowCellValue(e.RowHandle, colSort, 0);
             gridView1.SetRowCellValue(e.RowHandle, colPassword, "");
+        }
+
+        private void FrmUsers_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _context.Dispose();
+        }
+
+        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (XtraMessageBox.Show("确定要重置角色和权限数据吗？", "警告", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.Cancel)
+            {
+                return;
+            }
+            new Common.Database().ReInitRoleAndPermission();
+            XtraMessageBox.Show("角色和权限数据已重新生成,本窗口将重新打开！");
+            var MdiParent = this.MdiParent;
+            Close();
+
+            ((MainForm)MdiParent).OpenMdiForm<frmUsers>("用户角色管理", "系统设置");
         }
     }
 }
