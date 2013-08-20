@@ -29,16 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmJobOrder));
+            this.colStaffs = new DevExpress.XtraGrid.Columns.GridColumn();
             this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.entityInstantFeedbackSource1 = new DevExpress.Data.Linq.EntityInstantFeedbackSource();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDate = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colStaffs = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colServiceTag = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCustomerName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colContact = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -161,6 +162,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_StaffOut.Properties)).BeginInit();
             this.SuspendLayout();
             // 
+            // colStaffs
+            // 
+            this.colStaffs.Caption = "派工";
+            this.colStaffs.FieldName = "Staffs";
+            this.colStaffs.Name = "colStaffs";
+            this.colStaffs.Visible = true;
+            this.colStaffs.VisibleIndex = 2;
+            // 
             // userBindingSource
             // 
             this.userBindingSource.DataSource = typeof(JobLogging.JobLoggingModel.User);
@@ -207,6 +216,15 @@
             this.colCreateDate,
             this.colModifyBy,
             this.colModifyDate});
+            styleFormatCondition1.Appearance.ForeColor = System.Drawing.Color.Red;
+            styleFormatCondition1.Appearance.Options.UseForeColor = true;
+            styleFormatCondition1.ApplyToRow = true;
+            styleFormatCondition1.Column = this.colStaffs;
+            styleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.Expression;
+            styleFormatCondition1.Expression = "[Staffs]==null || [Staffs]==\'\'";
+            styleFormatCondition1.Value1 = "";
+            this.gridView1.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
+            styleFormatCondition1});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.GroupCount = 1;
             this.gridView1.GroupFormat = "[#image]{1} {2}";
@@ -232,8 +250,6 @@
             this.gridView1.RowHeight = 28;
             this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colDate, DevExpress.Data.ColumnSortOrder.Descending)});
-            this.gridView1.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gridView1_RowClick);
-            this.gridView1.RowCellClick += new DevExpress.XtraGrid.Views.Grid.RowCellClickEventHandler(this.gridView1_RowCellClick);
             this.gridView1.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridView1_CustomDrawRowIndicator);
             this.gridView1.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView1_FocusedRowChanged);
             this.gridView1.AsyncCompleted += new System.EventHandler(this.gridView1_AsyncCompleted);
@@ -255,14 +271,6 @@
             this.colDate.Name = "colDate";
             this.colDate.Visible = true;
             this.colDate.VisibleIndex = 1;
-            // 
-            // colStaffs
-            // 
-            this.colStaffs.Caption = "派工";
-            this.colStaffs.FieldName = "Staffs";
-            this.colStaffs.Name = "colStaffs";
-            this.colStaffs.Visible = true;
-            this.colStaffs.VisibleIndex = 2;
             // 
             // colServiceTag
             // 
@@ -332,6 +340,8 @@
             // colCreateDate
             // 
             this.colCreateDate.Caption = "创建时间";
+            this.colCreateDate.DisplayFormat.FormatString = "f";
+            this.colCreateDate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colCreateDate.FieldName = "CreateDate";
             this.colCreateDate.Name = "colCreateDate";
             this.colCreateDate.OptionsColumn.AllowEdit = false;
@@ -350,6 +360,8 @@
             // colModifyDate
             // 
             this.colModifyDate.Caption = "修改时间";
+            this.colModifyDate.DisplayFormat.FormatString = "f";
+            this.colModifyDate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colModifyDate.FieldName = "ModifyDate";
             this.colModifyDate.Name = "colModifyDate";
             this.colModifyDate.OptionsColumn.AllowEdit = false;
@@ -949,6 +961,10 @@
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "编辑";
             // 
+            // alertControl1
+            // 
+            this.alertControl1.AutoFormDelay = 3000;
+            // 
             // splitContainerControl1
             // 
             this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1000,6 +1016,7 @@
             // 
             // btnNoDispatch
             // 
+            this.btnNoDispatch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnNoDispatch.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnNoDispatch.Location = new System.Drawing.Point(2, 42);
             this.btnNoDispatch.Name = "btnNoDispatch";
@@ -1036,6 +1053,7 @@
             this.Controls.Add(this.ribbonControl1);
             this.Name = "FrmJobOrder";
             this.Text = "派工记录";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmJobOrder_FormClosing);
             this.Load += new System.EventHandler(this.FrmJobOrder_Load);
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();

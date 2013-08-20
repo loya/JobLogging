@@ -27,7 +27,8 @@ namespace JobLogging.Forms
             try
             {
                 SplashScreenManager.ShowForm(typeof(WaitForm1));
-                var l = context.Roles.ToList();
+                if (!context.Roles.Any())
+                    new Common.Database().ReInitRoleAndPermission();
                 var symmetricMethod = new Common.SymmetricMethod();
                 
                 Properties.Settings.Default.DataSource = txtDataSource.Text;

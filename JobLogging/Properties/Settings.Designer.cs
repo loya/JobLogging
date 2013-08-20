@@ -29,7 +29,7 @@ namespace JobLogging.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Configuration.SettingsDescriptionAttribute("服务器ip")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("127.0.01")]
+        [global::System.Configuration.DefaultSettingValueAttribute("loya\\sqlexpress")]
         public string DataSource {
             get {
                 return ((string)(this["DataSource"]));

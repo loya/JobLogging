@@ -36,7 +36,7 @@
     <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="10" />
     <Property Name="LoginName" Type="nvarchar" Nullable="false" MaxLength="20" />
     <Property Name="Password" Type="nvarchar" Nullable="true" MaxLength="20" />
-    <Property Name="Skin" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="Skin" Type="nvarchar" Nullable="true" MaxLength="50" />
     <Property Name="RoleID" Type="int" Nullable="false" />
     <Property Name="Sort" Type="int" Nullable="true" />
     <Property Name="IsDuty" Type="bit" Nullable="true" />

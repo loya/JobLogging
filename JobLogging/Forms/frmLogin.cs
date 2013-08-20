@@ -52,6 +52,10 @@ namespace JobLogging.Forms
                 XtraMessageBox.Show("用户名或密码错误！");
                 txtLoginName.Focus();
             }
+            else if (!_loginUser.IsActivate)
+            {
+                XtraMessageBox.Show("用户名无效！");
+            }
             else
             {
                 DialogResult = DialogResult.OK;

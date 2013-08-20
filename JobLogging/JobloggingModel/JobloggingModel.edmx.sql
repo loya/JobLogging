@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 08/12/2013 17:56:22
+-- Date Created: 08/19/2013 12:27:11
 -- Generated from EDMX file: D:\Users\霜与火の协奏\Documents\Visual Studio 2012\Projects\JobLogging\JobLogging\JobLoggingModel\JobLoggingModel.edmx
 -- --------------------------------------------------
 
@@ -60,7 +60,7 @@ CREATE TABLE [dbo].[Users] (
     [Name] nvarchar(10)  NOT NULL,
     [LoginName] nvarchar(20)  NOT NULL,
     [Password] nvarchar(20)  NULL,
-    [Skin] nvarchar(20)  NULL,
+    [Skin] nvarchar(50)  NULL,
     [RoleID] int  NOT NULL,
     [Sort] int  NULL,
     [IsDuty] bit  NULL,

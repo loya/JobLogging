@@ -20,6 +20,14 @@
       <property name="ColumnEditName" />
       <property name="Name">colID</property>
       <property name="FieldName">ID</property>
+      <property name="Summary" iskey="true" value="1">
+        <property name="Item1" isnull="true" iskey="true">
+          <property name="FieldName">ID</property>
+          <property name="Tag" isnull="true" />
+          <property name="DisplayFormat">总计：{0}</property>
+          <property name="SummaryType">Count</property>
+        </property>
+      </property>
     </property>
     <property name="Item2" isnull="true" iskey="true">
       <property name="GroupInterval">DateRange</property>
@@ -106,6 +114,10 @@
       <property name="FieldName">CreateBy</property>
     </property>
     <property name="Item12" isnull="true" iskey="true">
+      <property name="DisplayFormat" isnull="true" iskey="true">
+        <property name="FormatString">f</property>
+        <property name="FormatType">DateTime</property>
+      </property>
       <property name="Visible">true</property>
       <property name="VisibleIndex">11</property>
       <property name="ColumnEditName" />
@@ -128,6 +140,10 @@
       <property name="FieldName">ModifyBy</property>
     </property>
     <property name="Item14" isnull="true" iskey="true">
+      <property name="DisplayFormat" isnull="true" iskey="true">
+        <property name="FormatString">f</property>
+        <property name="FormatType">DateTime</property>
+      </property>
       <property name="Visible">true</property>
       <property name="VisibleIndex">13</property>
       <property name="ColumnEditName" />
@@ -152,6 +168,7 @@
     <property name="AllowDeleteRows">True</property>
     <property name="Editable">false</property>
     <property name="AllowIncrementalSearch">true</property>
+    <property name="AllowFixedGroups">True</property>
   </property>
   <property name="OptionsCustomization" isnull="true" iskey="true">
     <property name="AllowRowSizing">true</property>
@@ -161,7 +178,7 @@
     <property name="EnableAppearanceFocusedCell">false</property>
   </property>
   <property name="GroupFormat">[#image]{1} {2}</property>
-  <property name="IndicatorWidth">-1</property>
+  <property name="IndicatorWidth">60</property>
   <property name="Appearance" isnull="true" iskey="true">
     <property name="HeaderPanel" iskey="true" value="HeaderPanel">
       <property name="Options" isnull="true" iskey="true">
@@ -186,7 +203,9 @@
     <property name="ShowVerticalLines">True</property>
     <property name="ShowGroupPanel">false</property>
     <property name="ShowGroupedColumns">true</property>
+    <property name="ShowFooter">true</property>
     <property name="GroupDrawMode">Office</property>
+    <property name="WaitAnimationOptions">Panel</property>
     <property name="RowAutoHeight">true</property>
   </property>
   <property name="RowHeight">28</property>

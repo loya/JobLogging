@@ -18,7 +18,11 @@ namespace JobLogging
             //SplashScreenManager.ShowForm(typeof (SplashScreen1));
             
             var frm=new Forms.frmLogin();
-            frm.ShowDialog();
+            var dialogResult=frm.ShowDialog();
+            if (dialogResult== DialogResult.Cancel)
+            {
+                return;
+            }
             if (frm.LoginUser == null)
             {
                 return;
