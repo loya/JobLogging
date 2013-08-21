@@ -49,6 +49,7 @@
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="Appointment" Type="datetime" Nullable="true" />
     <Property Name="Staffs" Type="nvarchar(max)" Nullable="true" />
     <Property Name="ServiceTag" Type="nvarchar(max)" Nullable="true" />
     <Property Name="CustomerName" Type="nvarchar" Nullable="true" MaxLength="30" />
@@ -178,6 +179,7 @@
           </Key>
           <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="DateTime" Name="Date" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="Appointment" />
           <Property Type="String" Name="Staffs" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Type="String" Name="ServiceTag" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Type="String" Name="CustomerName" MaxLength="30" Unicode="true" FixedLength="false" />
@@ -267,6 +269,7 @@
         <MappingFragment StoreEntitySet="JobOrders">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Appointment" ColumnName="Appointment" />
           <ScalarProperty Name="Staffs" ColumnName="Staffs" />
           <ScalarProperty Name="ServiceTag" ColumnName="ServiceTag" />
           <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />

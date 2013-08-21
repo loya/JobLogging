@@ -54,7 +54,9 @@ namespace JobLogging
         public static string ConnectionString(string dataSource,string userID, string password)
         {
             var result =
-                "metadata=res://*/JobLoggingModel.JobLoggingModel.csdl|res://*/JobLoggingModel.JobLoggingModel.ssdl|res://*/JobLoggingModel.JobLoggingModel.msl;" +
+                "metadata=res://*/JobLoggingModel.JobLoggingModel.csdl|" +
+                "res://*/JobLoggingModel.JobLoggingModel.ssdl|" + 
+                "res://*/JobLoggingModel.JobLoggingModel.msl;" +
                 "provider=System.Data.SqlClient;" +
                 "provider connection string=\"" +
                 string.Format("data source={0};initial catalog=JobLogging;user id={1};pwd={2};", dataSource, userID, password) +
@@ -62,6 +64,5 @@ namespace JobLogging
             return result;
         }
     }
-
-
+    
 }

@@ -15,17 +15,41 @@ namespace JobLogging.Forms
     public partial class frmShowNoDispatch : XtraForm
     {
         private readonly JobLoggingModelContainer _context = new JobLoggingModelContainer();
-        public frmShowNoDispatch()
+      
+        public frmShowNoDispatch(bool isAppointment=false)
         {
             InitializeComponent();
             repositoryItemCheckedComboBoxEdit_Staff.DataSource = _context.Users.Where(u => u.IsActivate && u.IsEngineer == true).ToList();
-            _context.JobOrders.Where(j => string.IsNullOrEmpty(j.Staffs)).Load();
+            if (isAppointment)
+            {
+                _context.JobOrders.Where(j => j.Appointment <= DateTime.Now && string.IsNullOrEmpty(j.Staffs)).Load();
+                if (!_context.JobOrders.Local.Any())
+                {
+                    Close();
+                    Dispose();
+                }
+            }
+            else
+            {
+                _context.JobOrders.Where(j => string.IsNullOrEmpty(j.Staffs)).Load();
+            }
             jobOrderBindingSource.DataSource = _context.JobOrders.Local.ToBindingList();
         }
 
         private void frmShowNoDispatch_Load(object sender, EventArgs e)
         {
 
+            if (!GlobalParams.HasPermission("修改派工"))
+            {
+                gridView1.OptionsBehavior.Editable = false;
+                btnOk.Enabled = false;
+            }
+            if (!GlobalParams.HasPermission("删除派工"))
+            {
+                btnDeleteSelected.Enabled = false;
+            }
+
+            gridView1.BestFitColumns();
         }
 
         private void btanCancel_Click(object sender, EventArgs e)
@@ -57,14 +81,11 @@ namespace JobLogging.Forms
             //if (XtraMessageBox.Show("确定要删除选择的记录吗？", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.Cancel)
             //    return;
 
-            var ids = new List<object>();
-            foreach (var rowHandle in gridView1.GetSelectedRows().ToList())
-            {
-                ids.Add(gridView1.GetRowCellValue(rowHandle, colID));
-            }
+            var ids = gridView1.GetSelectedRows().Select(rowHandle => gridView1.GetRowCellValue(rowHandle, colID)).ToList();
             var jobs = _context.JobOrders.Local.Where(j=>ids.Contains(j.ID));
             foreach (var jobOrder in jobs.ToList())
-            {_context.JobOrders.Local.Remove(jobOrder);
+            {
+                _context.JobOrders.Local.Remove(jobOrder);
             }
             
             

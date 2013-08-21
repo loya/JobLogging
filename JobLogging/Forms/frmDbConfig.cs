@@ -1,19 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.Common;
-using System.Data.Entity;
-using System.Drawing;
-using System.Text;
 using System.Linq;
-using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraSplashScreen;
 
 namespace JobLogging.Forms
 {
-    public partial class frmDbConfig : DevExpress.XtraEditors.XtraForm
+    public partial class frmDbConfig : XtraForm
     {
         public frmDbConfig()
         {
@@ -22,8 +14,8 @@ namespace JobLogging.Forms
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            var s = GlobalParams.ConnectionString(txtDataSource.Text, txtUserID.Text, txtPassword.Text);
-            var context = new JobLoggingModel.JobLoggingModelContainer(s);
+            var connectionString = GlobalParams.ConnectionString(txtDataSource.Text, txtUserID.Text, txtPassword.Text);
+            var context = new JobLoggingModel.JobLoggingModelContainer(connectionString);
             try
             {
                 SplashScreenManager.ShowForm(typeof(WaitForm1));
@@ -35,6 +27,7 @@ namespace JobLogging.Forms
                 Properties.Settings.Default.UserID = symmetricMethod.EncryptoData(txtUserID.Text);
                 Properties.Settings.Default.Password = symmetricMethod.EncryptoData(txtPassword.Text);
                 Properties.Settings.Default.Save();
+                DialogResult = System.Windows.Forms.DialogResult.OK;
                 Close();
             }
             catch (Exception exception)

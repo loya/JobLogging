@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 08/19/2013 12:27:11
--- Generated from EDMX file: D:\Users\霜与火の协奏\Documents\Visual Studio 2012\Projects\JobLogging\JobLogging\JobLoggingModel\JobLoggingModel.edmx
+-- Date Created: 08/20/2013 23:59:04
+-- Generated from EDMX file: D:\Users\loya\Documents\Visual Studio 2012\Projects\JobLogging\JobLogging\JobLoggingModel\JobLoggingModel.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -73,6 +73,7 @@ GO
 CREATE TABLE [dbo].[JobOrders] (
     [ID] int IDENTITY(1,1) NOT NULL,
     [Date] datetime  NOT NULL,
+    [Appointment] datetime  NULL,
     [Staffs] nvarchar(max)  NULL,
     [ServiceTag] nvarchar(max)  NULL,
     [CustomerName] nvarchar(30)  NULL,

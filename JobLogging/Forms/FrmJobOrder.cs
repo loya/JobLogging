@@ -140,7 +140,9 @@ namespace JobLogging.Forms
                 gridView1.FocusedRowHandle = _focusedRowHandle;
             }
             gridView1.SetRowExpanded(-1, true);
+
             gridView1.BestFitColumns();
+            gridView1.Columns["Appointment"].Width = gridView1.CalcColumnBestWidth(gridView1.Columns["Appointment"]) + 5;
             gridView1.Columns["Staffs"].Width = gridView1.CalcColumnBestWidth(gridView1.Columns["Staffs"]) + 5;
 
             StaffOutCountDataBind();

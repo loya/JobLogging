@@ -34,6 +34,8 @@
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colAppointment = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemDateEdit_appointment = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.colStaffs = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemCheckedComboBoxEdit_Staff = new DevExpress.XtraEditors.Repository.RepositoryItemCheckedComboBoxEdit();
             this.colServiceTag = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -53,6 +55,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jobOrderBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit_appointment)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit_appointment.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckedComboBoxEdit_Staff)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,8 +70,9 @@
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemCheckedComboBoxEdit_Staff});
-            this.gridControl1.Size = new System.Drawing.Size(1073, 439);
+            this.repositoryItemCheckedComboBoxEdit_Staff,
+            this.repositoryItemDateEdit_appointment});
+            this.gridControl1.Size = new System.Drawing.Size(1184, 524);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -88,6 +93,7 @@
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colID,
             this.colDate,
+            this.colAppointment,
             this.colStaffs,
             this.colServiceTag,
             this.colCustomerName,
@@ -121,7 +127,8 @@
             this.gridView1.OptionsView.ShowVerticalLines = DevExpress.Utils.DefaultBoolean.True;
             this.gridView1.RowHeight = 28;
             this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
-            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colDate, DevExpress.Data.ColumnSortOrder.Descending)});
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colDate, DevExpress.Data.ColumnSortOrder.Descending),
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colModifyDate, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
             // colID
             // 
@@ -143,6 +150,36 @@
             this.colDate.Visible = true;
             this.colDate.VisibleIndex = 1;
             // 
+            // colAppointment
+            // 
+            this.colAppointment.AppearanceCell.ForeColor = System.Drawing.Color.Red;
+            this.colAppointment.AppearanceCell.Options.UseForeColor = true;
+            this.colAppointment.Caption = "预约";
+            this.colAppointment.ColumnEdit = this.repositoryItemDateEdit_appointment;
+            this.colAppointment.DisplayFormat.FormatString = "f";
+            this.colAppointment.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.colAppointment.FieldName = "Appointment";
+            this.colAppointment.Name = "colAppointment";
+            this.colAppointment.Visible = true;
+            this.colAppointment.VisibleIndex = 2;
+            // 
+            // repositoryItemDateEdit_appointment
+            // 
+            this.repositoryItemDateEdit_appointment.AutoHeight = false;
+            this.repositoryItemDateEdit_appointment.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemDateEdit_appointment.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.True;
+            this.repositoryItemDateEdit_appointment.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemDateEdit_appointment.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
+            this.repositoryItemDateEdit_appointment.CalendarTimeProperties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
+            this.repositoryItemDateEdit_appointment.DisplayFormat.FormatString = "f";
+            this.repositoryItemDateEdit_appointment.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.repositoryItemDateEdit_appointment.EditFormat.FormatString = "f";
+            this.repositoryItemDateEdit_appointment.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.repositoryItemDateEdit_appointment.Mask.EditMask = "f";
+            this.repositoryItemDateEdit_appointment.Name = "repositoryItemDateEdit_appointment";
+            // 
             // colStaffs
             // 
             this.colStaffs.Caption = "派工";
@@ -150,7 +187,7 @@
             this.colStaffs.FieldName = "Staffs";
             this.colStaffs.Name = "colStaffs";
             this.colStaffs.Visible = true;
-            this.colStaffs.VisibleIndex = 2;
+            this.colStaffs.VisibleIndex = 3;
             // 
             // repositoryItemCheckedComboBoxEdit_Staff
             // 
@@ -169,7 +206,7 @@
             this.colServiceTag.OptionsColumn.AllowEdit = false;
             this.colServiceTag.OptionsColumn.AllowFocus = false;
             this.colServiceTag.Visible = true;
-            this.colServiceTag.VisibleIndex = 3;
+            this.colServiceTag.VisibleIndex = 4;
             // 
             // colCustomerName
             // 
@@ -179,7 +216,7 @@
             this.colCustomerName.OptionsColumn.AllowEdit = false;
             this.colCustomerName.OptionsColumn.AllowFocus = false;
             this.colCustomerName.Visible = true;
-            this.colCustomerName.VisibleIndex = 4;
+            this.colCustomerName.VisibleIndex = 5;
             // 
             // colContact
             // 
@@ -189,7 +226,7 @@
             this.colContact.OptionsColumn.AllowEdit = false;
             this.colContact.OptionsColumn.AllowFocus = false;
             this.colContact.Visible = true;
-            this.colContact.VisibleIndex = 5;
+            this.colContact.VisibleIndex = 6;
             // 
             // colAddress
             // 
@@ -199,7 +236,7 @@
             this.colAddress.OptionsColumn.AllowEdit = false;
             this.colAddress.OptionsColumn.AllowFocus = false;
             this.colAddress.Visible = true;
-            this.colAddress.VisibleIndex = 6;
+            this.colAddress.VisibleIndex = 7;
             // 
             // colDescription
             // 
@@ -209,7 +246,7 @@
             this.colDescription.OptionsColumn.AllowEdit = false;
             this.colDescription.OptionsColumn.AllowFocus = false;
             this.colDescription.Visible = true;
-            this.colDescription.VisibleIndex = 7;
+            this.colDescription.VisibleIndex = 8;
             // 
             // colResult
             // 
@@ -219,7 +256,7 @@
             this.colResult.OptionsColumn.AllowEdit = false;
             this.colResult.OptionsColumn.AllowFocus = false;
             this.colResult.Visible = true;
-            this.colResult.VisibleIndex = 8;
+            this.colResult.VisibleIndex = 9;
             // 
             // colMemo
             // 
@@ -229,7 +266,7 @@
             this.colMemo.OptionsColumn.AllowEdit = false;
             this.colMemo.OptionsColumn.AllowFocus = false;
             this.colMemo.Visible = true;
-            this.colMemo.VisibleIndex = 9;
+            this.colMemo.VisibleIndex = 10;
             // 
             // colCreateBy
             // 
@@ -239,7 +276,7 @@
             this.colCreateBy.OptionsColumn.AllowEdit = false;
             this.colCreateBy.OptionsColumn.AllowFocus = false;
             this.colCreateBy.Visible = true;
-            this.colCreateBy.VisibleIndex = 10;
+            this.colCreateBy.VisibleIndex = 11;
             // 
             // colCreateDate
             // 
@@ -249,7 +286,7 @@
             this.colCreateDate.OptionsColumn.AllowEdit = false;
             this.colCreateDate.OptionsColumn.AllowFocus = false;
             this.colCreateDate.Visible = true;
-            this.colCreateDate.VisibleIndex = 11;
+            this.colCreateDate.VisibleIndex = 12;
             // 
             // colModifyBy
             // 
@@ -258,8 +295,6 @@
             this.colModifyBy.Name = "colModifyBy";
             this.colModifyBy.OptionsColumn.AllowEdit = false;
             this.colModifyBy.OptionsColumn.AllowFocus = false;
-            this.colModifyBy.Visible = true;
-            this.colModifyBy.VisibleIndex = 12;
             // 
             // colModifyDate
             // 
@@ -268,14 +303,12 @@
             this.colModifyDate.Name = "colModifyDate";
             this.colModifyDate.OptionsColumn.AllowEdit = false;
             this.colModifyDate.OptionsColumn.AllowFocus = false;
-            this.colModifyDate.Visible = true;
-            this.colModifyDate.VisibleIndex = 13;
             // 
             // btnOk
             // 
             this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOk.Location = new System.Drawing.Point(824, 446);
+            this.btnOk.Location = new System.Drawing.Point(935, 531);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
             this.btnOk.TabIndex = 1;
@@ -286,7 +319,7 @@
             // 
             this.btanCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btanCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btanCancel.Location = new System.Drawing.Point(986, 446);
+            this.btanCancel.Location = new System.Drawing.Point(1097, 531);
             this.btanCancel.Name = "btanCancel";
             this.btanCancel.Size = new System.Drawing.Size(75, 23);
             this.btanCancel.TabIndex = 2;
@@ -296,7 +329,7 @@
             // btnDeleteSelected
             // 
             this.btnDeleteSelected.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDeleteSelected.Location = new System.Drawing.Point(905, 446);
+            this.btnDeleteSelected.Location = new System.Drawing.Point(1016, 531);
             this.btnDeleteSelected.Name = "btnDeleteSelected";
             this.btnDeleteSelected.Size = new System.Drawing.Size(75, 23);
             this.btnDeleteSelected.TabIndex = 3;
@@ -309,7 +342,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btanCancel;
-            this.ClientSize = new System.Drawing.Size(1073, 476);
+            this.ClientSize = new System.Drawing.Size(1184, 561);
             this.Controls.Add(this.btnDeleteSelected);
             this.Controls.Add(this.btanCancel);
             this.Controls.Add(this.btnOk);
@@ -325,6 +358,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.jobOrderBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit_appointment.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit_appointment)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckedComboBoxEdit_Staff)).EndInit();
             this.ResumeLayout(false);
 
@@ -353,5 +388,7 @@
         private DevExpress.XtraEditors.SimpleButton btanCancel;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckedComboBoxEdit repositoryItemCheckedComboBoxEdit_Staff;
         private DevExpress.XtraEditors.SimpleButton btnDeleteSelected;
+        private DevExpress.XtraGrid.Columns.GridColumn colAppointment;
+        private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit repositoryItemDateEdit_appointment;
     }
 }

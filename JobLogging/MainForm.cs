@@ -48,6 +48,7 @@ namespace JobLogging
         {
             bBtnShowFrmJobLogging.PerformClick();
             InitUserRelated();
+            startAppointmentTimer();
         }
 
         private void InitUserRelated()
@@ -79,7 +80,7 @@ namespace JobLogging
             form.Text = caption;
             form.Show();
             doc = documentManager1.View.Documents.FirstOrDefault(t => t.Caption == caption);
-           
+
             doc.Tag = ribbonPageCaption;
             ribbonControl1.SelectedPage = ribbonControl1.Pages[ribbonPageCaption];
         }
@@ -92,7 +93,7 @@ namespace JobLogging
 
         private void skinGalleryBarItem_GalleryItemClick(object sender, GalleryItemClickEventArgs e)
         {
-            using (var context=new JobLoggingModelContainer())
+            using (var context = new JobLoggingModelContainer())
             {
                 context.Users.Attach(GlobalParams.CurrentLoginUser);
                 GlobalParams.CurrentLoginUser.Skin = e.Item.Tag.ToString();
@@ -136,5 +137,45 @@ namespace JobLogging
             bBtnShowFrmJobLogging.PerformClick();
             frm.Dispose();
         }
+
+        private frmShowNoDispatch appointmentForm;
+        System.Threading.Timer appointmentTimer;
+        delegate void showAppointmentFormCallback();
+
+        private void startAppointmentTimer()
+        {
+            appointmentTimer = new System.Threading.Timer(appointmentTimer_Elapsed, null, 0, 60000);
+        }
+
+        private void appointmentTimer_Elapsed(object source)
+        {
+
+            showAppointmentFormCallback temp = showAppointmentForm;
+            this.Invoke(temp);
+        }
+
+        private void showAppointmentForm()
+        {
+            if (appointmentForm != null && !appointmentForm.IsDisposed)
+            {
+                appointmentForm.Close();
+                appointmentForm.Dispose();
+            }
+            appointmentForm = new frmShowNoDispatch(true);
+            appointmentForm.Text = appointmentForm.Text + " - 预约";
+            if (!appointmentForm.IsDisposed)
+            {
+                appointmentForm.TopMost = true;
+                System.Media.SystemSounds.Beep.Play();
+                appointmentForm.ShowDialog();
+            }
+
+        }
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            appointmentTimer.Dispose();
+        }
+
     }
 }
