@@ -47,6 +47,12 @@ namespace JobLogging.Forms
         private void FrmJobOrder_Load(object sender, EventArgs e)
         {
             InitUserRelated();
+            ConditionValidationRule c = new ConditionValidationRule();
+            c.ConditionOperator = ConditionOperator.Greater;
+            c.CaseSensitive = true;
+            c.ErrorText = "预约时间不能在当前时间之前！";
+            //todo
+            //c.Value1=date
         }
 
         private void InitUserRelated()

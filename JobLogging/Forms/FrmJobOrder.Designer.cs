@@ -72,7 +72,7 @@
             this.DescriptionTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.MemoTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.CreateDateDateEdit = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit1 = new DevExpress.XtraEditors.DateEdit();
+            this.AppointmentDateEdit = new DevExpress.XtraEditors.DateEdit();
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bbtnGridViewRefresh = new DevExpress.XtraBars.BarButtonItem();
             this.bBtnAddJobOrder = new DevExpress.XtraBars.BarButtonItem();
@@ -133,8 +133,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.DescriptionTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MemoTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CreateDateDateEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AppointmentDateEdit.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AppointmentDateEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForModifyBy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForModifyDate)).BeginInit();
@@ -412,7 +412,7 @@
             this.dataLayoutControl1.Controls.Add(this.DescriptionTextEdit);
             this.dataLayoutControl1.Controls.Add(this.MemoTextEdit);
             this.dataLayoutControl1.Controls.Add(this.CreateDateDateEdit);
-            this.dataLayoutControl1.Controls.Add(this.textEdit1);
+            this.dataLayoutControl1.Controls.Add(this.AppointmentDateEdit);
             this.dataLayoutControl1.DataSource = this.jobOrderBindingSource;
             this.dataLayoutControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.dataLayoutControl1.HiddenItems.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
@@ -640,35 +640,35 @@
             this.CreateDateDateEdit.TabIndex = 15;
             this.CreateDateDateEdit.TabStop = false;
             // 
-            // textEdit1
+            // AppointmentDateEdit
             // 
-            this.textEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.jobOrderBindingSource, "Appointment", true));
-            this.textEdit1.EditValue = null;
-            this.textEdit1.Location = new System.Drawing.Point(500, 12);
-            this.textEdit1.MenuManager = this.ribbonControl1;
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.AppointmentDateEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.jobOrderBindingSource, "Appointment", true));
+            this.AppointmentDateEdit.EditValue = null;
+            this.AppointmentDateEdit.Location = new System.Drawing.Point(500, 12);
+            this.AppointmentDateEdit.MenuManager = this.ribbonControl1;
+            this.AppointmentDateEdit.Name = "AppointmentDateEdit";
+            this.AppointmentDateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.textEdit1.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.True;
-            this.textEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.AppointmentDateEdit.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.True;
+            this.AppointmentDateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.textEdit1.Properties.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
-            this.textEdit1.Properties.CalendarTimeProperties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
-            this.textEdit1.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.Vista;
-            this.textEdit1.Properties.DisplayFormat.FormatString = "f";
-            this.textEdit1.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.textEdit1.Properties.EditFormat.FormatString = "f";
-            this.textEdit1.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.textEdit1.Properties.Mask.EditMask = "";
-            this.textEdit1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
-            this.textEdit1.Properties.VistaCalendarViewStyle = ((DevExpress.XtraEditors.VistaCalendarViewStyle)(((((DevExpress.XtraEditors.VistaCalendarViewStyle.MonthView | DevExpress.XtraEditors.VistaCalendarViewStyle.YearView) 
+            this.AppointmentDateEdit.Properties.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
+            this.AppointmentDateEdit.Properties.CalendarTimeProperties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
+            this.AppointmentDateEdit.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.Vista;
+            this.AppointmentDateEdit.Properties.DisplayFormat.FormatString = "f";
+            this.AppointmentDateEdit.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.AppointmentDateEdit.Properties.EditFormat.FormatString = "f";
+            this.AppointmentDateEdit.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.AppointmentDateEdit.Properties.Mask.EditMask = "";
+            this.AppointmentDateEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
+            this.AppointmentDateEdit.Properties.VistaCalendarViewStyle = ((DevExpress.XtraEditors.VistaCalendarViewStyle)(((((DevExpress.XtraEditors.VistaCalendarViewStyle.MonthView | DevExpress.XtraEditors.VistaCalendarViewStyle.YearView) 
             | DevExpress.XtraEditors.VistaCalendarViewStyle.QuarterView) 
             | DevExpress.XtraEditors.VistaCalendarViewStyle.YearsGroupView) 
             | DevExpress.XtraEditors.VistaCalendarViewStyle.CenturyView)));
-            this.textEdit1.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.True;
-            this.textEdit1.Size = new System.Drawing.Size(156, 20);
-            this.textEdit1.StyleController = this.dataLayoutControl1;
-            this.textEdit1.TabIndex = 22;
+            this.AppointmentDateEdit.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.True;
+            this.AppointmentDateEdit.Size = new System.Drawing.Size(156, 20);
+            this.AppointmentDateEdit.StyleController = this.dataLayoutControl1;
+            this.AppointmentDateEdit.TabIndex = 22;
             // 
             // ribbonControl1
             // 
@@ -1009,7 +1009,7 @@
             // 
             // layoutControlItem4
             // 
-            this.layoutControlItem4.Control = this.textEdit1;
+            this.layoutControlItem4.Control = this.AppointmentDateEdit;
             this.layoutControlItem4.CustomizationFormText = "预约";
             this.layoutControlItem4.Location = new System.Drawing.Point(437, 0);
             this.layoutControlItem4.Name = "layoutControlItem4";
@@ -1139,8 +1139,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.DescriptionTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MemoTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CreateDateDateEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AppointmentDateEdit.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AppointmentDateEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForModifyBy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForModifyDate)).EndInit();
@@ -1254,7 +1254,7 @@
         private DevExpress.XtraBars.BarButtonItem bBtnShowFindPanel;
         private DevExpress.XtraEditors.DateEdit dateEdit_StaffOut;
         private DevExpress.XtraGrid.Columns.GridColumn colAppointment;
-        private DevExpress.XtraEditors.DateEdit textEdit1;
+        private DevExpress.XtraEditors.DateEdit AppointmentDateEdit;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
       
 
