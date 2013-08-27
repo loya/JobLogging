@@ -804,6 +804,7 @@
             this.ClientSize = new System.Drawing.Size(940, 484);
             this.Controls.Add(this.layoutControl1);
             this.Controls.Add(this.ribbonControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmUsers";
             this.Tag = "StaffForm";
             this.Text = "用户角色管理";

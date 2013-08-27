@@ -11,8 +11,19 @@ namespace JobLogging
         /// 应用程序的主入口点。
         /// </summary>
         [STAThread]
-        private static void Main()
+        private static void Main(String[] args)
         {
+            if (args.Any() && args[0] == "SyncTime")
+            {
+
+                using (var context=new JobLoggingModel.JobLoggingModelContainer())
+                {
+                    var c =new Common.LocalTimeSync(context);
+                    c.SyncServerTime();
+                }
+                return;
+            }
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //SplashScreenManager.ShowForm(typeof (SplashScreen1));
@@ -28,6 +39,8 @@ namespace JobLogging
                 return;
             }
             GlobalParams.CurrentLoginUser = frm.LoginUser;
+
+            //System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("zh-Cn");
             Application.Run(new MainForm());
         }
     }

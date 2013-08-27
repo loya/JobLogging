@@ -9,6 +9,7 @@ using System.Linq;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
+using DevExpress.XtraSplashScreen;
 using JobLogging.JobLoggingModel;
 using JobLogging.Properties;
 
@@ -42,27 +43,40 @@ namespace JobLogging.Forms
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            var w = new WaitForm1();
+            w.SetDescription("登录中...");
+            SplashScreenManager.ShowForm(w.GetType());
+            SplashScreenManager.Default.SetWaitFormDescription("登录中...");
+            using (var context = new JobLoggingModelContainer())
+            {
+                _loginUser = context.Users.Include("Role").Include("Role.Permissions").SingleOrDefault(u => u.LoginName == txtLoginName.Text);
 
-            using (var bll = new JobLoggingModelContainer())
-            {
-                _loginUser = bll.Users.Include("Role").Include("Role.Permissions").SingleOrDefault(u => u.LoginName == txtLoginName.Text && u.Password == txtPassword.Text);
+                if (_loginUser == null || _loginUser.Password != txtPassword.Text)
+                {
+                    XtraMessageBox.Show("用户名或密码错误！", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtLoginName.Focus();
+                }
+                else if (!_loginUser.IsActivate)
+                {
+                    XtraMessageBox.Show("用户名无效！", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    DialogResult = DialogResult.OK;
+                    Properties.Settings.Default.LastUser = txtLoginName.Text;
+                    Settings.Default.Save();
+
+                    //时间同步
+                    var localTimeSync = new Common.LocalTimeSync(context);
+                    if (!localTimeSync.CheckSyncTime())
+                    {
+                        SplashScreenManager.Default.SetWaitFormDescription("正在同步服务器时间...");
+                        localTimeSync.SyncServerTime();
+                    }
+                    Close();
+                }
             }
-            if (_loginUser == null)
-            {
-                XtraMessageBox.Show("用户名或密码错误！");
-                txtLoginName.Focus();
-            }
-            else if (!_loginUser.IsActivate)
-            {
-                XtraMessageBox.Show("用户名无效！");
-            }
-            else
-            {
-                DialogResult = DialogResult.OK;
-                Properties.Settings.Default.LastUser = txtLoginName.Text;
-                Settings.Default.Save();
-                Close();
-            }
+            SplashScreenManager.CloseForm();
         }
 
         private void TextEdit_Enter(object sender, EventArgs e)

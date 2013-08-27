@@ -177,5 +177,10 @@ namespace JobLogging
             appointmentTimer.Dispose();
         }
 
+        private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            DevExpress.Utils.About.AboutForm.Show(new DevExpress.Utils.About.ProductInfo(string.Empty, typeof(MainForm), DevExpress.Utils.About.ProductKind.DXperienceWin, DevExpress.Utils.About.ProductInfoStage.Registered));
+        }
+
     }
 }

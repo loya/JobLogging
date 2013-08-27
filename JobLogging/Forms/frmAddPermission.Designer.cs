@@ -89,6 +89,7 @@
             this.Controls.Add(this.lblPromissionName);
             this.Controls.Add(this.txtPromissionName);
             this.Controls.Add(this.chkRootNode);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "frmAddPermission";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

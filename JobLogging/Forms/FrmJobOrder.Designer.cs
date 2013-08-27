@@ -575,6 +575,8 @@
             this.IDSpinEdit.Size = new System.Drawing.Size(132, 20);
             this.IDSpinEdit.StyleController = this.dataLayoutControl1;
             this.IDSpinEdit.TabIndex = 4;
+            this.IDSpinEdit.EditValueChanged += new System.EventHandler(this.IDSpinEdit_EditValueChanged);
+            this.IDSpinEdit.TextChanged += new System.EventHandler(this.IDSpinEdit_TextChanged);
             // 
             // ModifyByTextEdit
             // 
@@ -647,6 +649,7 @@
             this.AppointmentDateEdit.Location = new System.Drawing.Point(500, 12);
             this.AppointmentDateEdit.MenuManager = this.ribbonControl1;
             this.AppointmentDateEdit.Name = "AppointmentDateEdit";
+            this.AppointmentDateEdit.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
             this.AppointmentDateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.AppointmentDateEdit.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.True;
@@ -655,20 +658,14 @@
             this.AppointmentDateEdit.Properties.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
             this.AppointmentDateEdit.Properties.CalendarTimeProperties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
             this.AppointmentDateEdit.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.Vista;
-            this.AppointmentDateEdit.Properties.DisplayFormat.FormatString = "f";
-            this.AppointmentDateEdit.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.AppointmentDateEdit.Properties.EditFormat.FormatString = "f";
-            this.AppointmentDateEdit.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.AppointmentDateEdit.Properties.Mask.EditMask = "";
-            this.AppointmentDateEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
-            this.AppointmentDateEdit.Properties.VistaCalendarViewStyle = ((DevExpress.XtraEditors.VistaCalendarViewStyle)(((((DevExpress.XtraEditors.VistaCalendarViewStyle.MonthView | DevExpress.XtraEditors.VistaCalendarViewStyle.YearView) 
-            | DevExpress.XtraEditors.VistaCalendarViewStyle.QuarterView) 
-            | DevExpress.XtraEditors.VistaCalendarViewStyle.YearsGroupView) 
-            | DevExpress.XtraEditors.VistaCalendarViewStyle.CenturyView)));
+            this.AppointmentDateEdit.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.AppointmentDateEdit.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.True;
             this.AppointmentDateEdit.Size = new System.Drawing.Size(156, 20);
             this.AppointmentDateEdit.StyleController = this.dataLayoutControl1;
             this.AppointmentDateEdit.TabIndex = 22;
+            this.AppointmentDateEdit.ParseEditValue += new DevExpress.XtraEditors.Controls.ConvertEditValueEventHandler(this.AppointmentDateEdit_ParseEditValue);
+            this.AppointmentDateEdit.KeyUp += new System.Windows.Forms.KeyEventHandler(this.AppointmentDateEdit_KeyUp);
             // 
             // ribbonControl1
             // 

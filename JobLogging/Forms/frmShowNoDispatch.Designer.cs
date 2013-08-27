@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmShowNoDispatch));
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.jobOrderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -173,12 +174,14 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repositoryItemDateEdit_appointment.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
             this.repositoryItemDateEdit_appointment.CalendarTimeProperties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
+            this.repositoryItemDateEdit_appointment.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.Vista;
             this.repositoryItemDateEdit_appointment.DisplayFormat.FormatString = "f";
             this.repositoryItemDateEdit_appointment.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.repositoryItemDateEdit_appointment.EditFormat.FormatString = "f";
             this.repositoryItemDateEdit_appointment.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.repositoryItemDateEdit_appointment.Mask.EditMask = "f";
             this.repositoryItemDateEdit_appointment.Name = "repositoryItemDateEdit_appointment";
+            this.repositoryItemDateEdit_appointment.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.True;
             // 
             // colStaffs
             // 
@@ -347,9 +350,10 @@
             this.Controls.Add(this.btanCancel);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.gridControl1);
-            this.MaximizeBox = false;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimizeBox = false;
             this.Name = "frmShowNoDispatch";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "未派工列表";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmShowNoDispatch_FormClosing);

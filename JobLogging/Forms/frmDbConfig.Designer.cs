@@ -128,11 +128,13 @@
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.txtDataSource);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.LookAndFeel.SkinName = "London Liquid Sky";
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmDbConfig";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "数据库设置";
             this.Load += new System.EventHandler(this.frmDbConfig_Load);

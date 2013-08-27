@@ -47,12 +47,6 @@ namespace JobLogging.Forms
         private void FrmJobOrder_Load(object sender, EventArgs e)
         {
             InitUserRelated();
-            ConditionValidationRule c = new ConditionValidationRule();
-            c.ConditionOperator = ConditionOperator.Greater;
-            c.CaseSensitive = true;
-            c.ErrorText = "预约时间不能在当前时间之前！";
-            //todo
-            //c.Value1=date
         }
 
         private void InitUserRelated()
@@ -351,7 +345,44 @@ namespace JobLogging.Forms
 
         }
 
+        private void AppointmentDateEdit_ParseEditValue(object sender, DevExpress.XtraEditors.Controls.ConvertEditValueEventArgs e)
+        {
+            if (e.Value != null && e.Value.ToString() == String.Empty)
+                e.Value = null;
+        }
 
+        private void AppointmentDateEdit_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode== Keys.Back ||e.KeyCode== Keys.Delete)
+            {
+                AppointmentDateEdit.EditValue = null;
+                e.Handled = true;
+            }
+        }
+        
+        private void IDSpinEdit_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
 
+        private void IDSpinEdit_EditValueChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(IDSpinEdit.Text) || IDSpinEdit.Text == "0")
+            {
+                foreach (var control in dataLayoutControl1.Controls)
+                {
+                    var t = control as BaseEdit;
+                    if (t != null) t.Enabled = false;
+                }
+            }
+            else
+            {
+                foreach (var control in dataLayoutControl1.Controls)
+                {
+                    var t = control as BaseEdit;
+                    if (t != null) t.Enabled = true;
+                }
+            }
+        }
     }
 }
