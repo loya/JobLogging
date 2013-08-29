@@ -74,5 +74,17 @@ namespace JobLogging.Properties {
                 this["LastUser"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public long WindowHandle {
+            get {
+                return ((long)(this["WindowHandle"]));
+            }
+            set {
+                this["WindowHandle"] = value;
+            }
+        }
     }
 }

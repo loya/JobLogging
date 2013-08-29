@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::JobLogging.SplashScreen1), true, true);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup2 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup1 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.applicationMenu1 = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
             this.bBtnReLogin = new DevExpress.XtraBars.BarButtonItem();
@@ -43,6 +43,7 @@
             this.bBtnChangePassword = new DevExpress.XtraBars.BarButtonItem();
             this.barStaticItem_StatusBar_UserInfo = new DevExpress.XtraBars.BarStaticItem();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.barStaticItem_ver = new DevExpress.XtraBars.BarStaticItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -81,9 +82,10 @@
             this.barStaticItem1,
             this.bBtnChangePassword,
             this.barStaticItem_StatusBar_UserInfo,
-            this.barButtonItem1});
+            this.barButtonItem1,
+            this.barStaticItem_ver});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 5;
+            this.ribbonControl1.MaxItemId = 6;
             this.ribbonControl1.MdiMergeStyle = DevExpress.XtraBars.Ribbon.RibbonMdiMergeStyle.Always;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.PageCategoryAlignment = DevExpress.XtraBars.Ribbon.RibbonPageCategoryAlignment.Right;
@@ -152,9 +154,9 @@
             // 
             // 
             // 
-            galleryItemGroup2.Caption = "Group2";
+            galleryItemGroup1.Caption = "Group2";
             this.skinGalleryBarItem.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
-            galleryItemGroup2});
+            galleryItemGroup1});
             this.skinGalleryBarItem.Id = 4;
             this.skinGalleryBarItem.Name = "skinGalleryBarItem";
             this.skinGalleryBarItem.GalleryItemClick += new DevExpress.XtraBars.Ribbon.GalleryItemClickEventHandler(this.skinGalleryBarItem_GalleryItemClick);
@@ -195,6 +197,13 @@
             this.barButtonItem1.Name = "barButtonItem1";
             this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
             // 
+            // barStaticItem_ver
+            // 
+            this.barStaticItem_ver.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.barStaticItem_ver.Id = 5;
+            this.barStaticItem_ver.Name = "barStaticItem_ver";
+            this.barStaticItem_ver.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -231,6 +240,7 @@
             // ribbonStatusBar1
             // 
             this.ribbonStatusBar1.ItemLinks.Add(this.barStaticItem_StatusBar_UserInfo);
+            this.ribbonStatusBar1.ItemLinks.Add(this.barStaticItem_ver);
             this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 736);
             this.ribbonStatusBar1.Name = "ribbonStatusBar1";
             this.ribbonStatusBar1.Ribbon = this.ribbonControl1;
@@ -328,6 +338,7 @@
         private DevExpress.XtraBars.BarButtonItem bBtnChangePassword;
         private DevExpress.XtraBars.BarStaticItem barStaticItem_StatusBar_UserInfo;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.XtraBars.BarStaticItem barStaticItem_ver;
 
         
     }

@@ -43,9 +43,7 @@ namespace JobLogging.Forms
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            var w = new WaitForm1();
-            w.SetDescription("登录中...");
-            SplashScreenManager.ShowForm(w.GetType());
+            SplashScreenManager.ShowForm(typeof(WaitForm1));
             SplashScreenManager.Default.SetWaitFormDescription("登录中...");
             using (var context = new JobLoggingModelContainer())
             {
@@ -74,9 +72,10 @@ namespace JobLogging.Forms
                         localTimeSync.SyncServerTime();
                     }
                     Close();
+
                 }
             }
-            SplashScreenManager.CloseForm();
+            SplashScreenManager.CloseForm();     
         }
 
         private void TextEdit_Enter(object sender, EventArgs e)

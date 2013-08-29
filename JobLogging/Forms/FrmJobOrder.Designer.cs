@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmJobOrder));
             this.colStaffs = new DevExpress.XtraGrid.Columns.GridColumn();
             this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -89,12 +89,10 @@
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.ItemForID = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForDescription = new DevExpress.XtraLayout.LayoutControlItem();
-            this.ItemForServiceTag = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForDate = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForStaffs = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.ItemForCustomerName = new DevExpress.XtraLayout.LayoutControlItem();
-            this.ItemForContact = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForResult = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForMemo = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForAddress = new DevExpress.XtraLayout.LayoutControlItem();
@@ -103,6 +101,8 @@
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.ItemForContact = new DevExpress.XtraLayout.LayoutControlItem();
+            this.ItemForServiceTag = new DevExpress.XtraLayout.LayoutControlItem();
             this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.alertControl1 = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
@@ -143,12 +143,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForDescription)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ItemForServiceTag)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForStaffs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForCustomerName)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ItemForContact)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForResult)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForMemo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForAddress)).BeginInit();
@@ -157,6 +155,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForContact)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForServiceTag)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
@@ -484,9 +484,9 @@
             // 
             this.ServiceTagTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.jobOrderBindingSource, "ServiceTag", true));
             this.ServiceTagTextEdit.EnterMoveNextControl = true;
-            this.ServiceTagTextEdit.Location = new System.Drawing.Point(63, 36);
+            this.ServiceTagTextEdit.Location = new System.Drawing.Point(500, 36);
             this.ServiceTagTextEdit.Name = "ServiceTagTextEdit";
-            this.ServiceTagTextEdit.Size = new System.Drawing.Size(132, 20);
+            this.ServiceTagTextEdit.Size = new System.Drawing.Size(156, 20);
             this.ServiceTagTextEdit.StyleController = this.dataLayoutControl1;
             this.ServiceTagTextEdit.TabIndex = 7;
             // 
@@ -499,17 +499,17 @@
             this.CustomerNameTextEdit.Size = new System.Drawing.Size(135, 20);
             this.CustomerNameTextEdit.StyleController = this.dataLayoutControl1;
             this.CustomerNameTextEdit.TabIndex = 8;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule1.ErrorText = "不能为空";
-            this.dxValidationProvider1.SetValidationRule(this.CustomerNameTextEdit, conditionValidationRule1);
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule2.ErrorText = "不能为空";
+            this.dxValidationProvider1.SetValidationRule(this.CustomerNameTextEdit, conditionValidationRule2);
             // 
             // ContactTextEdit
             // 
             this.ContactTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.jobOrderBindingSource, "Contact", true));
             this.ContactTextEdit.EnterMoveNextControl = true;
-            this.ContactTextEdit.Location = new System.Drawing.Point(500, 36);
+            this.ContactTextEdit.Location = new System.Drawing.Point(63, 36);
             this.ContactTextEdit.Name = "ContactTextEdit";
-            this.ContactTextEdit.Size = new System.Drawing.Size(156, 20);
+            this.ContactTextEdit.Size = new System.Drawing.Size(132, 20);
             this.ContactTextEdit.StyleController = this.dataLayoutControl1;
             this.ContactTextEdit.TabIndex = 9;
             // 
@@ -552,9 +552,9 @@
             this.StaffsTextEdit.Size = new System.Drawing.Size(141, 20);
             this.StaffsTextEdit.StyleController = this.dataLayoutControl1;
             this.StaffsTextEdit.TabIndex = 6;
-            conditionValidationRule2.ErrorText = "不能为空";
-            conditionValidationRule2.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
-            this.dxValidationProvider1.SetValidationRule(this.StaffsTextEdit, conditionValidationRule2);
+            conditionValidationRule3.ErrorText = "不能为空";
+            conditionValidationRule3.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
+            this.dxValidationProvider1.SetValidationRule(this.StaffsTextEdit, conditionValidationRule3);
             // 
             // IDSpinEdit
             // 
@@ -702,6 +702,7 @@
             this.bBtnAddJobOrder.Id = 2;
             this.bBtnAddJobOrder.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bBtnAddJobOrder.LargeGlyph")));
             this.bBtnAddJobOrder.Name = "bBtnAddJobOrder";
+            this.bBtnAddJobOrder.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bBtnAddJobOrder_ItemClick);
             // 
             // bBtnDeleteJobOrder
             // 
@@ -719,6 +720,7 @@
             this.bBtnSaveJobOrder.Id = 4;
             this.bBtnSaveJobOrder.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bBtnSaveJobOrder.LargeGlyph")));
             this.bBtnSaveJobOrder.Name = "bBtnSaveJobOrder";
+            this.bBtnSaveJobOrder.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bBtnSaveJobOrder_ItemClick);
             // 
             // bBtnCancel
             // 
@@ -727,6 +729,7 @@
             this.bBtnCancel.Id = 5;
             this.bBtnCancel.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bBtnCancel.LargeGlyph")));
             this.bBtnCancel.Name = "bBtnCancel";
+            this.bBtnCancel.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bBtnCancel_ItemClick);
             // 
             // bBtnShowFindPanel
             // 
@@ -809,12 +812,10 @@
             this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.ItemForID,
             this.ItemForDescription,
-            this.ItemForServiceTag,
             this.ItemForDate,
             this.ItemForStaffs,
             this.emptySpaceItem1,
             this.ItemForCustomerName,
-            this.ItemForContact,
             this.ItemForResult,
             this.ItemForMemo,
             this.ItemForAddress,
@@ -822,7 +823,9 @@
             this.layoutControlItem1,
             this.layoutControlItem2,
             this.layoutControlItem3,
-            this.layoutControlItem4});
+            this.layoutControlItem4,
+            this.ItemForContact,
+            this.ItemForServiceTag});
             this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup2.Name = "autoGeneratedGroup0";
             this.layoutControlGroup2.Size = new System.Drawing.Size(1046, 109);
@@ -849,17 +852,6 @@
             this.ItemForDescription.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 30, 0, 0);
             this.ItemForDescription.Text = "故障描述";
             this.ItemForDescription.TextSize = new System.Drawing.Size(48, 14);
-            // 
-            // ItemForServiceTag
-            // 
-            this.ItemForServiceTag.Control = this.ServiceTagTextEdit;
-            this.ItemForServiceTag.CustomizationFormText = "服务编号";
-            this.ItemForServiceTag.Location = new System.Drawing.Point(0, 24);
-            this.ItemForServiceTag.Name = "ItemForServiceTag";
-            this.ItemForServiceTag.Size = new System.Drawing.Size(217, 24);
-            this.ItemForServiceTag.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 30, 0, 0);
-            this.ItemForServiceTag.Text = "服务编号";
-            this.ItemForServiceTag.TextSize = new System.Drawing.Size(48, 14);
             // 
             // ItemForDate
             // 
@@ -903,17 +895,6 @@
             this.ItemForCustomerName.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 30, 0, 0);
             this.ItemForCustomerName.Text = "客户姓名";
             this.ItemForCustomerName.TextSize = new System.Drawing.Size(48, 14);
-            // 
-            // ItemForContact
-            // 
-            this.ItemForContact.Control = this.ContactTextEdit;
-            this.ItemForContact.CustomizationFormText = "联系方式";
-            this.ItemForContact.Location = new System.Drawing.Point(437, 24);
-            this.ItemForContact.Name = "ItemForContact";
-            this.ItemForContact.Size = new System.Drawing.Size(241, 24);
-            this.ItemForContact.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 30, 0, 0);
-            this.ItemForContact.Text = "联系方式";
-            this.ItemForContact.TextSize = new System.Drawing.Size(48, 14);
             // 
             // ItemForResult
             // 
@@ -1014,6 +995,28 @@
             this.layoutControlItem4.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 30, 0, 0);
             this.layoutControlItem4.Text = "预约";
             this.layoutControlItem4.TextSize = new System.Drawing.Size(48, 14);
+            // 
+            // ItemForContact
+            // 
+            this.ItemForContact.Control = this.ContactTextEdit;
+            this.ItemForContact.CustomizationFormText = "联系方式";
+            this.ItemForContact.Location = new System.Drawing.Point(0, 24);
+            this.ItemForContact.Name = "ItemForContact";
+            this.ItemForContact.Size = new System.Drawing.Size(217, 24);
+            this.ItemForContact.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 30, 0, 0);
+            this.ItemForContact.Text = "联系方式";
+            this.ItemForContact.TextSize = new System.Drawing.Size(48, 14);
+            // 
+            // ItemForServiceTag
+            // 
+            this.ItemForServiceTag.Control = this.ServiceTagTextEdit;
+            this.ItemForServiceTag.CustomizationFormText = "服务编号";
+            this.ItemForServiceTag.Location = new System.Drawing.Point(437, 24);
+            this.ItemForServiceTag.Name = "ItemForServiceTag";
+            this.ItemForServiceTag.Size = new System.Drawing.Size(241, 24);
+            this.ItemForServiceTag.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 30, 0, 0);
+            this.ItemForServiceTag.Text = "服务编号";
+            this.ItemForServiceTag.TextSize = new System.Drawing.Size(48, 14);
             // 
             // dxValidationProvider1
             // 
@@ -1146,12 +1149,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForID)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForDescription)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ItemForServiceTag)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForDate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForStaffs)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForCustomerName)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ItemForContact)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForResult)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForMemo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForAddress)).EndInit();
@@ -1160,6 +1161,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForContact)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForServiceTag)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
             this.splitContainerControl1.ResumeLayout(false);

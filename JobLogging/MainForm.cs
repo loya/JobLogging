@@ -25,7 +25,10 @@ namespace JobLogging
         {
             InitializeComponent();
             InitSkins();
+            InitUserRelated();
             tabbedView1.DocumentActivated += tabbedView1_DocumentActivated;
+
+            barStaticItem_ver.Caption = "当前发布版本：" + System.Deployment.Application.ApplicationDeployment.CurrentDeployment.CurrentVersion;
         }
 
 
@@ -46,9 +49,10 @@ namespace JobLogging
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            bBtnShowFrmJobLogging.PerformClick();
-            InitUserRelated();
             startAppointmentTimer();
+            bBtnShowFrmJobLogging.PerformClick();
+            Properties.Settings.Default.WindowHandle = (long)this.Handle;
+            Properties.Settings.Default.Save();
         }
 
         private void InitUserRelated()
@@ -57,6 +61,7 @@ namespace JobLogging
                 GlobalParams.CurrentLoginUser.Name,
                 DateTime.Today.ToString("yyyy-MM-dd   dddd"));
             bBtnShowUserManageForm.Enabled = GlobalParams.HasPermission("用户角色管理");
+
         }
 
         private void bBtnShowfrmUser_ItemClick(object sender, ItemClickEventArgs e)
@@ -181,6 +186,6 @@ namespace JobLogging
         {
             DevExpress.Utils.About.AboutForm.Show(new DevExpress.Utils.About.ProductInfo(string.Empty, typeof(MainForm), DevExpress.Utils.About.ProductKind.DXperienceWin, DevExpress.Utils.About.ProductInfoStage.Registered));
         }
-
+        
     }
 }

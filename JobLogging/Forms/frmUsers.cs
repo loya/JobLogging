@@ -510,5 +510,10 @@ namespace JobLogging.Forms
 
             ((MainForm)MdiParent).OpenMdiForm<frmUsers>("用户角色管理", "系统设置");
         }
+
+        private void gridControl1_SizeChanged(object sender, EventArgs e)
+        {
+            gridView1.BestFitColumns();
+        }
     }
 }

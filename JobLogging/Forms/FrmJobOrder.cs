@@ -150,7 +150,7 @@ namespace JobLogging.Forms
 
         private void jobOrderBindingSource_AddingNew(object sender, AddingNewEventArgs e)
         {
-            var jobOrder=new JobOrder { Date = DateTime.Today, CreateBy = GlobalParams.CurrentLoginUser.Name, CreateDate = DateTime.Now };
+            var jobOrder = new JobOrder { Date = DateTime.Today, CreateBy = GlobalParams.CurrentLoginUser.Name, CreateDate = DateTime.Now };
             Context.JobOrders.Local.Add(jobOrder);
             e.NewObject = jobOrder;
         }
@@ -202,7 +202,8 @@ namespace JobLogging.Forms
             jobOrderBindingSource.AddNew();
 
             //StaffsTextEdit.ShowPopup();
-            ServiceTagTextEdit.Focus();
+            //ServiceTagTextEdit.Focus();
+            ContactTextEdit.Focus();
         }
 
         private void btnGridViewRefresh_ItemClick(object sender, ItemClickEventArgs e)
@@ -217,16 +218,20 @@ namespace JobLogging.Forms
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            var entry=Context.Entry(jobOrderBindingSource.Current);
+            if (jobOrderBindingSource.Current == null)
+            {
+                return;
+            }
+            var entry = Context.Entry(jobOrderBindingSource.Current);
             if (entry.State == EntityState.Added)
             {
                 entry.State = EntityState.Detached;
             }
-            if (entry.State== EntityState.Modified)
+            if (entry.State == EntityState.Modified)
             {
-            	entry.Reload();
+                entry.Reload();
             }
-            
+
             jobOrderBindingSource.CancelEdit();
         }
 
@@ -329,15 +334,15 @@ namespace JobLogging.Forms
 
         private void FrmJobOrder_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(Context.ChangeTracker.Entries<JobOrder>().Any(t=>t.State!= EntityState.Unchanged))
+            if (Context.ChangeTracker.Entries<JobOrder>().Any(t => t.State != EntityState.Unchanged))
             {
                 var r = XtraMessageBox.Show("派工记录有未保存的修改，是否立即保存？", "提示", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
                 switch (r)
                 {
-                    case  System.Windows.Forms.DialogResult.Yes:
+                    case System.Windows.Forms.DialogResult.Yes:
                         Context.SaveChanges();
                         break;
-                    case  System.Windows.Forms.DialogResult.Cancel:
+                    case System.Windows.Forms.DialogResult.Cancel:
                         e.Cancel = true;
                         break;
                 }
@@ -353,21 +358,21 @@ namespace JobLogging.Forms
 
         private void AppointmentDateEdit_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode== Keys.Back ||e.KeyCode== Keys.Delete)
+            if (e.KeyCode == Keys.Back || e.KeyCode == Keys.Delete)
             {
                 AppointmentDateEdit.EditValue = null;
                 e.Handled = true;
             }
         }
-        
+
         private void IDSpinEdit_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void IDSpinEdit_EditValueChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(IDSpinEdit.Text) || IDSpinEdit.Text == "0")
+            if (string.IsNullOrWhiteSpace(IDSpinEdit.Text))
             {
                 foreach (var control in dataLayoutControl1.Controls)
                 {
@@ -383,6 +388,21 @@ namespace JobLogging.Forms
                     if (t != null) t.Enabled = true;
                 }
             }
+        }
+
+        private void bBtnAddJobOrder_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            btnAddJobOrder.PerformClick();
+        }
+
+        private void bBtnSaveJobOrder_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            btnSaveJobOrder.PerformClick();
+        }
+
+        private void bBtnCancel_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            btnCancel.PerformClick();
         }
     }
 }

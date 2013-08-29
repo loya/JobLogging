@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Windows.Forms;
+using JobLogging.Properties;
 
 namespace JobLogging
 {
@@ -16,32 +17,55 @@ namespace JobLogging
             if (args.Any() && args[0] == "SyncTime")
             {
 
-                using (var context=new JobLoggingModel.JobLoggingModelContainer())
+                using (var context = new JobLoggingModel.JobLoggingModelContainer())
                 {
-                    var c =new Common.LocalTimeSync(context);
+                    var c = new Common.LocalTimeSync(context);
                     c.SyncServerTime();
                 }
                 return;
             }
 
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            //SplashScreenManager.ShowForm(typeof (SplashScreen1));
-            
-            var frm=new Forms.frmLogin();
-            var dialogResult=frm.ShowDialog();
-            if (dialogResult== DialogResult.Cancel)
+            try
             {
-                return;
-            }
-            if (frm.LoginUser == null)
-            {
-                return;
-            }
-            GlobalParams.CurrentLoginUser = frm.LoginUser;
+                bool createNew;
+                IntPtr _handler = (IntPtr)Settings.Default.WindowHandle;
+                using (var m = new System.Threading.Mutex(true, "Global\\" + Application.ProductName, out createNew))
+                {
+                    if (createNew || _handler == (IntPtr)0)
+                    {
+                        Application.EnableVisualStyles();
+                        Application.SetCompatibleTextRenderingDefault(false);
 
-            //System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("zh-Cn");
-            Application.Run(new MainForm());
+                        var frm = new Forms.frmLogin();
+                        var dialogResult = frm.ShowDialog();
+                        if (dialogResult == DialogResult.Cancel)
+                        {
+                            return;
+                        }
+                        if (frm.LoginUser == null)
+                        {
+                            return;
+                        }
+                        GlobalParams.CurrentLoginUser = frm.LoginUser;
+
+                        //System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("zh-Cn");
+                        //SplashScreenManager.ShowForm(typeof(SplashScreen1));
+                        Application.Run(new MainForm());
+                    }
+                    else 
+                    {
+                        
+                        Common.Common.ShowFormTop(_handler);
+                    }
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Only one instance of this application is allowed!");
+            }
+
+
+
         }
     }
 
@@ -57,18 +81,18 @@ namespace JobLogging
 
         public static string ConnectionString()
         {
-            var symmetricMethod =new  Common.SymmetricMethod();
+            var symmetricMethod = new Common.SymmetricMethod();
             var dataSource = Properties.Settings.Default.DataSource;
             var userID = symmetricMethod.DecryptoData(Properties.Settings.Default.UserID);
             var password = symmetricMethod.DecryptoData(Properties.Settings.Default.Password);
-            return  ConnectionString(dataSource, userID, password);
+            return ConnectionString(dataSource, userID, password);
         }
 
-        public static string ConnectionString(string dataSource,string userID, string password)
+        public static string ConnectionString(string dataSource, string userID, string password)
         {
             var result =
                 "metadata=res://*/JobLoggingModel.JobLoggingModel.csdl|" +
-                "res://*/JobLoggingModel.JobLoggingModel.ssdl|" + 
+                "res://*/JobLoggingModel.JobLoggingModel.ssdl|" +
                 "res://*/JobLoggingModel.JobLoggingModel.msl;" +
                 "provider=System.Data.SqlClient;" +
                 "provider connection string=\"" +
@@ -77,5 +101,5 @@ namespace JobLogging
             return result;
         }
     }
-    
+
 }
