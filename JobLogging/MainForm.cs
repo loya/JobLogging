@@ -28,7 +28,15 @@ namespace JobLogging
             InitUserRelated();
             tabbedView1.DocumentActivated += tabbedView1_DocumentActivated;
 
-            barStaticItem_ver.Caption = "当前发布版本：" + System.Deployment.Application.ApplicationDeployment.CurrentDeployment.CurrentVersion;
+            try
+            {          
+                barStaticItem_ver.Caption = "当前发布版本：" + System.Deployment.Application.ApplicationDeployment.CurrentDeployment.CurrentVersion;
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
 
 

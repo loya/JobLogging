@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmJobOrder));
             this.colStaffs = new DevExpress.XtraGrid.Columns.GridColumn();
             this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -225,6 +225,7 @@
             this.colCreateDate,
             this.colModifyBy,
             this.colModifyDate});
+            this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.None;
             styleFormatCondition1.Appearance.ForeColor = System.Drawing.Color.Red;
             styleFormatCondition1.Appearance.Options.UseForeColor = true;
             styleFormatCondition1.ApplyToRow = true;
@@ -238,8 +239,6 @@
             this.gridView1.GroupCount = 1;
             this.gridView1.GroupFormat = "[#image]{1} {2}";
             this.gridView1.GroupRowHeight = 28;
-            this.gridView1.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Count, "ID", null, "")});
             this.gridView1.IndicatorWidth = 60;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
@@ -249,26 +248,29 @@
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsCustomization.AllowRowSizing = true;
             this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView1.OptionsView.AutoCalcPreviewLineCount = true;
+            this.gridView1.OptionsView.EnableAppearanceEvenRow = true;
+            this.gridView1.OptionsView.EnableAppearanceOddRow = true;
             this.gridView1.OptionsView.GroupDrawMode = DevExpress.XtraGrid.Views.Grid.GroupDrawMode.Office;
             this.gridView1.OptionsView.RowAutoHeight = true;
             this.gridView1.OptionsView.ShowFooter = true;
             this.gridView1.OptionsView.ShowGroupedColumns = true;
             this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gridView1.OptionsView.ShowPreview = true;
             this.gridView1.OptionsView.ShowVerticalLines = DevExpress.Utils.DefaultBoolean.True;
             this.gridView1.OptionsView.WaitAnimationOptions = DevExpress.XtraEditors.WaitAnimationOptions.Panel;
+            this.gridView1.PreviewFieldName = "Memo";
             this.gridView1.RowHeight = 28;
             this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colDate, DevExpress.Data.ColumnSortOrder.Descending)});
+            this.gridView1.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gridView1_RowClick);
             this.gridView1.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridView1_CustomDrawRowIndicator);
-            this.gridView1.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView1_FocusedRowChanged);
             this.gridView1.AsyncCompleted += new System.EventHandler(this.gridView1_AsyncCompleted);
             // 
             // colID
             // 
             this.colID.FieldName = "ID";
             this.colID.Name = "colID";
-            this.colID.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "ID", "总计：{0}")});
             this.colID.Visible = true;
             this.colID.VisibleIndex = 0;
             // 
@@ -278,6 +280,8 @@
             this.colDate.FieldName = "Date";
             this.colDate.GroupInterval = DevExpress.XtraGrid.ColumnGroupInterval.DateRange;
             this.colDate.Name = "colDate";
+            this.colDate.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "ID", "共计：{0}")});
             this.colDate.Visible = true;
             this.colDate.VisibleIndex = 1;
             // 
@@ -344,8 +348,6 @@
             this.colMemo.Caption = "备注";
             this.colMemo.FieldName = "Memo";
             this.colMemo.Name = "colMemo";
-            this.colMemo.Visible = true;
-            this.colMemo.VisibleIndex = 10;
             // 
             // colCreateBy
             // 
@@ -354,7 +356,7 @@
             this.colCreateBy.Name = "colCreateBy";
             this.colCreateBy.OptionsColumn.AllowEdit = false;
             this.colCreateBy.Visible = true;
-            this.colCreateBy.VisibleIndex = 11;
+            this.colCreateBy.VisibleIndex = 10;
             // 
             // colCreateDate
             // 
@@ -365,7 +367,7 @@
             this.colCreateDate.Name = "colCreateDate";
             this.colCreateDate.OptionsColumn.AllowEdit = false;
             this.colCreateDate.Visible = true;
-            this.colCreateDate.VisibleIndex = 12;
+            this.colCreateDate.VisibleIndex = 11;
             // 
             // colModifyBy
             // 
@@ -374,7 +376,7 @@
             this.colModifyBy.Name = "colModifyBy";
             this.colModifyBy.OptionsColumn.AllowEdit = false;
             this.colModifyBy.Visible = true;
-            this.colModifyBy.VisibleIndex = 13;
+            this.colModifyBy.VisibleIndex = 12;
             // 
             // colModifyDate
             // 
@@ -385,7 +387,7 @@
             this.colModifyDate.Name = "colModifyDate";
             this.colModifyDate.OptionsColumn.AllowEdit = false;
             this.colModifyDate.Visible = true;
-            this.colModifyDate.VisibleIndex = 14;
+            this.colModifyDate.VisibleIndex = 13;
             // 
             // entityServerModeSource1
             // 
@@ -499,9 +501,9 @@
             this.CustomerNameTextEdit.Size = new System.Drawing.Size(135, 20);
             this.CustomerNameTextEdit.StyleController = this.dataLayoutControl1;
             this.CustomerNameTextEdit.TabIndex = 8;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule2.ErrorText = "不能为空";
-            this.dxValidationProvider1.SetValidationRule(this.CustomerNameTextEdit, conditionValidationRule2);
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "不能为空";
+            this.dxValidationProvider1.SetValidationRule(this.CustomerNameTextEdit, conditionValidationRule1);
             // 
             // ContactTextEdit
             // 
@@ -537,6 +539,7 @@
             this.CreateByTextEdit.StyleController = this.dataLayoutControl1;
             this.CreateByTextEdit.TabIndex = 14;
             this.CreateByTextEdit.TabStop = false;
+            this.CreateByTextEdit.Tag = "";
             // 
             // StaffsTextEdit
             // 
@@ -552,9 +555,9 @@
             this.StaffsTextEdit.Size = new System.Drawing.Size(141, 20);
             this.StaffsTextEdit.StyleController = this.dataLayoutControl1;
             this.StaffsTextEdit.TabIndex = 6;
-            conditionValidationRule3.ErrorText = "不能为空";
-            conditionValidationRule3.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
-            this.dxValidationProvider1.SetValidationRule(this.StaffsTextEdit, conditionValidationRule3);
+            conditionValidationRule2.ErrorText = "不能为空";
+            conditionValidationRule2.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
+            this.dxValidationProvider1.SetValidationRule(this.StaffsTextEdit, conditionValidationRule2);
             // 
             // IDSpinEdit
             // 
@@ -567,6 +570,7 @@
             this.IDSpinEdit.Enabled = false;
             this.IDSpinEdit.Location = new System.Drawing.Point(63, 12);
             this.IDSpinEdit.Name = "IDSpinEdit";
+            this.IDSpinEdit.Properties.AllowFocused = false;
             this.IDSpinEdit.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.IDSpinEdit.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.IDSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered;
@@ -575,6 +579,7 @@
             this.IDSpinEdit.Size = new System.Drawing.Size(132, 20);
             this.IDSpinEdit.StyleController = this.dataLayoutControl1;
             this.IDSpinEdit.TabIndex = 4;
+            this.IDSpinEdit.Tag = "";
             this.IDSpinEdit.EditValueChanged += new System.EventHandler(this.IDSpinEdit_EditValueChanged);
             this.IDSpinEdit.TextChanged += new System.EventHandler(this.IDSpinEdit_TextChanged);
             // 

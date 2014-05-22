@@ -409,8 +409,11 @@
             this.tlPermission.Name = "tlPermission";
             this.tlPermission.OptionsBehavior.AutoFocusNewNode = true;
             this.tlPermission.OptionsSelection.InvertSelection = true;
+            this.tlPermission.OptionsView.EnableAppearanceEvenRow = true;
+            this.tlPermission.OptionsView.EnableAppearanceOddRow = true;
             this.tlPermission.OptionsView.ShowCheckBoxes = true;
             this.tlPermission.OptionsView.ShowFocusedFrame = false;
+            this.tlPermission.OptionsView.ShowIndicator = false;
             this.tlPermission.Size = new System.Drawing.Size(155, 217);
             this.tlPermission.TabIndex = 0;
             this.tlPermission.AfterCheckNode += new DevExpress.XtraTreeList.NodeEventHandler(this.tlPermission_AfterCheckNode);
@@ -690,8 +693,11 @@
             this.layoutControlItem5.Control = this.btnSavePermission;
             this.layoutControlItem5.CustomizationFormText = "layoutControlItem5";
             this.layoutControlItem5.Location = new System.Drawing.Point(118, 0);
+            this.layoutControlItem5.MaxSize = new System.Drawing.Size(87, 26);
+            this.layoutControlItem5.MinSize = new System.Drawing.Size(87, 26);
             this.layoutControlItem5.Name = "layoutControlItem5";
             this.layoutControlItem5.Size = new System.Drawing.Size(87, 26);
+            this.layoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem5.Text = "layoutControlItem5";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextToControlDistance = 0;
@@ -712,8 +718,11 @@
             this.layoutControlItem6.Control = this.btnCancelPermission;
             this.layoutControlItem6.CustomizationFormText = "layoutControlItem6";
             this.layoutControlItem6.Location = new System.Drawing.Point(215, 0);
+            this.layoutControlItem6.MaxSize = new System.Drawing.Size(87, 26);
+            this.layoutControlItem6.MinSize = new System.Drawing.Size(87, 26);
             this.layoutControlItem6.Name = "layoutControlItem6";
             this.layoutControlItem6.Size = new System.Drawing.Size(87, 26);
+            this.layoutControlItem6.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem6.Text = "layoutControlItem6";
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextToControlDistance = 0;
@@ -724,8 +733,11 @@
             this.emptySpaceItem3.AllowHotTrack = false;
             this.emptySpaceItem3.CustomizationFormText = "emptySpaceItem3";
             this.emptySpaceItem3.Location = new System.Drawing.Point(205, 0);
+            this.emptySpaceItem3.MaxSize = new System.Drawing.Size(10, 26);
+            this.emptySpaceItem3.MinSize = new System.Drawing.Size(10, 26);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
             this.emptySpaceItem3.Size = new System.Drawing.Size(10, 26);
+            this.emptySpaceItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem3.Text = "emptySpaceItem3";
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 

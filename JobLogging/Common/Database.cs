@@ -54,7 +54,7 @@ namespace JobLogging.Common
                 permission.ChildPermissions.Add(new Permission { Name = "修改派工" });
                 permission.ChildPermissions.Add(new Permission { Name = "删除派工" });
                 permission.ChildPermissions.Add(new Permission { Name = "派工分配" });
-
+                permission.ChildPermissions.Add(new Permission { Name = "设置值班" });
                 //role & user
                 var role = context.Roles.SingleOrDefault(t => t.Name == "管理员");
                 if (role == null)

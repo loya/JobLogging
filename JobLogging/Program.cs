@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Reflection;
 using System.Windows.Forms;
 using JobLogging.Properties;
 
@@ -28,10 +29,10 @@ namespace JobLogging
             try
             {
                 bool createNew;
-                IntPtr _handler = (IntPtr)Settings.Default.WindowHandle;
-                using (var m = new System.Threading.Mutex(true, "Global\\" + Application.ProductName, out createNew))
+                var handler = (IntPtr)Settings.Default.WindowHandle;
+                using (var m = new System.Threading.Mutex(true, "Global\\" + Assembly.GetEntryAssembly().FullName, out createNew))
                 {
-                    if (createNew || _handler == (IntPtr)0)
+                    if (createNew || handler == (IntPtr)0)
                     {
                         Application.EnableVisualStyles();
                         Application.SetCompatibleTextRenderingDefault(false);
@@ -54,14 +55,13 @@ namespace JobLogging
                     }
                     else 
                     {
-                        
-                        Common.Common.ShowFormTop(_handler);
+                        Common.Common.ShowFormTop(handler);
                     }
                 }
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("Only one instance of this application is allowed!");
+                MessageBox.Show(ex.Message);
             }
 
 
