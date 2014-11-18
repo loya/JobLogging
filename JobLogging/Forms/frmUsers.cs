@@ -487,7 +487,7 @@ namespace JobLogging.Forms
         {
             gridView1.SetRowCellValue(e.RowHandle, colIsActivate, true);
             gridView1.SetRowCellValue(e.RowHandle, colIsEngineer, true);
-            gridView1.SetRowCellValue(e.RowHandle, colSkin, "Camacel");
+            gridView1.SetRowCellValue(e.RowHandle, colSkin, "Caramel");
             gridView1.SetRowCellValue(e.RowHandle, colSort, 0);
             gridView1.SetRowCellValue(e.RowHandle, colPassword, "");
         }

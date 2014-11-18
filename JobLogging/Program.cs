@@ -49,17 +49,17 @@ namespace JobLogging
                         }
                         GlobalParams.CurrentLoginUser = frm.LoginUser;
 
-                        //System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("zh-Cn");
+                        //System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("zh-CN");
                         //SplashScreenManager.ShowForm(typeof(SplashScreen1));
                         Application.Run(new MainForm());
                     }
-                    else 
+                    else
                     {
                         Common.Common.ShowFormTop(handler);
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }

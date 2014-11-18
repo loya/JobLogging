@@ -470,8 +470,6 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.DateDateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.DateDateEdit.Properties.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
-            this.DateDateEdit.Properties.CalendarTimeProperties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
             this.DateDateEdit.Size = new System.Drawing.Size(135, 20);
             this.DateDateEdit.StyleController = this.dataLayoutControl1;
             this.DateDateEdit.TabIndex = 5;
@@ -660,8 +658,6 @@
             this.AppointmentDateEdit.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.True;
             this.AppointmentDateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.AppointmentDateEdit.Properties.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
-            this.AppointmentDateEdit.Properties.CalendarTimeProperties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
             this.AppointmentDateEdit.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.Vista;
             this.AppointmentDateEdit.Properties.Mask.EditMask = "";
             this.AppointmentDateEdit.Properties.Mask.UseMaskAsDisplayFormat = true;
@@ -1104,8 +1100,6 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEdit_StaffOut.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit_StaffOut.Properties.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
-            this.dateEdit_StaffOut.Properties.CalendarTimeProperties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
             this.dateEdit_StaffOut.Size = new System.Drawing.Size(145, 20);
             this.dateEdit_StaffOut.TabIndex = 3;
             this.dateEdit_StaffOut.EditValueChanged += new System.EventHandler(this.dateEdit_StaffOut_EditValueChanged);
@@ -1178,6 +1172,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_StaffOut.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_StaffOut.Properties)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

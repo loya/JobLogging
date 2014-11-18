@@ -42,7 +42,6 @@
             this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
             this.bBtnChangePassword = new DevExpress.XtraBars.BarButtonItem();
             this.barStaticItem_StatusBar_UserInfo = new DevExpress.XtraBars.BarStaticItem();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barStaticItem_ver = new DevExpress.XtraBars.BarStaticItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -82,14 +81,12 @@
             this.barStaticItem1,
             this.bBtnChangePassword,
             this.barStaticItem_StatusBar_UserInfo,
-            this.barButtonItem1,
             this.barStaticItem_ver});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.MaxItemId = 6;
             this.ribbonControl1.MdiMergeStyle = DevExpress.XtraBars.Ribbon.RibbonMdiMergeStyle.Always;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.PageCategoryAlignment = DevExpress.XtraBars.Ribbon.RibbonPageCategoryAlignment.Right;
-            this.ribbonControl1.PageHeaderItemLinks.Add(this.barButtonItem1);
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
             this.ribbonPage2});
@@ -187,15 +184,6 @@
             this.barStaticItem_StatusBar_UserInfo.ItemAppearance.Normal.Options.UseForeColor = true;
             this.barStaticItem_StatusBar_UserInfo.Name = "barStaticItem_StatusBar_UserInfo";
             this.barStaticItem_StatusBar_UserInfo.TextAlignment = System.Drawing.StringAlignment.Near;
-            // 
-            // barButtonItem1
-            // 
-            this.barButtonItem1.Caption = "barButtonItem1";
-            this.barButtonItem1.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.Glyph")));
-            this.barButtonItem1.Id = 4;
-            this.barButtonItem1.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.LargeGlyph")));
-            this.barButtonItem1.Name = "barButtonItem1";
-            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
             // 
             // barStaticItem_ver
             // 
@@ -309,6 +297,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -337,7 +326,6 @@
         private DevExpress.Utils.ImageCollection imageCollection1;
         private DevExpress.XtraBars.BarButtonItem bBtnChangePassword;
         private DevExpress.XtraBars.BarStaticItem barStaticItem_StatusBar_UserInfo;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.BarStaticItem barStaticItem_ver;
 
         

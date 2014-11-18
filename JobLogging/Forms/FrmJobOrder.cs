@@ -17,7 +17,7 @@ namespace JobLogging.Forms
     public partial class FrmJobOrder : XtraForm
     {
         public JobLoggingModelContainer Context { get; set; }
-        int _focusedRowHandle=-1;
+        int _focusedRowHandle = -1;
 
         public FrmJobOrder()
         {
@@ -34,7 +34,7 @@ namespace JobLogging.Forms
             Context = new JobLoggingModelContainer();
 
             Context.Users.Where(u => u.IsActivate && u.IsEngineer == true).Load();
-            userBindingSource.DataSource = Context.Users.Local.ToBindingList(); 
+            userBindingSource.DataSource = Context.Users.Local.ToBindingList();
             userBindingSource.Sort = "Sort desc";
 
             StaffOutCountDataBind();
@@ -82,7 +82,7 @@ namespace JobLogging.Forms
         {
             //if (jobOrderBindingSource.Current != null && Context.Entry((JobOrder)jobOrderBindingSource.Current).State != EntityState.Added)
             //{
-                gridView1.FocusedRowHandle = _focusedRowHandle;
+            gridView1.FocusedRowHandle = _focusedRowHandle;
             //}
             gridView1.SetRowExpanded(-1, true);
 
@@ -178,11 +178,11 @@ namespace JobLogging.Forms
                 entry.Reload();
             }
             jobOrderBindingSource.CancelEdit();
-            if (jobOrderBindingSource.Current != null) 
+            if (jobOrderBindingSource.Current != null)
             {
-            	 jobOrderBindingSource.RemoveCurrent();
+                jobOrderBindingSource.RemoveCurrent();
             }
-            	
+
         }
 
         private void bBtnDeleteJobOrder_ItemClick(object sender, ItemClickEventArgs e)
@@ -290,7 +290,13 @@ namespace JobLogging.Forms
                 switch (r)
                 {
                     case System.Windows.Forms.DialogResult.Yes:
-                        Context.SaveChanges();
+                        //Context.SaveChanges();
+                        if (e.Cancel = !dxValidationProvider1.Validate())
+                        {
+                            return;
+                        }
+                        this.btnSaveJobOrder.PerformClick();
+
                         break;
                     case System.Windows.Forms.DialogResult.Cancel:
                         e.Cancel = true;
@@ -391,7 +397,7 @@ namespace JobLogging.Forms
             }
 
             _focusedRowHandle = e.RowHandle;
-           
+
         }
     }
 }
