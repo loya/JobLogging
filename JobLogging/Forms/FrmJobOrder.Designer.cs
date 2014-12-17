@@ -33,7 +33,6 @@
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule compareAgainstControlValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule();
             DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
-            this.colStaffs = new DevExpress.XtraGrid.Columns.GridColumn();
             this.AppointmentDateEdit = new DevExpress.XtraEditors.DateEdit();
             this.jobOrderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
@@ -85,6 +84,7 @@
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForContact = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForServiceTag = new DevExpress.XtraLayout.LayoutControlItem();
+            this.colStaffs = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.entityInstantFeedbackSource1 = new DevExpress.Data.Linq.EntityInstantFeedbackSource();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -167,16 +167,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_StaffOut.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_StaffOut.Properties)).BeginInit();
             this.SuspendLayout();
-            // 
-            // colStaffs
-            // 
-            this.colStaffs.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.colStaffs.AppearanceCell.Options.UseFont = true;
-            this.colStaffs.Caption = "派工";
-            this.colStaffs.FieldName = "Staffs";
-            this.colStaffs.Name = "colStaffs";
-            this.colStaffs.Visible = true;
-            this.colStaffs.VisibleIndex = 3;
             // 
             // AppointmentDateEdit
             // 
@@ -349,7 +339,7 @@
             this.btnAddJobOrder.Size = new System.Drawing.Size(97, 23);
             this.btnAddJobOrder.StyleController = this.dataLayoutControl1;
             this.btnAddJobOrder.TabIndex = 20;
-            this.btnAddJobOrder.Text = "保存并新增(&N)";
+            this.btnAddJobOrder.Text = "保存&&新增(&N)";
             this.btnAddJobOrder.Click += new System.EventHandler(this.btnAddJobOrder_Click);
             // 
             // btnSaveJobOrder
@@ -403,7 +393,7 @@
             this.CustomerNameTextEdit.StyleController = this.dataLayoutControl1;
             this.CustomerNameTextEdit.TabIndex = 8;
             conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule1.ErrorText = "不能为空";
+            conditionValidationRule1.ErrorText = "客户姓名不能为空";
             this.dxValidationProvider1.SetValidationRule(this.CustomerNameTextEdit, conditionValidationRule1);
             // 
             // ContactTextEdit
@@ -813,6 +803,16 @@
             this.ItemForServiceTag.Text = "服务编号";
             this.ItemForServiceTag.TextSize = new System.Drawing.Size(48, 14);
             // 
+            // colStaffs
+            // 
+            this.colStaffs.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.colStaffs.AppearanceCell.Options.UseFont = true;
+            this.colStaffs.Caption = "派工";
+            this.colStaffs.FieldName = "Staffs";
+            this.colStaffs.Name = "colStaffs";
+            this.colStaffs.Visible = true;
+            this.colStaffs.VisibleIndex = 3;
+            // 
             // gridControl1
             // 
             this.gridControl1.DataSource = this.entityInstantFeedbackSource1;
@@ -1085,6 +1085,8 @@
             this.imageCollection1.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imageCollection1.ImageStream")));
             this.imageCollection1.InsertGalleryImage("status_16x16.png", "images/tasks/status_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/tasks/status_16x16.png"), 0);
             this.imageCollection1.Images.SetKeyName(0, "status_16x16.png");
+            this.imageCollection1.InsertGalleryImage("cancel_32x32.png", "images/actions/cancel_32x32.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/actions/cancel_32x32.png"), 1);
+            this.imageCollection1.Images.SetKeyName(1, "cancel_32x32.png");
             // 
             // btnNoDispatch
             // 

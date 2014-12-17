@@ -23,7 +23,7 @@ namespace JobLogging.Forms
         {
             InitializeComponent();
 
-            dateEdit_StaffOut.DateTime = DateTime.Today;
+            //dateEdit_StaffOut.DateTime = DateTime.Today;
 
             _InitDataBind();
             entityInstantFeedbackSource1.GetQueryable += entityInstantFeedbackSource1_GetQueryable;
@@ -43,6 +43,9 @@ namespace JobLogging.Forms
         private void FrmJobOrder_Load(object sender, EventArgs e)
         {
             InitUserRelated();
+
+            btnAddJobOrder.PerformClick();
+            btnCancel.PerformClick();
         }
 
         private void InitUserRelated()
@@ -222,6 +225,7 @@ namespace JobLogging.Forms
                                                             ValidationFailedEventArgs e)
         {
             e.InvalidControl.Focus();
+            alertControl1.Show(this, "错误", "\n\r" + e.ErrorText, imageCollection1.Images[1]);
         }
 
         private void StaffOutCountDataBind()
