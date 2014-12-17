@@ -95,7 +95,7 @@ namespace JobLogging.Forms
 
         private void jobOrderBindingSource_AddingNew(object sender, AddingNewEventArgs e)
         {
-            var jobOrder = new JobOrder { Date = DateTime.Today, CreateBy = GlobalParams.CurrentLoginUser.Name, CreateDate = DateTime.Now };
+            var jobOrder = new JobOrder { Date = DateTime.Now, CreateBy = GlobalParams.CurrentLoginUser.Name, CreateDate = DateTime.Now };
             Context.JobOrders.Local.Add(jobOrder);
             e.NewObject = jobOrder;
         }
@@ -227,10 +227,12 @@ namespace JobLogging.Forms
         private void StaffOutCountDataBind()
         {
             if (Context == null) return;
+
+            var endDate = dateEdit_StaffOut.DateTime.AddDays(1);
             lbStaffOut.DataSource = Context.Users.Local.Where(u => u.IsActivate && u.IsEngineer == true).OrderByDescending(u => u.Sort).Select(t => new
                      {
                          t.ID,
-                         Staff = t.Name + " （" + Context.JobOrders.Count(j => j.Staffs != null && j.Staffs.Contains(t.Name) && j.Date == dateEdit_StaffOut.DateTime) + "）",
+                         Staff = t.Name + " （" + Context.JobOrders.Count(j => j.Staffs != null && j.Staffs.Contains(t.Name) && j.Date >= dateEdit_StaffOut.DateTime && j.Date < endDate) + "）",
                          imageIndex = t.IsDuty == true ? 0 : -1
                      }).ToList();
             //var userName = Context.Users.Where(u => u.IsDuty == true).Select(u => u.Name).SingleOrDefault();

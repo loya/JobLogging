@@ -35,6 +35,7 @@
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemDateEdit_Date = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.colAppointment = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemDateEdit_appointment = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.colStaffs = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -56,6 +57,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jobOrderBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit_Date)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit_Date.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit_appointment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit_appointment.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckedComboBoxEdit_Staff)).BeginInit();
@@ -72,7 +75,8 @@
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckedComboBoxEdit_Staff,
-            this.repositoryItemDateEdit_appointment});
+            this.repositoryItemDateEdit_appointment,
+            this.repositoryItemDateEdit_Date});
             this.gridControl1.Size = new System.Drawing.Size(1184, 524);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -142,19 +146,39 @@
             // 
             // colDate
             // 
-            this.colDate.Caption = "日期";
+            this.colDate.AppearanceCell.ForeColor = System.Drawing.Color.Red;
+            this.colDate.AppearanceCell.Options.UseForeColor = true;
+            this.colDate.AppearanceHeader.ForeColor = System.Drawing.Color.Red;
+            this.colDate.AppearanceHeader.Options.UseForeColor = true;
+            this.colDate.Caption = "上门时间";
+            this.colDate.ColumnEdit = this.repositoryItemDateEdit_Date;
+            this.colDate.DisplayFormat.FormatString = "f";
+            this.colDate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colDate.FieldName = "Date";
             this.colDate.GroupInterval = DevExpress.XtraGrid.ColumnGroupInterval.DateRange;
             this.colDate.Name = "colDate";
-            this.colDate.OptionsColumn.AllowEdit = false;
-            this.colDate.OptionsColumn.AllowFocus = false;
             this.colDate.Visible = true;
             this.colDate.VisibleIndex = 1;
+            // 
+            // repositoryItemDateEdit_Date
+            // 
+            this.repositoryItemDateEdit_Date.AutoHeight = false;
+            this.repositoryItemDateEdit_Date.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemDateEdit_Date.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.True;
+            this.repositoryItemDateEdit_Date.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemDateEdit_Date.EditFormat.FormatString = "f";
+            this.repositoryItemDateEdit_Date.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.repositoryItemDateEdit_Date.Mask.EditMask = "f";
+            this.repositoryItemDateEdit_Date.Name = "repositoryItemDateEdit_Date";
             // 
             // colAppointment
             // 
             this.colAppointment.AppearanceCell.ForeColor = System.Drawing.Color.Red;
             this.colAppointment.AppearanceCell.Options.UseForeColor = true;
+            this.colAppointment.AppearanceHeader.ForeColor = System.Drawing.Color.Red;
+            this.colAppointment.AppearanceHeader.Options.UseForeColor = true;
             this.colAppointment.Caption = "预约";
             this.colAppointment.ColumnEdit = this.repositoryItemDateEdit_appointment;
             this.colAppointment.DisplayFormat.FormatString = "f";
@@ -172,8 +196,6 @@
             this.repositoryItemDateEdit_appointment.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.True;
             this.repositoryItemDateEdit_appointment.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemDateEdit_appointment.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
-            this.repositoryItemDateEdit_appointment.CalendarTimeProperties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
             this.repositoryItemDateEdit_appointment.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.Vista;
             this.repositoryItemDateEdit_appointment.DisplayFormat.FormatString = "f";
             this.repositoryItemDateEdit_appointment.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
@@ -185,6 +207,10 @@
             // 
             // colStaffs
             // 
+            this.colStaffs.AppearanceCell.ForeColor = System.Drawing.Color.Red;
+            this.colStaffs.AppearanceCell.Options.UseForeColor = true;
+            this.colStaffs.AppearanceHeader.ForeColor = System.Drawing.Color.Red;
+            this.colStaffs.AppearanceHeader.Options.UseForeColor = true;
             this.colStaffs.Caption = "派工";
             this.colStaffs.ColumnEdit = this.repositoryItemCheckedComboBoxEdit_Staff;
             this.colStaffs.FieldName = "Staffs";
@@ -362,6 +388,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.jobOrderBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit_Date.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit_Date)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit_appointment.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit_appointment)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckedComboBoxEdit_Staff)).EndInit();
@@ -394,5 +422,6 @@
         private DevExpress.XtraEditors.SimpleButton btnDeleteSelected;
         private DevExpress.XtraGrid.Columns.GridColumn colAppointment;
         private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit repositoryItemDateEdit_appointment;
+        private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit repositoryItemDateEdit_Date;
     }
 }
