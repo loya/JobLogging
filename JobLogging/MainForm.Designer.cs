@@ -35,6 +35,7 @@
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.applicationMenu1 = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
             this.bBtnReLogin = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.bBtnExit = new DevExpress.XtraBars.BarButtonItem();
             this.bBtnShowUserManageForm = new DevExpress.XtraBars.BarButtonItem();
             this.bBtnShowFrmJobLogging = new DevExpress.XtraBars.BarButtonItem();
@@ -49,8 +50,6 @@
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.popupControlContainer1 = new DevExpress.XtraBars.PopupControlContainer(this.components);
-            this.sbExit = new DevExpress.XtraEditors.SimpleButton();
             this.imageCollection1 = new DevExpress.Utils.ImageCollection(this.components);
             this.formAssistant1 = new DevExpress.XtraBars.FormAssistant();
             this.documentManager1 = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
@@ -58,8 +57,6 @@
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.applicationMenu1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.popupControlContainer1)).BeginInit();
-            this.popupControlContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).BeginInit();
@@ -81,9 +78,10 @@
             this.barStaticItem1,
             this.bBtnChangePassword,
             this.barStaticItem_StatusBar_UserInfo,
-            this.barStaticItem_ver});
+            this.barStaticItem_ver,
+            this.barButtonItem1});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 6;
+            this.ribbonControl1.MaxItemId = 2;
             this.ribbonControl1.MdiMergeStyle = DevExpress.XtraBars.Ribbon.RibbonMdiMergeStyle.Always;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.PageCategoryAlignment = DevExpress.XtraBars.Ribbon.RibbonPageCategoryAlignment.Right;
@@ -100,7 +98,8 @@
             // applicationMenu1
             // 
             this.applicationMenu1.ItemLinks.Add(this.bBtnReLogin, true);
-            this.applicationMenu1.ItemLinks.Add(this.bBtnExit, true);
+            this.applicationMenu1.ItemLinks.Add(this.barButtonItem1, true);
+            this.applicationMenu1.ItemLinks.Add(this.bBtnExit);
             this.applicationMenu1.MenuDrawMode = DevExpress.XtraBars.MenuDrawMode.LargeImagesText;
             this.applicationMenu1.Name = "applicationMenu1";
             this.applicationMenu1.Ribbon = this.ribbonControl1;
@@ -114,6 +113,14 @@
             this.bBtnReLogin.Name = "bBtnReLogin";
             this.bBtnReLogin.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)((DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
             this.bBtnReLogin.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bBtnReLogin_ItemClick);
+            // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "关于";
+            this.barButtonItem1.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.Glyph")));
+            this.barButtonItem1.Id = 1;
+            this.barButtonItem1.Name = "barButtonItem1";
+            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemAbout_ItemClick);
             // 
             // bBtnExit
             // 
@@ -234,30 +241,6 @@
             this.ribbonStatusBar1.Ribbon = this.ribbonControl1;
             this.ribbonStatusBar1.Size = new System.Drawing.Size(1014, 31);
             // 
-            // popupControlContainer1
-            // 
-            this.popupControlContainer1.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.popupControlContainer1.Appearance.Options.UseBackColor = true;
-            this.popupControlContainer1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.popupControlContainer1.Controls.Add(this.sbExit);
-            this.popupControlContainer1.Location = new System.Drawing.Point(12, 170);
-            this.popupControlContainer1.Name = "popupControlContainer1";
-            this.popupControlContainer1.Ribbon = this.ribbonControl1;
-            this.popupControlContainer1.Size = new System.Drawing.Size(138, 30);
-            this.popupControlContainer1.TabIndex = 3;
-            this.popupControlContainer1.Visible = false;
-            // 
-            // sbExit
-            // 
-            this.sbExit.AllowFocus = false;
-            this.sbExit.ImageIndex = 0;
-            this.sbExit.ImageList = this.imageCollection1;
-            this.sbExit.Location = new System.Drawing.Point(3, 3);
-            this.sbExit.Name = "sbExit";
-            this.sbExit.Size = new System.Drawing.Size(129, 23);
-            this.sbExit.TabIndex = 1;
-            this.sbExit.Text = "退出系统(&x)";
-            // 
             // imageCollection1
             // 
             this.imageCollection1.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imageCollection1.ImageStream")));
@@ -273,12 +256,11 @@
             // MainForm
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
-            this.Appearance.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Appearance.Options.UseFont = true;
             this.ClientSize = new System.Drawing.Size(1014, 767);
-            this.Controls.Add(this.popupControlContainer1);
             this.Controls.Add(this.ribbonStatusBar1);
             this.Controls.Add(this.ribbonControl1);
+            this.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.Name = "MainForm";
@@ -291,8 +273,6 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.applicationMenu1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.popupControlContainer1)).EndInit();
-            this.popupControlContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).EndInit();
@@ -321,14 +301,11 @@
         private DevExpress.XtraBars.BarButtonItem bBtnExit;
         private DevExpress.XtraBars.Ribbon.ApplicationMenu applicationMenu1;
         private DevExpress.XtraBars.BarStaticItem barStaticItem1;
-        private DevExpress.XtraBars.PopupControlContainer popupControlContainer1;
-        private DevExpress.XtraEditors.SimpleButton sbExit;
         private DevExpress.Utils.ImageCollection imageCollection1;
         private DevExpress.XtraBars.BarButtonItem bBtnChangePassword;
         private DevExpress.XtraBars.BarStaticItem barStaticItem_StatusBar_UserInfo;
         private DevExpress.XtraBars.BarStaticItem barStaticItem_ver;
-
-        
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
     }
 }
 

@@ -23,8 +23,6 @@ namespace JobLogging.Forms
         {
             InitializeComponent();
 
-            //dateEdit_StaffOut.DateTime = DateTime.Today;
-
             _InitDataBind();
             entityInstantFeedbackSource1.GetQueryable += entityInstantFeedbackSource1_GetQueryable;
             entityInstantFeedbackSource1.DismissQueryable += entityInstantFeedbackSource1_DismissQueryable;
@@ -38,6 +36,8 @@ namespace JobLogging.Forms
             userBindingSource.Sort = "Sort desc";
 
             StaffOutCountDataBind();
+
+            dateEdit_StaffOut.DateTime = DateTime.Today;
         }
 
         private void FrmJobOrder_Load(object sender, EventArgs e)
@@ -59,7 +59,7 @@ namespace JobLogging.Forms
                                                                GetQueryableEventArgs e)
         {
             var c = new JobLoggingModelContainer();
-            e.QueryableSource = c.JobOrders.AsNoTracking();
+            e.QueryableSource = c.JobOrders.OrderByDescending(t=>t.Date).AsNoTracking();
             e.Tag = c;
         }
 
